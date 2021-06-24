@@ -10,6 +10,7 @@ namespace dominio
     {
         public int IdVenta { get; set; }
         public Cliente Idcliente { get; set; }
+        public Usuario Idusuario { get; set; }
         public decimal Importe { get; set; }
         public TipoFactura tipofactura { get; set; }
         public DateTime Fecha { get; set; }
