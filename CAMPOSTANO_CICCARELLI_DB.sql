@@ -1,9 +1,9 @@
 GO
 USE MASTER
 GO
-CREATE DATABASE Comercio
+CREATE DATABASE CAMPOSTANO_CICCARELLI_DB
 GO
-USE Comercio
+USE CAMPOSTANO_CICCARELLI_DB
 
 GO
 CREATE TABLE TipoUsuario(
@@ -119,6 +119,7 @@ IdListaProductos INT NOT NULL FOREIGN KEY REFERENCES ListaProductos(IdListaProdu
 Fecha date not null,
 Importe MONEY NOT NULL CHECK (Importe > 0),
 MetodoPago INT NOT NULL FOREIGN KEY REFERENCES MetodoPago(IdMetodoPago), 
+IdUsuario INT NOT NULL FOREIGN KEY REFERENCES Usuario(IdUsuario)
 
 )
 
@@ -197,10 +198,11 @@ INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha, IdListaProductos) V
 INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha, IdListaProductos) VALUES(3, '70000', 5,'2021/05/28', 1)
 INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha, IdListaProductos) VALUES(4, '40000', 1,'2021/07/11', 3)
 
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago) VALUES (1, 1, 1, '2021/05/11', '70000',1)
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago) VALUES (3, 2, 2, '2021/04/15', '40000',2)
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago) VALUES (4, 3, 3, '2021/03/20', '36000',3)
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago) VALUES (5, 4, 3, '2021/01/22', '50000',4)
+
+INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (1, 1, 1, '2021/05/11', '70000',1, 1)
+INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (3, 2, 2, '2021/04/15', '40000',2, 1)
+INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (4, 3, 3, '2021/03/20', '36000',3, 2)
+INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (6, 4, 3, '2021/01/22', '50000',4, 3)
 
 
 --IDEAS QUE FUERON SURGIENDO Y ANTIGUOS PLANTEOS
