@@ -1,0 +1,9 @@
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\bin\Debug\negocio.dll
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\bin\Debug\negocio.pdb
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\bin\Debug\dominio.dll
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\bin\Debug\dominio.pdb
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csprojAssemblyReference.cache
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CopyComplete
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.dll
+C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.pdb
