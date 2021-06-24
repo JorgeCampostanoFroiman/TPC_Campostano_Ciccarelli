@@ -20,7 +20,7 @@ Telefono VARCHAR(20) NULL,
 Email VARCHAR(80) NOT NULL UNIQUE,
 Contraseña VARCHAR(50) NOT NULL,
 Dni VARCHAR(8) NOT NULL UNIQUE,
-TipoUsuario int not null FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario)
+TipoUsuario int not null DEFAULT (1) FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario)
 
 )
 
