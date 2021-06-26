@@ -16,17 +16,17 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT C.IdCompra, C.IdProveedor, C.Importe, C.MetodoPago, C.Fecha, C.IdListaProductos FROM Compra AS C, ListaProductos AS LP WHERE C.IdListaProductos = LP.IdListaProductos ");
+                datos.setearConsulta("SELECT C.IdCompra, P.RazonSocialProveedor, C.Importe, M.Nombre, C.Fecha, C.IdListaProductos FROM Compra AS C, ListaProductos AS LP, Proveedor AS P, MetodoPago AS M WHERE C.IdProveedor = P.IdProveedor and C.IdListaProductos = LP.IdListaProductos and C.MetodoPago = M.IdMetodoPago ");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     Compra aux = new Compra();
                     aux.IdCompra = (int)datos.Lector["IdCompra"];
-                    aux.Idproveedor = new Proveedor((int)datos.Lector["IdProveedor"]);
+                    aux.proveedor = new Proveedor((string)datos.Lector["RazonSocialProveedor"]);
                     aux.Importe = (decimal)datos.Lector["Importe"];
-                    aux.metodoPago = new MetodoPago((int)datos.Lector["MetodoPago"]);
+                    aux.metodoPago = new MetodoPago((int)datos.Lector["Nombre"]);
                     aux.Fecha = (DateTime)datos.Lector["Fecha"];
-                   
+                   /// aux.listaProductos = new ListaProductos((string)datos.Lector["idListaProductos"]);                   
 
                     lista.Add(aux);
                 }

@@ -11,10 +11,13 @@
   <thead class="thead-dark">
      
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Id</th>
       <th scope="col">Fecha</th>
       <th scope="col">Proveedor</th>
       <th scope="col">Metodo de Pago</th>
+      <th scope="col">Importe</th>
+      <th scope="col">Detalle</th>
+        
 
     </tr>
   </thead>
@@ -24,8 +27,10 @@
       <tr>
       <th scope="row"><% = item.IdCompra %></th>
       <td><% = item.Fecha.Date.ToString("dd-MM-yyyy") %></td>
-      <td>7</td>
-      <td>Cash</td>
+      <td><% = item.proveedor.RazonSocialProveedor %></td>
+      <td><% = item.metodoPago.Nombre %></td>
+      <td><% = item.Importe %></td>
+      <td><a href="DetalleCompra.aspx?id=<% = item.IdCompra%>" class="btn btn-primary">Ver Detalle</a></td>
     </tr>
        <% } %>
       </tbody>

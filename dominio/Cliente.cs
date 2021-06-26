@@ -14,5 +14,11 @@ namespace dominio
         public string Domicilio { get; set; }
         public string CuitCliente { get; set; }
         public string RazonSocial { get; set; }
+
+        public Cliente(string razonSocial)
+        {
+            RazonSocial = razonSocial;
+        }
+
     }
 }

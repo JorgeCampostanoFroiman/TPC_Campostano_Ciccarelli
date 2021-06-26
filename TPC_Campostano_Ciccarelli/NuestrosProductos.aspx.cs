@@ -9,23 +9,22 @@ using negocio;
 
 namespace TPC_Campostano_Ciccarelli
 {
-    public partial class Compras1 : System.Web.UI.Page
+    public partial class NuestrosProductos : System.Web.UI.Page
     {
-        public List<Compra> lista;
+        public List<Producto> lista;
         public void Page_Load(object sender, EventArgs e)
         {
-            CompraNegocio negocio = new CompraNegocio();
+            ProductoNegocio negocio = new ProductoNegocio();
             try
             {
                 lista = negocio.Listar();
-                Session.Add("ListaCompras", lista);
+                Session.Add("ListaProductos", lista);
             }
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
-
         }
     }
 }

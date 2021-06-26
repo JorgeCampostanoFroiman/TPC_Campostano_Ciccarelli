@@ -107,12 +107,15 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Compras.aspx" />
+    <Content Include="DetalleCompra.aspx" />
+    <Content Include="DetalleProducto.aspx" />
+    <Content Include="DetalleVenta.aspx" />
     <Content Include="Ingreso.aspx" />
-    <Content Include="Producto.aspx" />
+    <Content Include="NuestrosProductos.aspx" />
     <Content Include="RegistrarCompra.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="RegistrarVenta.aspx" />
-    <Content Include="Venta.aspx" />
+    <Content Include="Ventas.aspx" />
     <Content Include="Verificacion.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Contact.aspx" />
@@ -186,6 +189,27 @@
     <Compile Include="Compras.aspx.designer.cs">
       <DependentUpon>Compras.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalleCompra.aspx.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleCompra.aspx.designer.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleProducto.aspx.cs">
+      <DependentUpon>DetalleProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleProducto.aspx.designer.cs">
+      <DependentUpon>DetalleProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleVenta.aspx.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleVenta.aspx.designer.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ingreso.aspx.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,12 +217,12 @@
     <Compile Include="Ingreso.aspx.designer.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Producto.aspx.cs">
-      <DependentUpon>Producto.aspx</DependentUpon>
+    <Compile Include="NuestrosProductos.aspx.cs">
+      <DependentUpon>NuestrosProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Producto.aspx.designer.cs">
-      <DependentUpon>Producto.aspx</DependentUpon>
+    <Compile Include="NuestrosProductos.aspx.designer.cs">
+      <DependentUpon>NuestrosProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarCompra.aspx.cs">
       <DependentUpon>RegistrarCompra.aspx</DependentUpon>
@@ -221,12 +245,12 @@
     <Compile Include="RegistrarVenta.aspx.designer.cs">
       <DependentUpon>RegistrarVenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Venta.aspx.cs">
-      <DependentUpon>Venta.aspx</DependentUpon>
+    <Compile Include="Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Venta.aspx.designer.cs">
-      <DependentUpon>Venta.aspx</DependentUpon>
+    <Compile Include="Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Verificacion.aspx.cs">
       <DependentUpon>Verificacion.aspx</DependentUpon>

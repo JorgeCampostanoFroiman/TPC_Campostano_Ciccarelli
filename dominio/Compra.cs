@@ -9,11 +9,11 @@ namespace dominio
     public class Compra
     {
         public int IdCompra { get; set; }
-        public Proveedor Idproveedor { get; set; }
+        public Proveedor proveedor { get; set; }
         public decimal Importe { get; set; }
         public MetodoPago metodoPago { get; set; }
         public DateTime Fecha { get; set; }
-        public ListaProductos Idlistaproductos { get; set; }
+        public ListaProductos listaProductos { get; set; }
 
        
 

@@ -10,14 +10,14 @@ namespace dominio
     {
         public int IdProducto { get; set; }
         public string Codigo { get; set; }
-        public Marca Idmarca { get; set; }
-        public Tipo Idtipo { get; set; }
+        public Marca marca { get; set; }
+        public Tipo tipo { get; set; }
         public decimal precioCompra { get; set; }
         public decimal precioVenta { get; set; }
         public int Stock { get; set; }
         public int Ganancia { get; set; }
         public string Descripcion { get; set; }
-        public Proveedor Idproveedor { get; set; }
+        public Proveedor proveedor { get; set; }
         public string imagenUrl { get; set; }
     }
 }

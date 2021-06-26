@@ -1,6 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ventas.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.Ventas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NuestrosProductos.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.NuestrosProductos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
      <div style="margin-top:50px;text-align:center">
       <h1>REGISTRO DE COMPRAS</h1> 
       <a class="btn btn-primary btn-lg" href="RegistrarVenta.aspx" role="button">Registrar una venta</a>
@@ -34,7 +33,5 @@
        <% } %>
       </tbody>
         </table>
-
-
 
 </asp:Content>

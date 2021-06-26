@@ -17,5 +17,10 @@ namespace dominio
         public string Dni { get; set; }
         public TipoUsuario tipoUsuario { get; set; }
 
+        public Usuario(string apenom)
+        {
+            Nombre = apenom;
+        }
+
     }
 }

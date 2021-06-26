@@ -10,5 +10,11 @@ namespace dominio
     {
         public int IdTipo { get; set; }
         public string Nombre { get; set; }
+        public Tipo(string nombre)
+        {
+            Nombre = nombre;
+        }
+
+
     }
 }

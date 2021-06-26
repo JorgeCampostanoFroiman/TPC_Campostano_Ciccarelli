@@ -27,6 +27,7 @@ namespace dominio
             IdProveedor = id;
         }
 
+
         public Proveedor(int id, string nombre)
         {
             IdProveedor = id;

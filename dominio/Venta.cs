@@ -9,13 +9,12 @@ namespace dominio
     public class Venta
     {
         public int IdVenta { get; set; }
-        public Cliente Idcliente { get; set; }
-        public Usuario Idusuario { get; set; }
+        public Cliente cliente { get; set; } 
+        public Usuario usuario { get; set; }
         public decimal Importe { get; set; }
         public TipoFactura tipofactura { get; set; }
         public DateTime Fecha { get; set; }
-        public ListaProductos idListaProductos { get; set; }
-
+        public ListaProductos listaProductos { get; set; }
         public MetodoPago metodoPago { get; set; }
     }
 }

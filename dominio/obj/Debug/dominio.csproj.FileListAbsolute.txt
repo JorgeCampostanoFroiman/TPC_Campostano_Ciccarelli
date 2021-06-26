@@ -4,3 +4,9 @@ C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Cicc
 C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.dll
 C:\Users\jcamp\Desktop\utn\2 año\Programación\TPC Comercio\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.pdb
+C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\dominio\bin\Debug\dominio.dll
+C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\dominio\bin\Debug\dominio.pdb
+C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csprojAssemblyReference.cache
+C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.dll
+C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.pdb
