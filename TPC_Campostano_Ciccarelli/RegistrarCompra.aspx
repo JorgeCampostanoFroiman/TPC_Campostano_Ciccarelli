@@ -6,12 +6,28 @@
     <h1 style="margin-top:50px"> Este es el formulario para registrar una compra realizada!!!  </h1>
 
     <form>
+       <!--  Proveedor           -->
   <div class="form-group row" style="margin-top:40px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Proveedor">
+      <asp:DropDownList runat="server" ID="ListaProveedor"> </asp:DropDownList>
     </div>
   </div>
+        <!--  MetodoPago           -->
+        <div class="form-group row" style="margin-top:40px">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
+    <div class="col-sm-10">
+      <asp:DropDownList runat="server" ID="ListaMetodo"> </asp:DropDownList>
+    </div>
+  </div>
+        <!--  Fecha -->
+        <asp:TextBox ID="txtFechaFactura" runat="server" Width="180px" Enabled="false"  />
+        <asp:Button runat="server" OnClick="Unnamed_Click"/>
+       
+
+         <asp:Calendar ID="Calendar1" runat="server" TargetControlID="txtFechaFactura" Format="dd/MM/yyyy" OnSelectionChanged="Calendar1_SelectionChanged">
+         </asp:Calendar>
+
   <div class="form-group row">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Fecha</label>
     <div class="col-sm-10">
@@ -19,31 +35,6 @@
     </div>
   </div>
   
-        <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Método de pago</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Efectivo
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Tarjeta
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" 
-          <label class="form-check-label" for="gridRadios3">
-            Transferencia
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
 
     
     <div class="custom-file">

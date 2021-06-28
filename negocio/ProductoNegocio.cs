@@ -23,13 +23,13 @@ namespace negocio
                     Producto aux = new Producto();
                     aux.IdProducto = (int)datos.Lector["IdProducto"];
                     aux.proveedor = new Proveedor((string)datos.Lector["RazonSocialProveedor"]);
+                    aux.marca = new Marca((string)datos.Lector["Marca"]);
+                    aux.tipo = new Tipo((string)datos.Lector["Tipo"]);
                     aux.precioCompra = (decimal)datos.Lector["PrecioCompra"];
                     aux.precioVenta = (decimal)datos.Lector["PrecioVenta"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.marca = new Marca((string)datos.Lector["Marca"]);
-                    aux.tipo = new Tipo((string)datos.Lector["Tipo"]);
                     aux.Stock = (int)datos.Lector["Stock"];
-                    aux.Ganancia = (int)datos.Lector["Ganancia"];
+                    aux.Ganancia = ((int)Convert.ToInt64(datos.Lector["Ganancia"]));
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.imagenUrl = (string)datos.Lector["ImagenUrl"];                
 
