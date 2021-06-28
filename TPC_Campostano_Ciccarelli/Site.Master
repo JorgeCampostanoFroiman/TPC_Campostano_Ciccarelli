@@ -35,7 +35,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
                     <a class="nav-link" href="Ingreso.aspx">Login</a>
-                    <a class="nav-link" href="Compras1.aspx">Compras</a>
+                    <a class="nav-link" href="Compras.aspx">Compras</a>
                     <a class="nav-link" href="Ventas.aspx">Ventas</a>
                     <a class="nav-link" href="Nuestrosproductos.aspx">Productos</a>
                     <a class="nav-link" href="https://github.com/JorgeCampostanoFroiman/TPC_Campostano_Ciccarelli">Github <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">

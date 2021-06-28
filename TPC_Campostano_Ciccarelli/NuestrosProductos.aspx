@@ -10,25 +10,24 @@
      
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Cliente</th>
-      <th scope="col">Metodo de Pago</th>
-      <th scope="col">Importe</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Precio de compra</th>
+      <th scope="col">Ganancia</th>
       <th scope="col">Detalle</th>
         
 
     </tr>
   </thead>
   <tbody>
-      <% foreach (dominio.Venta item in lista)
+      <% foreach (dominio.Producto item in lista)
             {%>
       <tr>
-      <th scope="row"><% = item.IdVenta %></th>
-      <td><% = item.Fecha.Date.ToString("dd-MM-yyyy") %></td>
-      <td><% = item.cliente.RazonSocial %></td>
-      <td><% = item.metodoPago.Nombre %></td>
-      <td><% = item.Importe %></td>
-      <td><a href="DetalleCompra.aspx?id=<% = item.IdVenta%>" class="btn btn-primary">Ver Detalle</a></td>
+      <th scope="row"><% = item.IdProducto %></th>
+      <td><% = item.Codigo %></td>  
+      <td><% = item.tipo.Nombre %></td>
+      <td><% = item.precioCompra %></td>
+      <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-primary">Ver Detalle</a></td>
     </tr>
        <% } %>
       </tbody>

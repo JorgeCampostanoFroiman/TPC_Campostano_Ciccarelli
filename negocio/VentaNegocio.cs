@@ -9,7 +9,7 @@ namespace negocio
 {
     public class VentaNegocio
     {
-
+        private AccesoDatos datos;
         public List<Venta> Listar()
         {
             List<Venta> lista = new List<Venta>();
@@ -25,7 +25,7 @@ namespace negocio
                     aux.IdVenta = (int)datos.Lector["IdVenta"];
                     aux.cliente = new Cliente((string)datos.Lector["RazonSocial"]);
                     aux.Importe = (decimal)datos.Lector["Importe"];
-                    aux.metodoPago = new MetodoPago((int)datos.Lector["MetodoPago"]);
+                    aux.metodoPago = new MetodoPago((string)datos.Lector["MetodoPago"]);
                     aux.Fecha = (DateTime)datos.Lector["Fecha"];              
                     aux.tipofactura = new TipoFactura((string)datos.Lector["TipoFactura"]);
                     aux.usuario = new Usuario((string)datos.Lector["Usuario"]);

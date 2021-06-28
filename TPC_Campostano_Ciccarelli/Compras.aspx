@@ -30,6 +30,7 @@
       <td><% = item.proveedor.RazonSocialProveedor %></td>
       <td><% = item.metodoPago.Nombre %></td>
       <td><% = item.Importe %></td>
+         
       <td><a href="DetalleCompra.aspx?id=<% = item.IdCompra%>" class="btn btn-primary">Ver Detalle</a></td>
     </tr>
        <% } %>
