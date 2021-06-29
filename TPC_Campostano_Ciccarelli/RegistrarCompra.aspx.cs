@@ -39,22 +39,26 @@ namespace TPC_Campostano_Ciccarelli
                     ListaMetodo.Items.Add(z);
 
                 }
-                
-                /* Arreglar listaproducto.Items
-                 * 
-                 * 
+              
                 ProductoNegocio productoNegocio = new ProductoNegocio();
                 listaproducto = productoNegocio.Listar();
 
-                ListItem x;
+                /*
+                if (Convert.ToInt32(ListaProveedor.SelectedValue) == item.proveedor.IdProveedor)
+                {
+
+
+                }*/
+                    ListItem x;
                 foreach (Producto item in listaproducto)
                 {
-                    x = new ListItem(item.Codigo.ToString(), item.IdProducto.ToString());
-                    listaproducto.Items.Add(x);
 
+                    x = new ListItem(item.Codigo.ToString(), item.IdProducto.ToString());
+                    ListaProductoVenta.Items.Add(x);
+      
                 }
 
-                */
+                
 
 
             }
@@ -96,5 +100,6 @@ namespace TPC_Campostano_Ciccarelli
 
 
         }
+
     }
 }

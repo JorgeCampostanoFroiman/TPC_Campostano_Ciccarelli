@@ -11,6 +11,7 @@
     <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
     <div class="col-sm-10">
       <asp:DropDownList runat="server" ID="ListaProveedor"> </asp:DropDownList>
+        <asp:Button runat="server" />
     </div>
   </div>
         <!--  MetodoPago           -->
@@ -25,6 +26,14 @@
         <asp:Button runat="server" OnClick="Unnamed_Click"/>
          <asp:Calendar ID="Calendar1" runat="server"  TargetControlID="txtFechaFactura" OnSelectionChanged="Calendar1_SelectionChanged">
          </asp:Calendar>
+
+        <!--  Producto           -->
+        <div class="form-group row" style="margin-top:40px">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Productos</label>
+    <div class="col-sm-10">
+      <asp:DropDownList runat="server" ID="ListaProductoVenta"> </asp:DropDownList>
+    </div>
+  </div>
 
         <!--
   <div class="form-group row">

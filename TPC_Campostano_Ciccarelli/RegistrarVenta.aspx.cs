@@ -16,7 +16,7 @@ namespace TPC_Campostano_Ciccarelli
         {
             try
             {
-/*
+                /*
                 ClienteNegocio clienteNegocio = new ClienteNegocio();
                 listaC = clienteNegocio.Listar();
 
@@ -24,10 +24,10 @@ namespace TPC_Campostano_Ciccarelli
                 foreach (Cliente item in listaC)
                 {
                     r = new ListItem(item.RazonSocial.ToString(), item.IdCliente.ToString());
-                    listaC.Items.Add(r);
+                    ListaCliente.Items.Add(r);
 
-                }
-*/
+                }*/
+                
             }
             catch (Exception)
             {

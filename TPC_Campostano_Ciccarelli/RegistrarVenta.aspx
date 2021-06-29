@@ -8,18 +8,12 @@
 
      <!--  Comprador           -->
   <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente</label>
     <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaComprador"> </asp:DropDownList>
+      <asp:DropDownList runat="server" ID="ListaCliente"> </asp:DropDownList>
     </div>
   </div>
-        <!--  MetodoPago           -->
-        <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
-    <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaMetodo"> </asp:DropDownList>
-    </div>
-  </div>
+   
         
         <fieldset class="form-group">
     <div class="row">
