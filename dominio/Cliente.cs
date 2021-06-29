@@ -20,5 +20,21 @@ namespace dominio
             RazonSocial = razonSocial;
         }
 
+        public Cliente(int id)
+        {
+            IdCliente = id;
+        }
+
+
+        public Cliente(int id, string nombre)
+        {
+            IdCliente = id;
+            RazonSocial = nombre;
+        }
+
+        public override string ToString()
+        {
+            return RazonSocial;
+        }
     }
 }

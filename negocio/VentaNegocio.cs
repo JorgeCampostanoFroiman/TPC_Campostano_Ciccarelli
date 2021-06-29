@@ -9,7 +9,7 @@ namespace negocio
 {
     public class VentaNegocio
     {
-        private AccesoDatos datos;
+       
         public List<Venta> Listar()
         {
             List<Venta> lista = new List<Venta>();

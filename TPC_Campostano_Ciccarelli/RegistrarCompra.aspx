@@ -5,7 +5,7 @@
     
     <h1 style="margin-top:50px"> Este es el formulario para registrar una compra realizada!!!  </h1>
 
-    <form>
+    
        <!--  Proveedor           -->
   <div class="form-group row" style="margin-top:40px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
@@ -21,20 +21,19 @@
     </div>
   </div>
         <!--  Fecha -->
-        <asp:TextBox ID="txtFechaFactura" runat="server" Width="180px" Enabled="false"  />
+        <asp:TextBox ID="txtFechaFactura" runat="server"  Width="180px" Enabled="false"  />
         <asp:Button runat="server" OnClick="Unnamed_Click"/>
-       
-
-         <asp:Calendar ID="Calendar1" runat="server" TargetControlID="txtFechaFactura" Format="dd/MM/yyyy" OnSelectionChanged="Calendar1_SelectionChanged">
+         <asp:Calendar ID="Calendar1" runat="server"  TargetControlID="txtFechaFactura" OnSelectionChanged="Calendar1_SelectionChanged">
          </asp:Calendar>
 
+        <!--
   <div class="form-group row">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Fecha</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword3" placeholder="Fecha">
     </div>
   </div>
-  
+  -->
 
     
     <div class="custom-file">
@@ -46,7 +45,7 @@
       <button type="submit" class="btn btn-primary">Realizado!</button>
     </div>
   </div>
-</form>
+
 
     </div>
 

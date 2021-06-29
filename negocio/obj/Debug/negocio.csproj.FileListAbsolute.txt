@@ -16,3 +16,12 @@ C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccare
 C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CopyComplete
 C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.dll
 C:\Users\jcamp\Desktop\PROYECTO TPC ACTUALIZADO 1731HORAS\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.pdb
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\bin\Debug\negocio.dll
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\bin\Debug\negocio.pdb
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\bin\Debug\dominio.dll
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\bin\Debug\dominio.pdb
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csprojAssemblyReference.cache
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CopyComplete
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.dll
+C:\Users\Diego Ciccarelli\Desktop\TP CUATRIMESTRAL\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.pdb

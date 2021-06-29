@@ -6,20 +6,21 @@
     
     <h1 style="margin-top:50px"> Este es el formulario para registrar una Venta realizada!!!  </h1>
 
-    <form>
+     <!--  Comprador           -->
   <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Cliente">
+      <asp:DropDownList runat="server" ID="ListaComprador"> </asp:DropDownList>
     </div>
   </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Fecha</label>
+        <!--  MetodoPago           -->
+        <div class="form-group row" style="margin-top:40px">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Fecha">
+      <asp:DropDownList runat="server" ID="ListaMetodo"> </asp:DropDownList>
     </div>
   </div>
-  
+        
         <fieldset class="form-group">
     <div class="row">
       <legend class="col-form-label col-sm-2 pt-0">Método de pago</legend>

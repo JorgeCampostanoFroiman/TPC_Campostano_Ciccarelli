@@ -13,49 +13,88 @@ namespace TPC_Campostano_Ciccarelli
     {
         public List<Proveedor> listaP;
         public List<MetodoPago> listaMp;
+        public List<Producto> listaproducto;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
-            listaP = proveedorNegocio.Listar();
-
-            ListItem i;
-            foreach (Proveedor item in listaP)
+            try
             {
-                i = new ListItem(item.RazonSocialProveedor.ToString(), item.IdProveedor.ToString());
-                ListaProveedor.Items.Add(i);
+                ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+                listaP = proveedorNegocio.Listar();
+
+                ListItem i;
+                foreach (Proveedor item in listaP)
+                {
+                    i = new ListItem(item.RazonSocialProveedor.ToString(), item.IdProveedor.ToString());
+                    ListaProveedor.Items.Add(i);
+
+                }
+
+                MetodoPagoNegocio metodoPagoNegocio = new MetodoPagoNegocio();
+                listaMp = metodoPagoNegocio.Listar();
+
+                ListItem z;
+                foreach (MetodoPago item in listaMp)
+                {
+                    z = new ListItem(item.Nombre.ToString(), item.IdMetodoPago.ToString());
+                    ListaMetodo.Items.Add(z);
+
+                }
+                
+                /* Arreglar listaproducto.Items
+                 * 
+                 * 
+                ProductoNegocio productoNegocio = new ProductoNegocio();
+                listaproducto = productoNegocio.Listar();
+
+                ListItem x;
+                foreach (Producto item in listaproducto)
+                {
+                    x = new ListItem(item.Codigo.ToString(), item.IdProducto.ToString());
+                    listaproducto.Items.Add(x);
+
+                }
+
+                */
+
 
             }
-
-            MetodoPagoNegocio metodoPagoNegocio = new MetodoPagoNegocio();
-            listaMp = metodoPagoNegocio.Listar();
-
-            ListItem z;
-            foreach (MetodoPago item in listaMp)
+            catch (Exception)
             {
-                z = new ListItem(item.Nombre.ToString(), item.IdMetodoPago.ToString());
-                ListaMetodo.Items.Add(z);
-
+                Response.Redirect("Error.aspx");
             }
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             txtFechaFactura.Text = Calendar1.SelectedDate.ToShortDateString();
+            
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-
-            if (Calendar1.Visible == true)
+            try
             {
-                Calendar1.Visible = false;
 
+                /*txtFechaFactura.Text = DateTime.Now.ToString("dd/MM/yyyy");*/
+                if (Calendar1.Visible == true)
+                {
+                    Calendar1.Visible = false;
+
+
+                }
+                else
+                {
+                    Calendar1.Visible = true;
+
+                }
             }
-            else
+            catch (Exception)
             {
-                Calendar1.Visible = true;
+                Response.Redirect("Error.aspx");
             }
+
+
+
         }
     }
 }
