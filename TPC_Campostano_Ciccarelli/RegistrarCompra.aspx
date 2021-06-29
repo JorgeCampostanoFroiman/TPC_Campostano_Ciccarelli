@@ -10,7 +10,7 @@
   <div class="form-group row" style="margin-top:40px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
     <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaProveedor"> </asp:DropDownList>
+      <asp:DropDownList runat="server" ID="ListaProveedor" OnSelectedIndexChanged ="ListaProveedor_SelectedIndexChanged"> </asp:DropDownList>
         <asp:Button runat="server" />
     </div>
   </div>

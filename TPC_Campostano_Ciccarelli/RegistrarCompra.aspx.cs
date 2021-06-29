@@ -40,6 +40,7 @@ namespace TPC_Campostano_Ciccarelli
 
                 }
               
+                /*
                 ProductoNegocio productoNegocio = new ProductoNegocio();
                 listaproducto = productoNegocio.Listar();
 
@@ -48,7 +49,7 @@ namespace TPC_Campostano_Ciccarelli
                 {
 
 
-                }*/
+                }
                     ListItem x;
                 foreach (Producto item in listaproducto)
                 {
@@ -59,7 +60,7 @@ namespace TPC_Campostano_Ciccarelli
                 }
 
                 
-
+                */
 
             }
             catch (Exception)
@@ -83,8 +84,6 @@ namespace TPC_Campostano_Ciccarelli
                 if (Calendar1.Visible == true)
                 {
                     Calendar1.Visible = false;
-
-
                 }
                 else
                 {
@@ -96,10 +95,25 @@ namespace TPC_Campostano_Ciccarelli
             {
                 Response.Redirect("Error.aspx");
             }
-
-
-
         }
 
+        protected void ListaProveedor_SelectedIndexChanged(object sender, EventArgs e)
+
+        {
+            
+            
+            ProductoNegocio productonegocio = new ProductoNegocio();
+            productonegocio.ListarPorIdProveedor(Convert.ToInt32(ListaProveedor.SelectedIndex.ToString()));
+           
+
+            /*
+            productonegocio.ListarPorIdProveedor(Convert.ToInt32(ListaProveedor.SelectedValue));*/
+
+            /*
+            ListaProveedor
+            ListarPorIdProveedor(int id)
+            */
+
+        }
     }
 }

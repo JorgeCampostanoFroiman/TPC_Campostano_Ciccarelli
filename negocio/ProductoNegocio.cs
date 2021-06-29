@@ -48,7 +48,46 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
+           
 
+        }
+        public List<Producto> ListarPorIdProveedor(int id)
+        {
+            List<Producto> listaProductoProveedor = new List<Producto>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT From Producto Where IdProveedor = " + id);
+                datos.ejectutarAccion();
+                while (datos.Lector.Read())
+                {
+                    Producto aux = new Producto();
+                    aux.IdProducto = (int)datos.Lector["IdProducto"];
+                    aux.proveedor = new Proveedor((string)datos.Lector["RazonSocialProveedor"]);
+                    aux.marca = new Marca((string)datos.Lector["Marca"]);
+                    aux.tipo = new Tipo((string)datos.Lector["Tipo"]);
+                    aux.precioCompra = (decimal)datos.Lector["PrecioCompra"];
+                    aux.precioVenta = (decimal)datos.Lector["PrecioVenta"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Stock = (int)datos.Lector["Stock"];
+                    aux.Ganancia = ((int)Convert.ToInt64(datos.Lector["Ganancia"]));
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.imagenUrl = (string)datos.Lector["ImagenUrl"];
+
+                    listaProductoProveedor.Add(aux);
+                }
+
+                return listaProductoProveedor;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
         }
 
     }
