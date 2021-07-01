@@ -57,17 +57,18 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT From Producto Where IdProveedor = " + id);
-                datos.ejectutarAccion();
+                datos.setearConsulta("SELECT IdProducto, Codigo From PRODUCTO Where IdProveedor = " + id);
+                datos.ejecutarLectura();
+
                 while (datos.Lector.Read())
                 {
                     Producto aux = new Producto();
                     aux.IdProducto = (int)datos.Lector["IdProducto"];
-                    aux.proveedor = new Proveedor((string)datos.Lector["RazonSocialProveedor"]);
-                    aux.marca = new Marca((string)datos.Lector["Marca"]);
-                    aux.tipo = new Tipo((string)datos.Lector["Tipo"]);
+                    aux.marca.IdMarca = (int)datos.Lector["IdMarca"];
+                    aux.tipo.IdTipo = (int)datos.Lector["IdTipo"];
                     aux.precioCompra = (decimal)datos.Lector["PrecioCompra"];
                     aux.precioVenta = (decimal)datos.Lector["PrecioVenta"];
+                    aux.proveedor.IdProveedor = (int)datos.Lector["IdProveedor"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Stock = (int)datos.Lector["Stock"];
                     aux.Ganancia = ((int)Convert.ToInt64(datos.Lector["Ganancia"]));

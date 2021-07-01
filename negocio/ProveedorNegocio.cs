@@ -38,5 +38,34 @@ namespace negocio
 
 
         }
+    
+        public int BuscarIdProveedor(string nombre)
+        {
+            int p = 0;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select IdProveedor, RazonSocialProveedor FROM Proveedor");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    if (nombre == (string)datos.Lector["RazonSocialProveedor"])
+                    {
+                        p = (int)datos.Lector["IdProveedor"];
+                    }
+                }
+
+                return p;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
