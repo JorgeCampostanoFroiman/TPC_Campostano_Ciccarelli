@@ -6,6 +6,7 @@ GO
 USE CAMPOSTANO_CICCARELLI_DB
 
 GO
+
 CREATE TABLE TipoUsuario(
 IdTipoUsuario INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 Nombre VARCHAR(40) NOT NULL,
@@ -63,6 +64,7 @@ GO
 CREATE TABLE Producto (
 IdProducto INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 Codigo VARCHAR (8) NOT NULL,
+NombreProducto VARCHAR (80) NOT NULL,
 IdMarca INT NOT NULL FOREIGN KEY REFERENCES Marca(IdMarca),
 IdTipo INT NOT NULL FOREIGN KEY REFERENCES Tipo(IdTipo),
 PrecioCompra MONEY NOT NULL CHECK (PrecioCompra > 0),
@@ -139,7 +141,7 @@ INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('20212324'
 INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('54565656','san martin 12343', '20545656568', 'Maria Estela')
 INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('55556556','calle alta 12223', '20555565564', 'Artic sh')
 INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('10141516','las heras 10', '27101415163', 'Julieta Perez')
-INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('11141516','belgrano 5', '27111415164', 'Maria Estela')
+INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('11141516','belgrano 5', '27111415164', 'Maria Estela Josefa')
 INSERT INTO Cliente (Dni, Domicilio, CuitCliente, RazonSocial) VALUES('12114455','el valle 2020', '27121144555', 'ferre srl')
 
 INSERT INTO Proveedor (RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono ) VALUES('ElectroArt', '27202526283', 'pedrozo 2003', NULL, NULL)
@@ -167,17 +169,17 @@ INSERT INTO Tipo (Nombre) VALUES('Lavarropa')
 INSERT INTO Tipo (Nombre) VALUES('Heladera')
 INSERT INTO Tipo (Nombre) VALUES('Cocina')
 
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('CGH600', 1, 1, '20000', '20', '50', '40000', 'Televisor de 42 Pulgadas Full HD HDMI, Reconocida Marca, Gran definicion', 1, 'https://images.samsung.com/is/image/samsung/latin_UN37C5000QFXZA_001_Front?$LazyLoad_Home_IMG$')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('HGJ1212', 1, 1, '7500', '20', '50', '15000', 'Excelente Televisor 24 Pulgadas', 1, 'https://images.samsung.com/is/image/samsung/latin-uhd-tu8000-un50tu8000pxpa-frontblack-229165727?$720_576_PNG$')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('WWE2020', 2, 2, '17500', '20', '50', '35000', 'Consola video juegos', 2, 'https://icdn.dtcn.com/image/digitaltrends_es/playstation-5-side-view-416x278.jpg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('565898', 2, 2, '20000', '20', '50', '40000', 'Consola con juegos incluidos', 2, 'https://i.blogs.es/ad8440/ps4xbox/1366_2000.jpg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('C32HJ', 3, 3, '20000', '20', '50', '40000', 'Celular libre', 3, 'https://celularpark.com.ar/wp-content/uploads/2020/04/hydroglass-celular-1.jpg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('KUJ234', 3, 3, '22500', '20', '50', '45000', 'celular gran cantidad de memoria interna', 3, 'https://www.eltiempo.com/files/article_content/files/crop/uploads/2020/02/03/5e38409f1bcb0.r_1580745285279.168-0-1128-720.jpeg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('RAR22', 4, 4, '22500', '20', '50', '45000', 'Aire acondicionado spli 2800 frigorias', 4, 'https://saturnohogar.com.ar/2690-large_default/aire-acondicionado-alaska-split-fr%C3%ADocalor-2322-frigor%C3%ADas-blanco-220v-als26wccr.jpg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('KL1234', 4, 4, '5000', '20', '50', '10000', 'Aire portatil', 4, 'https://www.megatone.net/Images/Articulos/zoom2x/247/AIR3528TCL.jpg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('JUY890', 5, 5, '20000', '20', '50', '40000', 'Lavarropas con centrifugado veloz', 5, 'https://d34zlyc2cp9zm7.cloudfront.net/products/70e6d0dc191f1cb3c2dc6589eb4ffd99fd795bee94b53a46090592d13aa4db31.jpg_500')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('J3000', 6, 6, '20000', '20', '50', '40000', 'Heladera bajo consumo electrico', 5, 'https://http2.mlstatic.com/D_NQ_NP_945764-MLA31351725173_072019-O.jpg')
-INSERT INTO Producto (Codigo, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('F7000', 6, 6, '30000', '20', '50', '60000', 'Heladera con freezer amplio', 6, 'https://http2.mlstatic.com/D_NQ_NP_814422-MLA32122412017_092019-O.jpg')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('CGH600', 'Televisor Full HD', 1, 1, '20000', '20', '50', '40000', 'Televisor de 42 Pulgadas Full HD HDMI, Reconocida Marca, Gran definicion', 1, 'https://images.samsung.com/is/image/samsung/latin_UN37C5000QFXZA_001_Front?$LazyLoad_Home_IMG$')
+INSERT INTO Producto (Codigo, NombreProducto,IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('HGJ1212', 'Televisor 24 Pulgadas', 1, 1, '7500', '20', '50', '15000', 'Excelente Televisor 24 Pulgadas', 1, 'https://images.samsung.com/is/image/samsung/latin-uhd-tu8000-un50tu8000pxpa-frontblack-229165727?$720_576_PNG$')
+INSERT INTO Producto (Codigo, NombreProducto,IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('WWE2020', 'Consola', 2, 2, '17500', '20', '50', '35000', 'Consola video juegos', 2, 'https://icdn.dtcn.com/image/digitaltrends_es/playstation-5-side-view-416x278.jpg')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('565898', 'Consola con Juegos', 2, 2, '20000', '20', '50', '40000', 'Consola con juegos incluidos', 2, 'https://i.blogs.es/ad8440/ps4xbox/1366_2000.jpg')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('C32HJ', 'Celular liberado', 3, 3, '20000', '20', '50', '40000', 'Celular libre', 3, 'https://celularpark.com.ar/wp-content/uploads/2020/04/hydroglass-celular-1.jpg')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('KUJ234', 'Celular Memoria Interna',3, 3, '22500', '20', '50', '45000', 'celular gran cantidad de memoria interna', 3, 'https://www.eltiempo.com/files/article_content/files/crop/uploads/2020/02/03/5e38409f1bcb0.r_1580745285279.168-0-1128-720.jpeg')
+INSERT INTO Producto (Codigo, NombreProducto,IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('RAR22','Aire Acondicionado',4, 4, '22500', '20', '50', '45000', 'Aire acondicionado spli 2800 frigorias', 4, 'https://saturnohogar.com.ar/2690-large_default/aire-acondicionado-alaska-split-fr%C3%ADocalor-2322-frigor%C3%ADas-blanco-220v-als26wccr.jpg')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('KL1234', 'Aire Portatil', 4, 4, '5000', '20', '50', '10000', 'Aire portatil', 4, 'https://www.megatone.net/Images/Articulos/zoom2x/247/AIR3528TCL.jpg')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('JUY890', 'Lavarropas Centrifugado', 5, 5, '20000', '20', '50', '40000', 'Lavarropas con centrifugado veloz', 5, 'https://d34zlyc2cp9zm7.cloudfront.net/products/70e6d0dc191f1cb3c2dc6589eb4ffd99fd795bee94b53a46090592d13aa4db31.jpg_500')
+INSERT INTO Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('J3000', 'Heladera bajo consumo', 6, 6, '20000', '20', '50', '40000', 'Heladera bajo consumo electrico', 5, 'https://http2.mlstatic.com/D_NQ_NP_945764-MLA31351725173_072019-O.jpg')
+INSERT INTO Producto (Codigo, NombreProducto,IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion, IdProveedor, ImagenUrl) VALUES('F7000', 'Heladera Freezer',6, 6, '30000', '20', '50', '60000', 'Heladera con freezer amplio', 6, 'https://http2.mlstatic.com/D_NQ_NP_814422-MLA32122412017_092019-O.jpg')
 
 INSERT INTO MetodoPago (Nombre) VALUES('Tarjeta Credito')
 INSERT INTO MetodoPago (Nombre) VALUES('Tarjeta Debito')

@@ -44,16 +44,22 @@
     
     </div>
 
+    <div id="precioventa">
+    <asp:TextBox runat="server" ID="textPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False" Enabled="False"></asp:TextBox>
+    <asp:Label runat="server" ID="label5"> Precio Venta:</asp:Label>
+    
+    </div>
+
     <div id="desc">
     <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="Required" ControlToValidate="textDesc"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textDesc" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
+    <asp:TextBox runat="server" ID="textDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
     <asp:Label runat="server" ID="label4"> Descripción:</asp:Label>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator5" ValidationExpression="[^a-zA-Z -]|(.)|" ControlToValidate="textDesc" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator5" ValidationExpression="[a-zA-Z0-9 -]+" ControlToValidate="textDesc"></asp:RegularExpressionValidator>
     
     </div>
 
     <div id="marca">
-    <asp:DropDownList runat="server" ID="DDLMarca"></asp:DropDownList>
+    <asp:DropDownList runat="server" ID="DDLMarca" OnSelectedIndexChanged="DDLMarca_SelectedIndexChanged"></asp:DropDownList>
     </div>
 
     <div id="tipo">

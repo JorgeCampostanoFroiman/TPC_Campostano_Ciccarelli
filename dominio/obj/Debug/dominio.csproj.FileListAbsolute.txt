@@ -22,3 +22,9 @@ C:\Users\jcamp\Desktop\28 6 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\domi
 C:\Users\jcamp\Desktop\28 6 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\jcamp\Desktop\28 6 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.dll
 C:\Users\jcamp\Desktop\28 6 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.pdb
+C:\Users\Diego Ciccarelli\Desktop\TpCuatrimestralLunes\TPC_Campostano_Ciccarelli\dominio\bin\Debug\dominio.dll
+C:\Users\Diego Ciccarelli\Desktop\TpCuatrimestralLunes\TPC_Campostano_Ciccarelli\dominio\bin\Debug\dominio.pdb
+C:\Users\Diego Ciccarelli\Desktop\TpCuatrimestralLunes\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csprojAssemblyReference.cache
+C:\Users\Diego Ciccarelli\Desktop\TpCuatrimestralLunes\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\Diego Ciccarelli\Desktop\TpCuatrimestralLunes\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.dll
+C:\Users\Diego Ciccarelli\Desktop\TpCuatrimestralLunes\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.pdb

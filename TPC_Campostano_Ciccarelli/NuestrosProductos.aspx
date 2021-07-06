@@ -9,8 +9,9 @@
   <thead class="thead-dark">
      
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col">Número</th>
       <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
       <th scope="col">Tipo</th>
       <th scope="col">Precio de compra</th>
       <th scope="col">Detalle</th>
@@ -27,6 +28,7 @@
       <tr>
       <th scope="row"><% = item.IdProducto %></th>
       <td><% = item.Codigo %></td>  
+      <td><% = item.NombreProducto %></td>  
       <td><% = item.tipo.Nombre %></td>
       <td><% = item.precioCompra %></td>  
       <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-primary">Ver Detalle</a></td>

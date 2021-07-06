@@ -16,7 +16,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Select P.IdProducto, P.Codigo, M.Nombre AS Marca, T.Nombre AS Tipo, P.PrecioCompra, P.Stock, P.Ganancia, P.PrecioVenta, P.Descripcion, PV.RazonSocialProveedor, P.ImagenUrl FROM Producto AS P, Marca AS M, Tipo AS T, Proveedor AS PV WHERE P.IdMarca = M.IdMarca AND P.IdTipo = T.IdTipo AND P.IdProveedor = PV.IdProveedor");
+                datos.setearConsulta("Select P.IdProducto, P.Codigo, P.NombreProducto, M.Nombre AS Marca, T.Nombre AS Tipo, P.PrecioCompra, P.Stock, P.Ganancia, P.PrecioVenta, P.Descripcion, PV.RazonSocialProveedor, P.ImagenUrl FROM Producto AS P, Marca AS M, Tipo AS T, Proveedor AS PV WHERE P.IdMarca = M.IdMarca AND P.IdTipo = T.IdTipo AND P.IdProveedor = PV.IdProveedor");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -28,6 +28,7 @@ namespace negocio
                     aux.precioCompra = (decimal)datos.Lector["PrecioCompra"];
                     aux.precioVenta = (decimal)datos.Lector["PrecioVenta"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.NombreProducto = (string)datos.Lector["NombreProducto"];
                     aux.Stock = (int)datos.Lector["Stock"];
                     aux.Ganancia = ((int)Convert.ToInt64(datos.Lector["Ganancia"]));
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
@@ -57,7 +58,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT IdProducto, Codigo From PRODUCTO Where IdProveedor = " + id);
+                datos.setearConsulta("SELECT IdProducto, Codigo From Producto Where IdProveedor = " + id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -70,6 +71,7 @@ namespace negocio
                     aux.precioVenta = (decimal)datos.Lector["PrecioVenta"];
                     aux.proveedor.IdProveedor = (int)datos.Lector["IdProveedor"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.NombreProducto = (string)datos.Lector["NombreProducto"];
                     aux.Stock = (int)datos.Lector["Stock"];
                     aux.Ganancia = ((int)Convert.ToInt64(datos.Lector["Ganancia"]));
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
@@ -88,6 +90,59 @@ namespace negocio
             {
                 datos.cerrarConexion();
                 datos = null;
+            }
+        }
+
+
+        public bool ListarPorCodigo(string codigo)
+        {
+            bool bandera = false;
+            int comparacion = 1;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Codigo From Producto");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    comparacion = string.Compare((string)datos.Lector["Codigo"], codigo);
+                    if (comparacion == 0)
+                    {
+                        bandera = true;
+                    }
+                }
+                return bandera;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
+
+        public void Agregar(Producto nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string valores = "values('" + nuevo.Codigo + "', '" + nuevo.NombreProducto + "', '" + nuevo.marca.IdMarca + "', '" + nuevo.tipo.IdTipo + "', '" + nuevo.precioCompra + "', " + nuevo.Stock + ", '" + nuevo.Ganancia + "', '" + nuevo.precioVenta + "', '" + nuevo.Descripcion + "', '" + nuevo.proveedor.IdProveedor + "', '" + nuevo.imagenUrl + "')";
+                datos.setearConsulta("insert into Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion,IdProveedor, ImagenUrl ) " + valores);
+
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
