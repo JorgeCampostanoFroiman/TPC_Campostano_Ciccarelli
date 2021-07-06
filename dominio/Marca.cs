@@ -17,5 +17,16 @@ namespace dominio
             Nombre = nombre;
         }
 
+        public Marca(int id, string nombre)
+        {
+            Nombre = nombre;
+            IdMarca = id;
+        }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
     }
 }

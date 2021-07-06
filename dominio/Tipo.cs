@@ -15,6 +15,15 @@ namespace dominio
             Nombre = nombre;
         }
 
+        public Tipo(int id, string nombre)
+        {
+            IdTipo = id;
+            Nombre = nombre;
+        }
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
     }
 }

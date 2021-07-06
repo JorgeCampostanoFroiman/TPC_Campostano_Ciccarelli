@@ -113,6 +113,7 @@
     <Content Include="Ingreso.aspx" />
     <Content Include="NuestrosProductos.aspx" />
     <Content Include="RegistrarCompra.aspx" />
+    <Content Include="RegistrarProducto.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="RegistrarVenta.aspx" />
     <Content Include="Ventas.aspx" />
@@ -230,6 +231,13 @@
     </Compile>
     <Compile Include="RegistrarCompra.aspx.designer.cs">
       <DependentUpon>RegistrarCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProducto.aspx.cs">
+      <DependentUpon>RegistrarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarProducto.aspx.designer.cs">
+      <DependentUpon>RegistrarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registrarse.aspx.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>

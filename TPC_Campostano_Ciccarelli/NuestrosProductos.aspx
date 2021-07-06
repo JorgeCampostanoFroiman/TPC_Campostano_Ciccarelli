@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div style="margin-top:50px;text-align:center">
       <h1>NUESTROS PRODUCTOS      </h1> 
-      <a class="btn btn-primary btn-lg" href="RegistrarVenta.aspx" role="button">Agregar un Producto</a>
+      <a class="btn btn-primary btn-lg" href="RegistrarProducto.aspx" role="button">Agregar un Producto</a>
       </div>
 
     <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
@@ -14,6 +14,9 @@
       <th scope="col">Tipo</th>
       <th scope="col">Precio de compra</th>
       <th scope="col">Detalle</th>
+      <th scope="col">Modificar</th>
+      <th scope="col">Dar de baja</th>
+       
         
 
     </tr>
@@ -27,6 +30,8 @@
       <td><% = item.tipo.Nombre %></td>
       <td><% = item.precioCompra %></td>  
       <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-primary">Ver Detalle</a></td>
+      <td><a class="btn btn-primary btn-lg" href="RegistrarProducto.aspx" role="button">Modificar</a></td>
+      <td><a class="btn btn-primary btn-lg">Elim</a></td>
     </tr>
        <% } %>
       </tbody>
