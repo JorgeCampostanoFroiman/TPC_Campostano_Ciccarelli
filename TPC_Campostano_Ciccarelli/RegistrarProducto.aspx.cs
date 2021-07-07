@@ -11,18 +11,18 @@ namespace TPC_Campostano_Ciccarelli
 {
     public partial class RegistrarProducto : System.Web.UI.Page
     {
-        int valormarca;
+       
         protected void Page_Load(object sender, EventArgs e)
         { 
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             TipoNegocio tipoNegocio = new TipoNegocio();
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
 
-            if (!Page.IsPostBack)
+            if (!IsPostBack)
             {
                 DDLMarca.DataSource = marcaNegocio.Listar();
                 DDLMarca.DataTextField = "Nombre";
-                DDLMarca.DataValueField = "IdMarca";
+                DDLMarca.DataValueField = "IdMarca";    
                 DDLMarca.DataBind();
 
                 DDLProveedor.DataSource = proveedorNegocio.Listar();
@@ -34,6 +34,7 @@ namespace TPC_Campostano_Ciccarelli
                 DDLTipo.DataTextField = "Nombre";
                 DDLTipo.DataValueField = "IdTipo";
                 DDLTipo.DataBind();
+
             }
 
         }
@@ -56,16 +57,25 @@ namespace TPC_Campostano_Ciccarelli
                     Producto producto = new Producto();
                     producto.Codigo = textCodigo.Text;
                     producto.NombreProducto = textNombre.Text;
-                    producto.marca.IdMarca = valormarca;
-                    ///  producto.tipo.IdTipo = DDLTipo.SelectedIndex;
                     producto.precioCompra = Convert.ToDecimal(textPrecioCompra.Text);
                     producto.Stock = Convert.ToInt32(textStock.Text);
                     producto.Ganancia = Convert.ToInt16(textGanancia.Text);
                     producto.precioVenta = Convert.ToDecimal(textPrecioVenta.Text);
                     producto.Descripcion = textDesc.Text;
-                   /// producto.proveedor.IdProveedor = DDLProveedor.SelectedIndex;
+                    
+                    producto.marca = new Marca();
+                    producto.marca.IdMarca = int.Parse(DDLMarca.SelectedItem.Value);
 
-                    ///productoNegocio.Agregar(producto);
+                    producto.tipo = new Tipo();
+                    producto.tipo.IdTipo = int.Parse(DDLTipo.SelectedItem.Value);
+
+                    producto.proveedor = new Proveedor();
+                    producto.proveedor.IdProveedor = int.Parse(DDLProveedor.SelectedItem.Value);
+
+
+
+
+                    productoNegocio.Agregar(producto);
 
                 }
                 else
@@ -79,18 +89,15 @@ namespace TPC_Campostano_Ciccarelli
         /// VER SI REALIZA LO NECESARIO SINO SACAR
         protected void DDLMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
+          
+        }
 
-                valormarca = int.Parse(DDLMarca.SelectedItem.Value);
+        protected void BtnGuardarMarca_Click(object sender, EventArgs e)
+        {   
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            Session.Add("marcaAgregada", textAgregarMarca.Text);
+            marcaNegocio.agregarMarca("marcaAgregada");
 
-
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex.ToString());
-                Response.Redirect("Error.aspx");
-            }
         }
     }
 }

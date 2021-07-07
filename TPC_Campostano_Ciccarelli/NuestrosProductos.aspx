@@ -3,6 +3,8 @@
      <div style="margin-top:50px;text-align:center">
       <h1>NUESTROS PRODUCTOS      </h1> 
       <a class="btn btn-primary btn-lg" href="RegistrarProducto.aspx" role="button">Agregar un Producto</a>
+      <a class="btn btn-primary btn-lg" href="AgregarMarca.aspx" role="button">Agregar una Marca</a>
+      <a class="btn btn-primary btn-lg" href="AgregarTipo.aspx" role="button">Agregar un Tipo</a>
       </div>
 
     <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">

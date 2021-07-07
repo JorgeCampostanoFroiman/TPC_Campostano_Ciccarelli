@@ -20,6 +20,13 @@ namespace dominio
             IdTipo = id;
             Nombre = nombre;
         }
+
+        public Tipo()
+        {
+
+        }
+
+
         public override string ToString()
         {
             return Nombre;

@@ -106,10 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AgregarMarca.aspx" />
+    <Content Include="AgregarTipo.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="DetalleCompra.aspx" />
     <Content Include="DetalleProducto.aspx" />
     <Content Include="DetalleVenta.aspx" />
+    <Content Include="Estilos\agregarMarca.css" />
     <Content Include="Ingreso.aspx" />
     <Content Include="NuestrosProductos.aspx" />
     <Content Include="RegistrarCompra.aspx" />
@@ -174,6 +177,20 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarMarca.aspx.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarMarca.aspx.designer.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarTipo.aspx.cs">
+      <DependentUpon>AgregarTipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarTipo.aspx.designer.cs">
+      <DependentUpon>AgregarTipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

@@ -249,6 +249,15 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
 
         /// <summary>
+        /// Control scriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scriptManager1;
+
+        /// <summary>
         /// Control DDLMarca.
         /// </summary>
         /// <remarks>
@@ -292,5 +301,41 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutput;
+
+        /// <summary>
+        /// Control RequiredFieldValidator6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+
+        /// <summary>
+        /// Control textAgregarMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textAgregarMarca;
+
+        /// <summary>
+        /// Control RegularExpressionValidator6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+
+        /// <summary>
+        /// Control BtnGuardarMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGuardarMarca;
     }
 }

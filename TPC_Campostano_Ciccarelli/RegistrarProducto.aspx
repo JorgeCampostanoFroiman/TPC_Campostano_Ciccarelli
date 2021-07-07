@@ -6,7 +6,7 @@
     <h1 style="margin-top:50px"> Producto a agregar:  </h1>
 
     <div id="codigo">
-    <asp:RequiredFieldValidator runat="server" ID="RFV1" ErrorMessage="Required" ControlToValidate="textCodigo" ForeColor="#CC3300" ></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator runat="server" ID="RFV1" ErrorMessage="Required" ControlToValidate="textCodigo" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
     <asp:TextBox runat="server" ID="textCodigo" MaxLength="8" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
     <asp:Label runat="server" ID="labelCodigo"> Código: </asp:Label>
     <asp:RegularExpressionValidator runat="server" ID="ValidarCodigo" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textCodigo" ErrorMessage="Solo letras y números"></asp:RegularExpressionValidator>
@@ -58,8 +58,14 @@
     
     </div>
 
+    <asp:ScriptManager runat="server" ID="scriptManager1"></asp:ScriptManager>
     <div id="marca">
-    <asp:DropDownList runat="server" ID="DDLMarca" OnSelectedIndexChanged="DDLMarca_SelectedIndexChanged"></asp:DropDownList>
+    <asp:UpdatePanel runat="server">
+    <ContentTemplate>
+    <asp:DropDownList runat="server" ID="DDLMarca" OnSelectedIndexChanged="DDLMarca_SelectedIndexChanged" AutoPostBack="False"></asp:DropDownList>
+    <a href="AgregarMarca.aspx">Agregar Marca</a>
+    </ContentTemplate>
+    </asp:UpdatePanel>
     </div>
 
     <div id="tipo">
@@ -76,5 +82,29 @@
 
     <asp:Label ID="lblOutput" runat="server"></asp:Label>    
     
+
+    <!--- Modal --->
+    <div class="modal" tabindex="-1" role="dialog" id="modalMarca">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingrese la nueva marca aquí debajo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator6" ErrorMessage="Required" ControlToValidate="textAgregarMarca"></asp:RequiredFieldValidator>
+        <asp:TextBox runat="server" ID="textAgregarMarca"></asp:TextBox>
+        <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator6" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textAgregarMarca" ErrorMessage="Solo letras y números"></asp:RegularExpressionValidator>
+      </div>
+      <div class="modal-footer">
+        <asp:Button runat="server" ID="BtnGuardarMarca" Text="Guardar cambios" OnClick="BtnGuardarMarca_Click"/>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </asp:Content>
