@@ -146,5 +146,56 @@ namespace negocio
             }
         }
 
+        public void modificar(Producto modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, ImagenUrl = @imagenUrl WHERE IdProducto = @id");
+                datos.setearParametro("@codigo", modificar.Codigo);
+                datos.setearParametro("@nombre", modificar.NombreProducto);
+                datos.setearParametro("@idMarca", modificar.marca.IdMarca);
+                datos.setearParametro("@idMarca", modificar.tipo.IdTipo);
+                datos.setearParametro("@precioCompra", modificar.precioCompra);
+                datos.setearParametro("@stock", modificar.Stock);
+                datos.setearParametro("@ganancia", modificar.Ganancia);
+                datos.setearParametro("@precioVenta", modificar.precioVenta);
+                datos.setearParametro("@descripcion", modificar.Descripcion);
+                datos.setearParametro("@idProveedor", modificar.proveedor.IdProveedor);
+                datos.setearParametro("@imagenUrl", modificar.imagenUrl);
+                datos.setearParametro("@id", modificar.IdProducto);
+
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Delete From Producto Where IdProducto = " + id);
+                datos.ejectutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
+
     }
 }

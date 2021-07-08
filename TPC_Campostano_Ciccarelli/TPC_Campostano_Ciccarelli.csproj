@@ -114,6 +114,7 @@
     <Content Include="DetalleVenta.aspx" />
     <Content Include="Estilos\agregarMarca.css" />
     <Content Include="Ingreso.aspx" />
+    <Content Include="ModificarProducto.aspx" />
     <Content Include="NuestrosProductos.aspx" />
     <Content Include="RegistrarCompra.aspx" />
     <Content Include="RegistrarProducto.aspx" />
@@ -234,6 +235,13 @@
     </Compile>
     <Compile Include="Ingreso.aspx.designer.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarProducto.aspx.cs">
+      <DependentUpon>ModificarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarProducto.aspx.designer.cs">
+      <DependentUpon>ModificarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuestrosProductos.aspx.cs">
       <DependentUpon>NuestrosProductos.aspx</DependentUpon>

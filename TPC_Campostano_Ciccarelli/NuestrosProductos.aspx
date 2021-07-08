@@ -34,7 +34,7 @@
       <td><% = item.tipo.Nombre %></td>
       <td><% = item.precioCompra %></td>  
       <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-primary">Ver Detalle</a></td>
-      <td><a class="btn btn-primary btn-lg" href="RegistrarProducto.aspx" role="button">Modificar</a></td>
+      <td><a href="ModificarProducto.aspx?id=<% = item.IdProducto%>" class="btn btn-primary btn-lg" role="button">Modificar</a></td>
       <td><a class="btn btn-primary btn-lg">Elim</a></td>
     </tr>
        <% } %>
