@@ -5,43 +5,38 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using negocio;
+using dominio;
 
 namespace TPC_Campostano_Ciccarelli
 {
     public partial class AgregarMarca : System.Web.UI.Page
     {
+        public List<Marca> lista;
         MarcaNegocio marcaNegocio = new MarcaNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-
-            if (!IsPostBack)
+            ProductoNegocio negocio = new ProductoNegocio();
+            try
             {
-                DDLMarca.DataSource = marcaNegocio.Listar();
-                DDLMarca.DataTextField = "Nombre";
-                DDLMarca.DataValueField = "IdMarca";
-                DDLMarca.DataBind();
+                lista = marcaNegocio.Listar();
+                Session.Add("ListaMarcas", lista);
             }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+
         }
 
-
-        protected void btnAgregarMarca_Click(object sender, EventArgs e)
+        protected void modificarMarca_Click(object sender, EventArgs e)
         {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            marcaNegocio.agregarMarca(textAgregarMarca.Text);
+
         }
 
-        protected void RefreshButton_Click(object sender, EventArgs e)
+        protected void eliminarMarca_Click(object sender, EventArgs e)
         {
-           
-                DDLMarca.DataSource = marcaNegocio.Listar();
-                DDLMarca.DataTextField = "Nombre";
-                DDLMarca.DataValueField = "IdMarca";
-                DDLMarca.DataBind();
-                lbl1.Text = "Ddl refrescada exitosamente";
-            
-            
-
+            ///marcaNegocio.eliminarMarca()
         }
     }
 }
