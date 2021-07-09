@@ -49,14 +49,13 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select IdProveedor, Estado, RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono FROM Proveedor");
+                datos.setearConsulta("select IdProveedor, RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono FROM Proveedor");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Proveedor aux = new Proveedor();
                     aux.IdProveedor = (int)datos.Lector["IdProveedor"];
-                    aux.Estado = (bool)datos.Lector["Estado"];
                     aux.RazonSocialProveedor = (string)datos.Lector["RazonSocialProveedor"];
                     aux.CuitProveedor = (string)datos.Lector["CuitProveedor"];
                     aux.Domicilio = (string)datos.Lector["Domicilio"];
@@ -84,8 +83,8 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string valores = "values('" + nuevo.IdProveedor + "', '" + nuevo.Estado + "', '" + nuevo.RazonSocialProveedor + "', '" + nuevo.CuitProveedor + "', '" + nuevo.Domicilio + "', " + nuevo.Email + ", '" + nuevo.Telefono + "')";
-                datos.setearConsulta("insert into Proveedor (IdProveedor, Estado, RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono ) " + valores);
+                string valores = "values('" + nuevo.RazonSocialProveedor + "', '" + nuevo.CuitProveedor + "', '" + nuevo.Domicilio + "', '" + nuevo.Email + "', '" + nuevo.Telefono + "')";
+                datos.setearConsulta("insert into Proveedor (RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono ) " + valores);
 
                 datos.ejectutarAccion();
 
@@ -104,8 +103,8 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update Producto set Estado = @estado, RazonSocialProveedor = @razonsocial, CuitProveedor = @cuitproveedor, Domicilio = @Domicilio, Email = @Email, Telefono = @telefono WHERE IdProveedor = @id");
-                datos.setearParametro("@estado", modificar.Estado);
+                datos.setearConsulta("update Proveedor set RazonSocialProveedor = @razonsocial, CuitProveedor = @cuitproveedor, Domicilio = @Domicilio, Email = @Email, Telefono = @telefono WHERE IdProveedor = @id");
+                
                 datos.setearParametro("@razonsocial", modificar.RazonSocialProveedor);
                 datos.setearParametro("@cuitproveedor", modificar.CuitProveedor);
                 datos.setearParametro("@domicilio", modificar.Domicilio);

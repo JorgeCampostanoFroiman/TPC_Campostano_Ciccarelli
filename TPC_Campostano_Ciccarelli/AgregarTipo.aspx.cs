@@ -11,49 +11,38 @@ namespace TPC_Campostano_Ciccarelli
 {
     public partial class AgregarTipo : System.Web.UI.Page
     {
+        public List<Tipo> listaTipos;
         TipoNegocio tipoNegocio = new TipoNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
-            
-
-            if (!IsPostBack)
+            ProductoNegocio negocio = new ProductoNegocio();
+            try
             {
-              
-                DDLTipo.DataSource = tipoNegocio.Listar();
-                DDLTipo.DataTextField = "Nombre";
-                DDLTipo.DataValueField = "IdTipo";
-                DDLTipo.DataBind();
+                if (Request.QueryString["Id"] != null)
+                {
+                    listaTipos = (List<Tipo>)Session["tipos"];
+                    if (listaTipos == null)
+                        listaTipos = new List<Tipo>();
+                }
+                listaTipos = tipoNegocio.Listar();
 
-                DDLTipo2.DataSource = tipoNegocio.Listar();
-                DDLTipo2.DataTextField = "Nombre";
-                DDLTipo2.DataValueField = "IdTipo";
-                DDLTipo2.DataBind();
-
-                DDLTipo3.DataSource = tipoNegocio.Listar();
-                DDLTipo3.DataTextField = "Nombre";
-                DDLTipo3.DataValueField = "IdTipo";
-                DDLTipo3.DataBind();
-
+                if (Request.QueryString["c"] == "d")
+                {
+                    Tipo equis = listaTipos.Find(x => x.IdTipo.ToString() == Request.QueryString["id"]);
+                    tipoNegocio.eliminarTipo(equis.IdTipo);
+                }
+                listaTipos = tipoNegocio.Listar();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
 
-        protected void btnModificarTipo_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnEliminarTipo_Click(object sender, EventArgs e)
-        {
-            tipoNegocio.eliminarTipo(int.Parse(DDLTipo3.SelectedItem.Value));
-               
-        }
-
-        protected void btnAgregarTipo_Click(object sender, EventArgs e)
-        {
-            tipoNegocio.agregarTipo(textAgregarTipo.Text);
-
+            tipoNegocio.agregarTipo(txtAgregar.Text);
         }
     }
 }

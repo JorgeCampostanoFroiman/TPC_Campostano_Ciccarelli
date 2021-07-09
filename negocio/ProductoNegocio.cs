@@ -152,10 +152,13 @@ namespace negocio
             try
             {
                 datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, ImagenUrl = @imagenUrl WHERE IdProducto = @id");
+                
+                
+                
                 datos.setearParametro("@codigo", modificar.Codigo);
                 datos.setearParametro("@nombre", modificar.NombreProducto);
                 datos.setearParametro("@idMarca", modificar.marca.IdMarca);
-                datos.setearParametro("@idMarca", modificar.tipo.IdTipo);
+                datos.setearParametro("@idTipo", modificar.tipo.IdTipo);
                 datos.setearParametro("@precioCompra", modificar.precioCompra);
                 datos.setearParametro("@stock", modificar.Stock);
                 datos.setearParametro("@ganancia", modificar.Ganancia);
@@ -164,7 +167,6 @@ namespace negocio
                 datos.setearParametro("@idProveedor", modificar.proveedor.IdProveedor);
                 datos.setearParametro("@imagenUrl", modificar.imagenUrl);
                 datos.setearParametro("@id", modificar.IdProducto);
-
                 datos.ejectutarAccion();
 
             }

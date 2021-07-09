@@ -1,25 +1,32 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarTipo.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.AgregarTipo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div id="verTipos">
-    <asp:DropDownList runat="server" ID="DDLTipo"></asp:DropDownList>
-        <asp:Button runat="server" ID="btnVerTipos" Text="Refrescar los tipos existentes" />
-    </div>
+    <div style="margin-top:50px;text-align:center">
+      <h1>LOS TIPOS   </h1> 
+      <asp:TextBox runat="server" ID="txtAgregar"></asp:TextBox>
+        <asp:Button runat="server" ID="btnAgregar" OnClick="btnAgregar_Click" Text="Agregar tipo"/>
+      </div>
 
-    <div id="modificarTipo">
-    <asp:DropDownList runat="server" ID="DDLTipo2"></asp:DropDownList>
-        <asp:Button runat="server" ID="btnModificarTipo" OnClick="btnModificarTipo_Click" Text="Modificar el tipo seleccionado"/>
-    </div>
+    <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
+  <thead class="thead-dark">
+     
+    <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Eliminar</th>     
 
-    <div id="eliminarTipo">
-    <asp:DropDownList runat="server" ID="DDLTipo3"></asp:DropDownList>
-        <asp:Button runat="server" ID="btnEliminarTipo" OnClick="btnEliminarTipo_Click" Text="Eliminar el tipo seleccionado"/>
-    </div>
-
-    <div id="agregarTipo">
-    <asp:TextBox runat="server" ID="textAgregarTipo"></asp:TextBox>
-        <asp:Button runat="server" ID="btnAgregarTipo" OnClick="btnAgregarTipo_Click" Text="Agregar un tipo a la lista"/>
-    </div>
+    </tr>
+  </thead>
+  <tbody>
+      <% foreach (dominio.Tipo item in listaTipos)
+            {%>
+      <tr>
+      <td><% = item.Nombre %> </td>
+      <td><a href="AgregarTipo.aspx?id=<% = item.IdTipo%>&c=d" class="btn btn-danger btn-sm">Eliminar</a>  
+      
+    </tr>
+       <% } %>
+      </tbody>
+        </table>
 
 
 </asp:Content>

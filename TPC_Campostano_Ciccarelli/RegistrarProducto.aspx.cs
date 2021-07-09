@@ -48,20 +48,19 @@ namespace TPC_Campostano_Ciccarelli
             else
             {
                 
-                textPrecioVenta.Text = Convert.ToString(((Convert.ToInt32(textPrecioCompra.Text) * Convert.ToInt32(textGanancia.Text)) / 100)+ Convert.ToInt32(textPrecioCompra.Text));
+                tPrecioVenta.Text = Convert.ToString(((Convert.ToInt32(tPrecioCompra.Text) * Convert.ToInt32(tGanancia.Text)) / 100)+ Convert.ToInt32(tPrecioCompra.Text));
                 
-                if (productoNegocio.ListarPorCodigo(textCodigo.Text) == false)
+                if (productoNegocio.ListarPorCodigo(tCodigo.Text) == false)
                 {
-                    lblOutput.Text = "Funcionaría en principio";
                    
                     Producto producto = new Producto();
-                    producto.Codigo = textCodigo.Text;
-                    producto.NombreProducto = textNombre.Text;
-                    producto.precioCompra = Convert.ToDecimal(textPrecioCompra.Text);
-                    producto.Stock = Convert.ToInt32(textStock.Text);
-                    producto.Ganancia = Convert.ToInt16(textGanancia.Text);
-                    producto.precioVenta = Convert.ToDecimal(textPrecioVenta.Text);
-                    producto.Descripcion = textDesc.Text;
+                    producto.Codigo = tCodigo.Text;
+                    producto.NombreProducto = tNombre.Text;
+                    producto.precioCompra = Convert.ToDecimal(tPrecioCompra.Text);
+                    producto.Stock = Convert.ToInt32(tStock.Text);
+                    producto.Ganancia = Convert.ToInt16(tGanancia.Text);
+                    producto.precioVenta = Convert.ToDecimal(tPrecioVenta.Text);
+                    producto.Descripcion = tDesc.Text;
                     
                     producto.marca = new Marca();
                     producto.marca.IdMarca = int.Parse(DDLMarca.SelectedItem.Value);
@@ -80,7 +79,6 @@ namespace TPC_Campostano_Ciccarelli
                 }
                 else
                 {
-                    lblOutput.Text = " El codigo de producto ya existe";
                     return;
                 }               
             }
@@ -89,17 +87,7 @@ namespace TPC_Campostano_Ciccarelli
         /// VER SI REALIZA LO NECESARIO SINO SACAR
         protected void DDLMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-             
-
-
         }
 
-        protected void BtnGuardarMarca_Click(object sender, EventArgs e)
-        {   
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            Session.Add("marcaAgregada", textAgregarMarca.Text);
-            marcaNegocio.agregarMarca("marcaAgregada");
-
-        }
     }
 }

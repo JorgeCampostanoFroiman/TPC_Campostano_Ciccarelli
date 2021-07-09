@@ -19,6 +19,22 @@ namespace TPC_Campostano_Ciccarelli
             {
                 lista = negocio.Listar();
                 Session.Add("ListaProductos", lista);
+
+                if (Request.QueryString["Id"] != null)
+                {
+                    lista = (List<Producto>)Session["productos"];
+                    if (lista == null)
+                        lista = new List<Producto>();
+                }
+
+
+                lista = negocio.Listar();
+                if (Request.QueryString["c"] == "d")
+                {
+                    Producto equis = lista.Find(x => x.IdProducto.ToString() == Request.QueryString["id"]);
+                    negocio.eliminar(equis.IdProducto);
+                }
+                lista = negocio.Listar();
             }
             catch (Exception ex)
             {

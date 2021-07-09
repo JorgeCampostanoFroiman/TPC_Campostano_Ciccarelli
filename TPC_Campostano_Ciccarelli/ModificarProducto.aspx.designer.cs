@@ -15,6 +15,15 @@ namespace TPC_Campostano_Ciccarelli
     {
 
         /// <summary>
+        /// Control label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label1;
+
+        /// <summary>
         /// Control RFV1.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarCodigo;
+
+        /// <summary>
+        /// Control label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label2;
 
         /// <summary>
         /// Control RequiredFieldValidator1.
@@ -87,6 +105,15 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
+        /// Control label3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label3;
+
+        /// <summary>
         /// Control RequiredFieldValidator2.
         /// </summary>
         /// <remarks>
@@ -105,13 +132,13 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.TextBox textPrecioCompra;
 
         /// <summary>
-        /// Control label1.
+        /// Control labelPrecioCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label1;
+        protected global::System.Web.UI.WebControls.Label labelPrecioCompra;
 
         /// <summary>
         /// Control RegularExpressionValidator2.
@@ -121,6 +148,15 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+        /// <summary>
+        /// Control label4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label4;
 
         /// <summary>
         /// Control RequiredFieldValidator3.
@@ -141,13 +177,13 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.TextBox textStock;
 
         /// <summary>
-        /// Control label2.
+        /// Control labelStock.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
+        protected global::System.Web.UI.WebControls.Label labelStock;
 
         /// <summary>
         /// Control RegularExpressionValidator3.
@@ -157,6 +193,15 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+
+        /// <summary>
+        /// Control label5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label5;
 
         /// <summary>
         /// Control RequiredFieldValidator4.
@@ -177,13 +222,13 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.TextBox textGanancia;
 
         /// <summary>
-        /// Control label3.
+        /// Control labelGanancia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label3;
+        protected global::System.Web.UI.WebControls.Label labelGanancia;
 
         /// <summary>
         /// Control RegularExpressionValidator4.
@@ -195,6 +240,15 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
 
         /// <summary>
+        /// Control label7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label7;
+
+        /// <summary>
         /// Control textPrecioVenta.
         /// </summary>
         /// <remarks>
@@ -204,13 +258,22 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.TextBox textPrecioVenta;
 
         /// <summary>
-        /// Control label5.
+        /// Control labelPrecioVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label5;
+        protected global::System.Web.UI.WebControls.Label labelPrecioVenta;
+
+        /// <summary>
+        /// Control label8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label8;
 
         /// <summary>
         /// Control RequiredFieldValidator5.
@@ -231,13 +294,13 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.TextBox textDesc;
 
         /// <summary>
-        /// Control label4.
+        /// Control labelDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label4;
+        protected global::System.Web.UI.WebControls.Label labelDesc;
 
         /// <summary>
         /// Control RegularExpressionValidator5.
@@ -249,6 +312,15 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
 
         /// <summary>
+        /// Control label9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label9;
+
+        /// <summary>
         /// Control DDLMarca.
         /// </summary>
         /// <remarks>
@@ -256,6 +328,24 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLMarca;
+
+        /// <summary>
+        /// Control labelMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelMarca;
+
+        /// <summary>
+        /// Control label10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label10;
 
         /// <summary>
         /// Control DDLTipo.
@@ -267,6 +357,24 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.DropDownList DDLTipo;
 
         /// <summary>
+        /// Control labelTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelTipo;
+
+        /// <summary>
+        /// Control label11.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label11;
+
+        /// <summary>
         /// Control DDLProveedor.
         /// </summary>
         /// <remarks>
@@ -276,6 +384,15 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.DropDownList DDLProveedor;
 
         /// <summary>
+        /// Control labelProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelProveedor;
+
+        /// <summary>
         /// Control BotonAceptar.
         /// </summary>
         /// <remarks>
@@ -283,14 +400,5 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BotonAceptar;
-
-        /// <summary>
-        /// Control lblOutput.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOutput;
     }
 }

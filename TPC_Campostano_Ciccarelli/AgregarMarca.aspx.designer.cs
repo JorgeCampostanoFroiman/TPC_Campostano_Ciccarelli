@@ -15,21 +15,21 @@ namespace TPC_Campostano_Ciccarelli
     {
 
         /// <summary>
-        /// Control modificarMarca.
+        /// Control txtAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button modificarMarca;
+        protected global::System.Web.UI.WebControls.TextBox txtAgregar;
 
         /// <summary>
-        /// Control eliminarMarca.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button eliminarMarca;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
     }
 }

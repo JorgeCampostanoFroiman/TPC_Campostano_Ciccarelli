@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AgregarMarca.aspx" />
+    <Content Include="AgregarProveedor.aspx" />
     <Content Include="AgregarTipo.aspx" />
     <Content Include="Compras.aspx" />
     <Content Include="DetalleCompra.aspx" />
@@ -114,7 +115,9 @@
     <Content Include="DetalleVenta.aspx" />
     <Content Include="Estilos\agregarMarca.css" />
     <Content Include="Ingreso.aspx" />
+    <Content Include="ModificarMarca.aspx" />
     <Content Include="ModificarProducto.aspx" />
+    <Content Include="ModifProveedor.aspx" />
     <Content Include="NuestrosProductos.aspx" />
     <Content Include="RegistrarCompra.aspx" />
     <Content Include="RegistrarProducto.aspx" />
@@ -185,6 +188,13 @@
     <Compile Include="AgregarMarca.aspx.designer.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarProveedor.aspx.cs">
+      <DependentUpon>AgregarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarProveedor.aspx.designer.cs">
+      <DependentUpon>AgregarProveedor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarTipo.aspx.cs">
       <DependentUpon>AgregarTipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,12 +246,26 @@
     <Compile Include="Ingreso.aspx.designer.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModificarMarca.aspx.cs">
+      <DependentUpon>ModificarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarMarca.aspx.designer.cs">
+      <DependentUpon>ModificarMarca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificarProducto.aspx.cs">
       <DependentUpon>ModificarProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ModificarProducto.aspx.designer.cs">
       <DependentUpon>ModificarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifProveedor.aspx.cs">
+      <DependentUpon>ModifProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifProveedor.aspx.designer.cs">
+      <DependentUpon>ModifProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuestrosProductos.aspx.cs">
       <DependentUpon>NuestrosProductos.aspx</DependentUpon>
