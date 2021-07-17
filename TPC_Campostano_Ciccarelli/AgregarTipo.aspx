@@ -7,7 +7,7 @@
         <asp:Button runat="server" ID="btnAgregar" OnClick="btnAgregar_Click" Text="Agregar tipo"/>
       </div>
 
-    <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
+    <table class="table table-striped mt-5" style="background-color:#b6d1d4;text-align:center  ">
   <thead class="thead-dark">
      
     <tr>

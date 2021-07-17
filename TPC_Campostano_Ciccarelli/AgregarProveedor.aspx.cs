@@ -58,5 +58,7 @@ namespace TPC_Campostano_Ciccarelli
 
             proveedorNegocio.AgregarProveedor(nuevo);
         }
+
+        
     }
 }

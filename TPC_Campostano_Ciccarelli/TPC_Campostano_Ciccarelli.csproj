@@ -121,6 +121,7 @@
     <Content Include="NuestrosProductos.aspx" />
     <Content Include="RegistrarCompra.aspx" />
     <Content Include="RegistrarProducto.aspx" />
+    <Content Include="RegistrarProveedor.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="RegistrarVenta.aspx" />
     <Content Include="Ventas.aspx" />
@@ -287,6 +288,13 @@
     </Compile>
     <Compile Include="RegistrarProducto.aspx.designer.cs">
       <DependentUpon>RegistrarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProveedor.aspx.cs">
+      <DependentUpon>RegistrarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarProveedor.aspx.designer.cs">
+      <DependentUpon>RegistrarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registrarse.aspx.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
