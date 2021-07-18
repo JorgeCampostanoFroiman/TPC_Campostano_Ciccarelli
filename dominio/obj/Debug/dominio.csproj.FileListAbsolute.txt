@@ -40,3 +40,9 @@ C:\Users\Diego Ciccarelli\Desktop\Gitclonado Miercoles 2130\TPC_Campostano_Cicca
 C:\Users\Diego Ciccarelli\Desktop\Gitclonado Miercoles 2130\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\Diego Ciccarelli\Desktop\Gitclonado Miercoles 2130\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.dll
 C:\Users\Diego Ciccarelli\Desktop\Gitclonado Miercoles 2130\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.pdb
+C:\Users\jcamp\Desktop\7 7 TPC\TPC_Campostano_Ciccarelli\dominio\bin\Debug\dominio.dll
+C:\Users\jcamp\Desktop\7 7 TPC\TPC_Campostano_Ciccarelli\dominio\bin\Debug\dominio.pdb
+C:\Users\jcamp\Desktop\7 7 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csprojAssemblyReference.cache
+C:\Users\jcamp\Desktop\7 7 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\jcamp\Desktop\7 7 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.dll
+C:\Users\jcamp\Desktop\7 7 TPC\TPC_Campostano_Ciccarelli\dominio\obj\Debug\dominio.pdb

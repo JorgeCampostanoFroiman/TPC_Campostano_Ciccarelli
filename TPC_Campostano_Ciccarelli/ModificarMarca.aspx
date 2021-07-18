@@ -1,12 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarMarca.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.ModificarMarca" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="nombre">
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="TxtMarca"></asp:RequiredFieldValidator>
-    <asp:Label runat="server" ID="labelNombre"> Nuevo nombre de la marca:  </asp:Label>
-    <asp:TextBox runat="server" ID="TxtMarca" ></asp:TextBox>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[a-zA-Z -]+" ControlToValidate="TxtMarca" ErrorMessage="Solo letras"></asp:RegularExpressionValidator>
-    </div>
-    <asp:Button runat="server" ID="btnMarca" OnClick="btnMarca_Click"/>
+    
+    <link href="Estilos/login.css" rel="stylesheet" type="text/css" />
+
+<body class="main-bg">
+        <div class="login-container text-c animated flipInX">
+                                  
+                <asp:Label runat="server" ID="tituloMarca"></asp:Label>
+                    
+                <div class="container-content">
+                    <form class="margin-t">
+                        <div class="form-group" style="text-align:justify">
+                            
+                            
+                         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="TxtMarca"></asp:RequiredFieldValidator>
+                         <asp:TextBox runat="server" class="form-control" ID="TxtMarca" placeholder="Nombre nuevo"></asp:TextBox>
+                         <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ValidationExpression="[a-zA-Z -]+" ControlToValidate="TxtMarca" ErrorMessage="Solo letras"></asp:RegularExpressionValidator>
+                         </div>
+                    
+                        
+                        <asp:Button runat="server" Text="Aceptar" class="btn btn-dark btn-sm" ID="btnMarca" OnClick="btnMarca_Click"/>
+                       
+                    </form>
+                    <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
+                </div>
+            </div>
+    </body>
+    
+    
+    
+    
 
     
 </asp:Content>

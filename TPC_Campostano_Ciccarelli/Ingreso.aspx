@@ -8,17 +8,17 @@
                     <p class="text-black">Ingreso de usuarios</p>
                 <div class="container-content">
                     <form class="margin-t">
-                        <div class="form-group">
-                            <input style="text-align:center" type="text" class="form-control"  placeholder="Usuario" required="">
+                        <div class="form-group" style="text-align:center">
+                            
+                        <asp:TextBox runat="server" placeholder="E-mail" ID="textMail" class="form-control"></asp:TextBox>
+                        
+                        <asp:TextBox runat="server" placeholder="*****" ID="textContraseña" class="form-control"></asp:TextBox>
+             
                         </div>
-                        <div class="form-group">
-                            <input style="text-align:center" type="password" class="form-control" placeholder="*****" required="">
-                        </div>
-                        <button type="submit" class="form-button button-l margin-b">Ingresar</button>
+                        <asp:Button runat="server" class="btn btn-dark btn-sm" id="btnIngreso" OnClick="btnIngreso_Click" Text="Ingresar"/>
         
-                        <a class="text-darkyellow" href="#"><small>¿Olvidaste tu contraseña?</small></a>
-                        <p class="text-whitesmoke text-center"><small>¿No tenés una cuenta?</small></p>
-                        <a class="text-darkyellow" href="Registrarse.aspx""><small>Registrarse!</small></a>
+                        <a class="btn btn-dark btn-sm" href="#">¿Olvidaste tu contraseña?</a>
+                        <a class="btn btn-dark btn-sm" href="Registrarse.aspx"">Registrarse!</a>
                     </form>
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
                 </div>

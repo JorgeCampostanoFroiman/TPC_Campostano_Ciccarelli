@@ -1,45 +1,64 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifProveedor.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.ModifProveedor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="Razon Social">
-        <asp:Label runat="server" > Razon Social</asp:Label>
-        <asp:RequiredFieldValidator runat="server" ID="RFV1" ErrorMessage="Required" ControlToValidate="textoRazonSocial" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
-        <asp:TextBox runat="server" ID="textoRazonSocial" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-        <asp:Label runat="server" ID="labelioRazonSocial"> Razon social </asp:Label>
-        <asp:RegularExpressionValidator runat="server" ID="ValidarCodigo" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textoRazonSocial" ErrorMessage="Solo letras y números"></asp:RegularExpressionValidator>
-        </div>
-        
-        <div id="Cuit">
-        <asp:Label runat="server" > Cuit</asp:Label>
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="textoCuit" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
-        <asp:TextBox runat="server" ID="textoCuit" MaxLength="12" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-        <asp:Label runat="server" ID="labelioCuit"> Cuit </asp:Label>
-        <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[0-9]+" ControlToValidate="textoCuit" ErrorMessage="Solo números"></asp:RegularExpressionValidator>
-        </div>
-        
-        <div id="domicilio">
-        <asp:Label runat="server" > Domicilio</asp:Label>
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="textoDomicilio" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
-        <asp:TextBox runat="server" ID="textoDomicilio" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-        <asp:Label runat="server" ID="labelioDomicilio"> Domicilio </asp:Label>
-        <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textoDomicilio" ErrorMessage="Solo letras y números"></asp:RegularExpressionValidator>
-        </div>
+   
+     <link href="Estilos/login.css" rel="stylesheet" type="text/css" />
 
-        <div id="telefono">
-        <asp:Label runat="server" > Telefonol</asp:Label>
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="textoTelefono" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
-        <asp:TextBox runat="server" ID="textoTelefono" MaxLength="12" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-        <asp:Label runat="server" ID="labelioTelefono"> Telefono </asp:Label>
-        <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="textoTelefono" ErrorMessage="Solo números"></asp:RegularExpressionValidator>
-        </div>
+<body class="main-bg">
+        <div class="login-container text-c animated flipInX">
+                                  
+                <asp:Label runat="server" ID="tituloProveedor"></asp:Label>
+                    
+                <div class="container-content">
+                    <form class="margin-t">
+                        <div class="form-group">
+
+                       
+            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="Requerido" ControlToValidate="textoRazonSocial" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+        <asp:TextBox class="form-control" placeholder="Razon Social" runat="server" ID="textoRazonSocial" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
+        
+                     
+                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator6" ErrorMessage="Requerido" ControlToValidate="textoCuit" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+        <asp:TextBox runat="server" class="form-control"  placeholder="Cuit" ID="textoCuit" MaxLength="12" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
        
-        <div id="Email">
-        <asp:Label runat="server" > Email</asp:Label>
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="Required" ControlToValidate="textoEmail" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
-        <asp:TextBox runat="server" ID="textoEmail" MaxLength="120" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-        <asp:Label runat="server" ID="labelioEmail"> Email </asp:Label>
-        <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator4" ControlToValidate="textoEmail" ValidationExpression="[a-zA-Z0-9]+" ErrorMessage="Solo números"></asp:RegularExpressionValidator>
-        </div>
+                   
+             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator7" ErrorMessage="Requerido" ControlToValidate="textoDomicilio" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+        <asp:TextBox runat="server" class="form-control"  placeholder="Domicilio" ID="textoDomicilio" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
+       
+                   
+             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator8" ErrorMessage="Requerido" ControlToValidate="textoTelefono" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+        <asp:TextBox runat="server" class="form-control"  placeholder="Telefono"  ID="textoTelefono" MaxLength="12" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
         
+              
+              <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator9" ErrorMessage="Requerido" ControlToValidate="textoEmail" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+        <asp:TextBox runat="server" class="form-control"  placeholder="Email" ID="textoEmail" MaxLength="120" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
+       
+                 
+                       <asp:Button runat="server" ID="btnModifProv"  class="btn btn-dark btn-sm" OnClick="btnModifProv_Click" Text="Modificar Proveedor"/>
+                       
+                    </form>
+                    <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
+                </div>
+            </div>
 
-        <asp:Button runat="server" ID="btnModifProv" OnClick="btnModifProv_Click" Text="Modificar Proveedor"/>
+    <div style="text-align:center">
+        <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator5" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textoRazonSocial" ErrorMessage="La razon social solo puede contener letras y numeros"></asp:RegularExpressionValidator>     </div>
+        <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator6" ValidationExpression="[0-9]+" ControlToValidate="textoCuit" ErrorMessage="El cuit solo puede contener numeros"></asp:RegularExpressionValidator></div>
+        <div> <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator7" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textoDomicilio" ErrorMessage="El domicilio solo puede tener letras y numeros"></asp:RegularExpressionValidator></div>
+        <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator8" ValidationExpression="[0-9]+" ControlToValidate="textoTelefono" ErrorMessage="El telefono solo puede contener numeros" ></asp:RegularExpressionValidator></div>
+        <div> <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator9" ControlToValidate="textoEmail" ValidationExpression="[a-zA-Z0-9]+" ErrorMessage="El mail no es valido"></asp:RegularExpressionValidator></div>
+
+
+
+    </div>
+    
+
+
+
+    </body>
+    
+    
+    
+    
+    
+        
 </asp:Content>
