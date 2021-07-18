@@ -47,18 +47,7 @@ namespace TPC_Campostano_Ciccarelli
             }
         }
 
-        protected void btnAgregarProv_Click(object sender, EventArgs e)
-        {
-            Proveedor nuevo = new Proveedor();
-            nuevo.RazonSocialProveedor = textRazonSocial.Text;
-            nuevo.Email = txtEmail.Text;
-            nuevo.CuitProveedor = txtCuit.Text;
-            nuevo.Domicilio = txtDomicilio.Text;
-            nuevo.Telefono = txtTelefono.Text;
-
-            proveedorNegocio.AgregarProveedor(nuevo);
-        }
-
+       
         
     }
 }

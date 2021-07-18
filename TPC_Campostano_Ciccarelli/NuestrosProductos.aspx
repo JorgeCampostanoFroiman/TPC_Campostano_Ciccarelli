@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div style="margin-top:50px;text-align:center">
       <h1>NUESTROS PRODUCTOS      </h1> 
-         <a href="RegistrarProducto.aspx" class="btn btn-primary">Agregar Producto</a>
+         <a href="RegistrarProducto.aspx" class="btn btn-dark btn-sm">Agregar Producto</a>
       </div>
     <div style="text-align:center;margin-top:25px">
    <asp:TextBox runat="server"></asp:TextBox>
-    <asp:Button runat="server" class="btn btn-primary" Text="Buscar" />
+    <asp:Button runat="server" class="btn btn-dark btn-sm" Text="Buscar" />
      </div>
     <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
   <thead class="thead-dark">
@@ -22,8 +22,6 @@
       <th scope="col">Dar de baja</th>
       <th scope="col">Detalle</th>
        
-        
-
     </tr>
   </thead>
   <tbody>
@@ -36,9 +34,9 @@
       <td><% = item.tipo.Nombre %></td>
       <td><% = item.precioCompra %></td> 
       <td><% = item.precioVenta %></td>
-      <td><a href="ModificarProducto.aspx?id=<% = item.IdProducto%>" class="btn btn-primary" role="button">Modificar</a></td>
-      <td><a href="NuestrosProductos.aspx?id=<% = item.IdProducto%>&c=d" style="background-color:red" class="btn btn-primary">Eliminar</a>
-      <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-primary">Ver Detalle</a></td>
+      <td><a href="ModificarProducto.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm" role="button">Modificar</a></td>
+      <td><a href="NuestrosProductos.aspx?id=<% = item.IdProducto%>&c=d" style="background-color:red" class="btn btn-danger btn-sm">Eliminar</a>
+      <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm">Ver Detalle</a></td>
     </tr>
        <% } %>
       </tbody>

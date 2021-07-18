@@ -15,17 +15,20 @@ namespace TPC_Campostano_Ciccarelli
         MarcaNegocio marcaNegocio = new MarcaNegocio();
 
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+                
             try
             {
                 if (Request.QueryString["Id"] != null)
                 {
                     listaMarcas = marcaNegocio.Listar();
                     Marca seleccionado = listaMarcas.Find(x => x.IdMarca.ToString() == Request.QueryString["id"]);
+                    tituloMarca.Text = "Nombre anterior: ( " + seleccionado.Nombre + " )" ;
+
                 }
+
+                
             }
             catch (Exception ex)
             {

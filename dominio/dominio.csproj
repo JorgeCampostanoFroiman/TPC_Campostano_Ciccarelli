@@ -51,7 +51,6 @@
     <Compile Include="Proveedor.cs" />
     <Compile Include="Tipo.cs" />
     <Compile Include="TipoFactura.cs" />
-    <Compile Include="TipoUsuario.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>

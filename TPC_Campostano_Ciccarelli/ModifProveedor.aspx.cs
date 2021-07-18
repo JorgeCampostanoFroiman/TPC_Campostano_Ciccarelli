@@ -27,13 +27,8 @@ namespace TPC_Campostano_Ciccarelli
                     int id = int.Parse(Request.QueryString["id"]);
                     List<Proveedor> listado = proveedorNegocio.Listar();
                     Proveedor seleccionado = listado.Find(x => x.IdProveedor == id);
-
-                    labelioRazonSocial.Text = seleccionado.RazonSocialProveedor;
-                    labelioCuit.Text = seleccionado.CuitProveedor;
-                    labelioDomicilio.Text = seleccionado.Domicilio;
-                    labelioEmail.Text = seleccionado.Email;
-                    labelioTelefono.Text = seleccionado.Telefono;
-
+                    tituloProveedor.Text = "Nombre anterior : (" + seleccionado.RazonSocialProveedor + ")" ;
+                    
 
                 }
             }
