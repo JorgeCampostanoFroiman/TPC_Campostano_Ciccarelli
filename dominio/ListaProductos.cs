@@ -9,21 +9,27 @@ namespace dominio
     public class ListaProductos
     {
         public int IdListaProductos { get; set; }
-        public Producto producto { get; set; }
+     
         public int Cantidad { get; set; }
+        public Producto ItemArt { get; set; }
         public decimal Subtotal { get; set; }
-        public bool Transaccion { get; set; }
-        public int IdNumeroDeProducto { get; set; } //Era Proveedor. Lo cambiamos para que sea un ID para cada producto, falta cambiarlo en la DB.
-
-        public ListaProductos(int id, Producto product, int cant, decimal st, bool transaccion, int idproducto)
+        public int IdNumeroDeCompra { get; set; }
+        public int IdNumeroDeVenta { get; set; }
+        public ListaProductos(int id, Producto product, int cant, decimal st, bool transaccion, int idproducto, int numerocompra)
         {
             IdListaProductos = id;
-            producto = product;
+            ItemArt = product;
             Cantidad = cant;
             Subtotal = st;
-            Transaccion = transaccion;
-            IdNumeroDeProducto = idproducto;
+            IdNumeroDeCompra = numerocompra;
         }
+        public ListaProductos(int idcompra)
+        {
+            IdNumeroDeCompra = idcompra;
+        }
+
+        public ListaProductos() { }
+
 
     }
 }

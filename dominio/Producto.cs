@@ -20,5 +20,16 @@ namespace dominio
         public string Descripcion { get; set; }
         public Proveedor proveedor { get; set; }
         public string imagenUrl { get; set; }
+
+        public Producto(int id)
+        {
+            IdProducto = id;
+        }
+
+        public Producto()
+        {
+
+        }
     }
+}
 }

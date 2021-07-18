@@ -17,7 +17,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT V.IdVenta, C.RazonSocial, TF.Nombre AS TipoFactura, LP.IdListaProductos, V.Fecha, V.Importe, MP.Nombre AS MetodoPago, U.Nombre AS Usuario, U.Apellido FROM Venta as V, Usuario as U, MetodoPago as MP, Cliente as C, TipoFactura as TF, ListaProductos AS LP WHERE C.IdCliente = V.IdCliente AND TF.IdTipoFactura = V.TipoFactura AND LP.IdListaProductos = V.IdListaProductos AND MP.IdMetodoPago = V.MetodoPago AND U.IdUsuario = V.IdUsuario");
+                datos.setearConsulta("SELECT V.IdVenta, C.RazonSocial, TF.Nombre AS TipoFactura, V.Fecha, V.Importe, MP.Nombre AS MetodoPago, U.Nombre AS Usuario, U.Apellido FROM Venta as V, Usuario as U, MetodoPago as MP, Cliente as C, TipoFactura as TF WHERE C.IdCliente = V.IdCliente AND TF.IdTipoFactura = V.TipoFactura AND MP.IdMetodoPago = V.MetodoPago AND U.IdUsuario = V.IdUsuario");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
