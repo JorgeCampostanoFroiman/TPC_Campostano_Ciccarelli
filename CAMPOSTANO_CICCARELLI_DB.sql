@@ -97,9 +97,8 @@ IdListaProductos INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 IdProducto INT NOT NULL FOREIGN KEY REFERENCES Producto(IdProducto),
 Cantidad INT NOT NULL CHECK (Cantidad > 0),
 Subtotal MONEY NOT NULL CHECK (Subtotal >= 0),
-Transaccion BIT NOT NULL,  --0 seria compra, 1 venta
-IdProveedor int not null foreign key references Proveedor(IdProveedor)
-
+IdNumeroDeCompra int NULL,
+IdNumeroDeVenta int NULL
 )
 
 GO
@@ -109,7 +108,6 @@ IdProveedor INT NOT NULL FOREIGN KEY REFERENCES Proveedor(IdProveedor),
 Importe MONEY NOT NULL CHECK (Importe > 0),
 MetodoPago INT NOT NULL FOREIGN KEY REFERENCES MetodoPago(IdMetodoPago), 
 Fecha date null ,
-IdListaProductos INT NOT NULL FOREIGN KEY REFERENCES ListaProductos(IdListaProductos) 
 )
 
 GO
@@ -117,7 +115,6 @@ CREATE TABLE Venta (
 IdVenta INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 IdCliente INT NOT NULL FOREIGN KEY REFERENCES Cliente(IdCliente),
 TipoFactura INT NOT NULL FOREIGN KEY REFERENCES TipoFactura(IdTipoFactura), 
-IdListaProductos INT NOT NULL FOREIGN KEY REFERENCES ListaProductos(IdListaProductos), 
 Fecha date not null,
 Importe MONEY NOT NULL CHECK (Importe > 0),
 MetodoPago INT NOT NULL FOREIGN KEY REFERENCES MetodoPago(IdMetodoPago), 
@@ -192,98 +189,17 @@ INSERT INTO TipoFactura (Nombre) VALUES('Factura B')
 INSERT INTO TipoFactura (Nombre) VALUES('Factura C')
 INSERT INTO TipoFactura (Nombre) VALUES('Consumidor Final')
 
-INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, Transaccion, IdProveedor) VALUES(1, '20', '100000', '0', 1)
-INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, Transaccion, IdProveedor) VALUES(2, '20', '200000', '0', 2)
-INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, Transaccion, IdProveedor) VALUES(3, '20', '300000', '0', 3)
+INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, IdNumeroDeCompra, IdNumeroDeVenta) VALUES(1, '20', '100000', 1, null )
+INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, IdNumeroDeCompra, IdNumeroDeVenta) VALUES(2, '20', '200000', 2, null)
+INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, IdNumeroDeCompra, IdNumeroDeVenta) VALUES(3, '20', '300000', null, 1)
 
-INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha, IdListaProductos) VALUES(1, '50000', 4,'2021/03/20', 1)
-INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha, IdListaProductos) VALUES(3, '70000', 5,'2021/05/28', 1)
-INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha, IdListaProductos) VALUES(4, '40000', 1,'2021/07/11', 3)
-
-
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (1, 1, 1, '2021/05/11', '70000',1, 1)
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (3, 2, 2, '2021/04/15', '40000',2, 1)
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (4, 3, 3, '2021/03/20', '36000',3, 2)
-INSERT INTO Venta (IdCliente, TipoFactura, IdListaProductos, Fecha, Importe, MetodoPago, IdUsuario) VALUES (6, 4, 3, '2021/01/22', '50000',4, 3)
+INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha) VALUES(1, '50000', 4,'2021/03/20')
+INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha) VALUES(3, '70000', 5,'2021/05/28')
+INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha) VALUES(4, '40000', 1,'2021/07/11')
 
 
---IDEAS QUE FUERON SURGIENDO Y ANTIGUOS PLANTEOS
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (1, 1, '2021/05/11', '70000',1, 1)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (3, 2, '2021/04/15', '40000',2, 1)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (4, 3, '2021/03/20', '36000',3, 2)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (6, 4, '2021/01/22', '50000',4, 3)
 
-/*
-original
-GO
-CREATE TABLE Factura (
-IdFactura INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-IdCliente INT NOT NULL FOREIGN KEY REFERENCES Cliente(IdCliente),--ACA VA FOREN
-TipoFactura INT NOT NULL FOREIGN KEY REFERENCES TipoFactura(IdTipoFactura), --ACA VA FOREN
-IdListaProductos INT NOT NULL FOREIGN KEY REFERENCES ListaProductos(IdListaProductos), --ACA VA FOREN
-Fecha date not null,
-Importe MONEY NOT NULL CHECK (Importe > 0),
-MetodoPago INT NOT NULL FOREIGN KEY REFERENCES MetodoPago(IdMetodoPago), --ACA VA FOREN
-IdVenta INT NOT NULL FOREIGN KEY REFERENCES Venta(IdVenta)
-
-)
-*/
--- o sino guardar en base unicamente, quien lo vendio, num factura unidades? importe total?
-
----problema de si son varios productos
--- esto si o si se deberia guardar en la base
--- se podria guarda cantidad total y importe total en la base
-
---VER QUE ONDA XQ NOSE COMO GUARDARA VARIOS PRODUCTOS DE LA LISTA DE COMPRA
---deberia ser carrito mismo de la app y no guardar el carrito en la base
-
-/* sino para guardar la lista podria ser
-VER LO DEL PROBLEMA QUE HABRIA QUE ID LISTA PRODUCTO
-SEA IDENTITY. OSEA DEBERIA SER LA MISMA ID LISTA
-PERO QUE BUSQUE CON VARIOS PRODUCTOS DE LA ID VENTA
-DEBERIA TENER UNA COLUMNA PARA INGRESAR NUMERO VENTA? Y ASI IR GUARDANDO
-LOS REGISTROS? DE LOS ITEMs?
-Y SI SE GUARDA CON UN WHILE? Y UN FOR? MEDIO A LA FUERZA?
-ONDA QUE GUARDE ID LISTA PRODUCTO EN EL WHILE Y ESCRIBA SIEMPRE EL MISMO
-EN LA FILA HASTA QUE NO SE TERMINE X COSA DE LA CONDICION
-Y EN EL FOR HAGA EL UPDATE A LA BASE PRODUCTO Y CARACTERISTICA FILA POR FILA
-Y LUEGO PARA LA FACTURA BUSCAMOS LA IDLISTAPRODUCTOS Y TENEMOS TODAS LAS HILERAS*/
-
-/*
-
-create table ListaProductos(
-IdListaProductos INT NOT NULL PRIMARY KEY INDENTITY(1,1),
-IdProducto INT NOT NULL, -- ACA VA FOREN
-Cantidad INT NOT NULL CHECK (Cantidad > 0),
----Precio unitario ?
-Subtotal MONEY NOT NULL CHECK (Subtotal >= 0),
-IdVenta INT NOT NULL , --ACA VA FOREN
-
-)*/
-
--- CODIGO DE PRODUCTO SOLO ENTERO? LE AGREGO CODIGO? NO LO TIENE
--- SERIA UN VARCHAR?
-/*
-GO
-CREATE TABLE Venta (
-IdVenta INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-IdVendedor INT NOT NULL FOREIGN KEY REFERENCES Usuario(IdUsuario), --ACA VA FOREN  -- aca seria id de usuario que sea vendedor calculo o todos
-IdFactura --ACA VA FOREN
-IdCliente
-    
-)*/
-
-
---TipoUsuario podria ir? para ver cual de ambos son, si admin o vendedor
---en vez de una administrador y una vendedor, hacer una tabla tipo usuario
--- y ahi diferenciarlos?
--- o sera bit? y 0 es vende y 1 admin
--- hay que agregar estado?
-/*
-GO
-CREATE TABLE Administrador (
-IdAdministrador INT NOT NULL PRIMARY KEY IDENTITY(1,1), --ACA VA FOREN
-Estado BIT NOT NULL DEFAULT (1)
-)
-
-GO
-CREATE TABLE Vendedor (
-IdVendedor INT NOT NULL PRIMARY KEY IDENTITY(1,1),--ACA VA FOREN
-Estado BIT NOT NULL DEFAULT (1)
-)*/

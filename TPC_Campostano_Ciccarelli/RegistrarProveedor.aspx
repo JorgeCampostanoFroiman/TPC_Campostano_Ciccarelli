@@ -5,7 +5,7 @@
     <body class="main-bg">
         <div class="login-container text-c animated flipInX">
                                   
-                    <p class="text-black">Ingreso de usuarios</p>
+                    <p class="text-black">Registro de Proveedor</p>
                 <div class="container-content">
                     <form class="margin-t">
                         <div class="form-group">

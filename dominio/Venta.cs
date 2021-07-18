@@ -14,7 +14,6 @@ namespace dominio
         public decimal Importe { get; set; }
         public TipoFactura tipofactura { get; set; }
         public DateTime Fecha { get; set; }
-        public ListaProductos listaProductos { get; set; }
         public MetodoPago metodoPago { get; set; }
     }
 }

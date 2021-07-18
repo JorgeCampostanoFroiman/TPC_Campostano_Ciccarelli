@@ -52,6 +52,39 @@ namespace negocio
            
 
         }
+        public List<Producto> ListarProductoPorIdProveedor(int id)
+        {
+            List<Producto> listaProductoProveedor = new List<Producto>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT IdProducto, Codigo, NombreProducto From Producto Where IdProveedor = " + id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Producto aux = new Producto();
+                    aux.IdProducto = (int)datos.Lector["IdProducto"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.NombreProducto = (string)datos.Lector["NombreProducto"];
+
+                    listaProductoProveedor.Add(aux);
+                }
+
+                return listaProductoProveedor;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
+
+
         public List<Producto> ListarPorIdProveedor(int id)
         {
             List<Producto> listaProductoProveedor = new List<Producto>();
@@ -198,6 +231,8 @@ namespace negocio
                 datos = null;
             }
         }
+
+       
 
     }
 }

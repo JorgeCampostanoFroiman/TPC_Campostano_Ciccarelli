@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using dominio;
 using negocio;
 
@@ -14,16 +15,25 @@ namespace TPC_Campostano_Ciccarelli
         public List<Proveedor> listaP;
         public List<MetodoPago> listaMp;
         public List<Producto> listaproducto;
+        public List<ListaProductos> items;
+        ListaProductos iten;
+        public decimal total;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
-                try
-                {                                            
-                }
-                catch (Exception)
-                {
-                    Response.Redirect("Error.aspx");
-                }
+            try
+            {
+                items = (List<ListaProductos>)Session["items"];
+                if (items == null)
+                    items = new List<ListaProductos>();
+
+                iten = new ListaProductos();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("Error.aspx");
+            }
             
         }
 
@@ -37,8 +47,6 @@ namespace TPC_Campostano_Ciccarelli
         {
             try
             {
-
-                
                 if (Calendar1.Visible == true)
                 {
                     Calendar1.Visible = false;
@@ -46,7 +54,6 @@ namespace TPC_Campostano_Ciccarelli
                 else
                 {
                     Calendar1.Visible = true;
-
                 }
             }
             catch (Exception)
@@ -62,20 +69,16 @@ namespace TPC_Campostano_Ciccarelli
             ProductoNegocio productoNegocio = new ProductoNegocio();
 
             a = Int32.Parse(ListaProveedor.Text);
-            txt2.Text = ListaProveedor.Text;
+       
 
-            listaproducto = productoNegocio.ListarPorIdProveedor(a);
+            listaproducto = productoNegocio.ListarProductoPorIdProveedor(a);
             ListItem f;
             foreach (Producto item in listaproducto)
             {
-                f = new ListItem(item.Codigo.ToString(), item.IdProducto.ToString());
-                ListaProductoCompra.Items.Add(f);
-
+                f = new ListItem('(' +item.Codigo.ToString()+')' + ' '+ item.NombreProducto.ToString(), item.IdProducto.ToString()) ;
+                 ListaProductoCompra.Items.Add(f);
             }
         }
-
-        
-
         protected void txtFechaFactura_Init(object sender, EventArgs e)
         {
             txtFechaFactura.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -121,6 +124,77 @@ namespace TPC_Campostano_Ciccarelli
             {
                 Response.Redirect("Error.aspx");
             }
+        }
+
+        protected void AgregarProductoEnCompra_Click(object sender, EventArgs e)
+        {
+            ProductoNegocio negocio = new ProductoNegocio();
+            List<Producto> listaActual = negocio.Listar();
+            iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+            iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
+            iten.Subtotal = Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
+            items.Add(iten);
+            repetidor.DataSource = items;
+            repetidor.DataBind();
+            Session.Add("items", items);
+
+            foreach (ListaProductos item in items)
+            {
+                total += item.Subtotal;
+            }
+            Session.Add("totalcompra", total);
+        }
+
+        protected void GuardarCompra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                CompraNegocio negocio = new CompraNegocio();
+                ListaProductosNegocio listaproducto = new ListaProductosNegocio();
+                Compra compra = new Compra();
+                decimal totalcompras;
+
+                // se trae los datos de total y los items
+
+                 totalcompras = (decimal)Session["totalcompra"];
+
+                ///se agrega la compra
+                 compra.proveedor = new Proveedor();
+                 compra.proveedor.IdProveedor = int.Parse(ListaProveedor.SelectedItem.Value);
+                 compra.Importe = totalcompras;
+                 compra.metodoPago = new MetodoPago();
+                 compra.metodoPago.IdMetodoPago = int.Parse(ListaMetodo.SelectedItem.Value);
+
+                //cambio de formato de fecha para que sea valida en la base de datos
+
+                /*DateTime FechaCalendario = Convert.ToDateTime(txtFechaFactura.Text);
+                 String FechaCalendarioString = FechaCalendario.ToString("yyyy-MM-dd");
+                 compra.Fecha = Convert.ToDateTime(FechaCalendarioString);*/
+
+
+                compra.Fecha = Convert.ToDateTime(Calendar1.SelectedDate.ToString("yyyy/MM/dd"));
+
+
+
+                negocio.AgregarCompra(compra);
+                // fin de agregar compra
+
+                //agrega lista de productos
+                int ultimonumeroCompra;
+                List<ListaProductos> itemsCompra = (List<ListaProductos>)Session["items"];
+                ultimonumeroCompra = negocio.NumeroCompra();
+                ultimonumeroCompra += 1;
+                listaproducto.AgregarListaCompra(itemsCompra, ultimonumeroCompra);
+            }
+            catch(Exception)
+            {
+                Response.Redirect("Error.aspx");
+            }
+            
+            
+            
+
         }
     }
 }

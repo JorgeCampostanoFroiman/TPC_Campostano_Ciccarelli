@@ -32,6 +32,6 @@ namespace dominio
         {
             return Nombre;
         }
-
+        public MetodoPago() { }
     }
 }

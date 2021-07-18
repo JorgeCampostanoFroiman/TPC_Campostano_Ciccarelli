@@ -13,8 +13,10 @@ namespace dominio
         public decimal Importe { get; set; }
         public MetodoPago metodoPago { get; set; }
         public DateTime Fecha { get; set; }
-        public ListaProductos listaProductos { get; set; }
 
+        /*
+        public ListaProductos listaProductos { get; set; }
+        */
        
 
     }
