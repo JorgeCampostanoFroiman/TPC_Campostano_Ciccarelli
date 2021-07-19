@@ -107,7 +107,7 @@ IdCompra INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 IdProveedor INT NOT NULL FOREIGN KEY REFERENCES Proveedor(IdProveedor), 
 Importe MONEY NOT NULL CHECK (Importe > 0),
 MetodoPago INT NOT NULL FOREIGN KEY REFERENCES MetodoPago(IdMetodoPago), 
-FechaCompra VARCHAR(12) null
+Fecha VARCHAR(12) null
 )
 
 GO
@@ -115,7 +115,7 @@ CREATE TABLE Venta (
 IdVenta INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 IdCliente INT NOT NULL FOREIGN KEY REFERENCES Cliente(IdCliente),
 TipoFactura INT NOT NULL FOREIGN KEY REFERENCES TipoFactura(IdTipoFactura), 
-FechaVenta VARCHAR(12) null,
+Fecha VARCHAR(12) null,
 Importe MONEY NOT NULL CHECK (Importe > 0),
 MetodoPago INT NOT NULL FOREIGN KEY REFERENCES MetodoPago(IdMetodoPago), 
 IdUsuario INT NOT NULL FOREIGN KEY REFERENCES Usuario(IdUsuario)
@@ -193,13 +193,14 @@ INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, IdNumeroDeCompra, Id
 INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, IdNumeroDeCompra, IdNumeroDeVenta) VALUES(2, '20', '200000', 2, null)
 INSERT INTO ListaProductos (IdProducto, Cantidad, Subtotal, IdNumeroDeCompra, IdNumeroDeVenta) VALUES(3, '20', '300000', null, 1)
 
-INSERT INTO Compra (IdProveedor, Importe, MetodoPago, FechaCompra) VALUES(1, '50000', 4,'2021/03/20')
-INSERT INTO Compra (IdProveedor, Importe, MetodoPago, FechaCompra) VALUES(3, '70000', 5,'2021/05/28')
-INSERT INTO Compra (IdProveedor, Importe, MetodoPago, FechaCompra) VALUES(4, '40000', 1,'2021/07/11')
+INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha) VALUES(1, '50000', 4,'2021/03/20')
+INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha) VALUES(3, '70000', 5,'2021/05/28')
+INSERT INTO Compra (IdProveedor, Importe, MetodoPago, Fecha) VALUES(4, '40000', 1,'2021/07/11')
 
 
-INSERT INTO Venta (IdCliente, TipoFactura, FechaVenta, Importe, MetodoPago, IdUsuario) VALUES (1, 1, '2021/05/11', '70000',1, 1)
-INSERT INTO Venta (IdCliente, TipoFactura, FechaVenta, Importe, MetodoPago, IdUsuario) VALUES (3, 2, '2021/04/15', '40000',2, 1)
-INSERT INTO Venta (IdCliente, TipoFactura, FechaVenta, Importe, MetodoPago, IdUsuario) VALUES (4, 3, '2021/03/20', '36000',3, 2)
-INSERT INTO Venta (IdCliente, TipoFactura, FechaVenta, Importe, MetodoPago, IdUsuario) VALUES (6, 4, '2021/01/22', '50000',4, 3)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (1, 1, '2021/05/11', '70000',1, 1)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (3, 2, '2021/04/15', '40000',2, 1)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (4, 3, '2021/03/20', '36000',3, 2)
+INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (6, 4, '2021/01/22', '50000',4, 3)
 
+SELECT * FROM Compra

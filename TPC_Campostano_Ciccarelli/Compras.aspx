@@ -26,7 +26,7 @@
             {%>
       <tr>
       <th scope="row"><% = item.IdCompra %></th>
-      <td><% = item.Fecha.Date.ToString("dd-MM-yyyy") %></td>
+      <td><% = item.Fecha %></td>
       <td><% = item.proveedor.RazonSocialProveedor %></td>
       <td><% = item.metodoPago.Nombre %></td>
       <td><% = item.Importe %></td>

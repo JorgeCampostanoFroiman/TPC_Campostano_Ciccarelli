@@ -23,7 +23,7 @@ namespace TPC_Campostano_Ciccarelli
                 Compra seleccionado = listado.Find(x => x.IdCompra == id);
 
                 labelIdCompra.Text = "Id compra: " + seleccionado.IdCompra;
-                labelFecha.Text = "Fecha: " + seleccionado.Fecha.Date.ToString("dd-MM-yyyy");
+                labelFecha.Text = "Fecha: " + seleccionado.Fecha;
                 labelImporte.Text = "Importe: " + seleccionado.Importe;
                 labelProveedor.Text = "Proveedor: " + Convert.ToString(seleccionado.proveedor);
                 labelMetodoPago.Text = "Metodo de pago: " + Convert.ToString(seleccionado.metodoPago);

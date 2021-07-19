@@ -12,7 +12,7 @@ namespace dominio
         public Proveedor proveedor { get; set; }
         public decimal Importe { get; set; }
         public MetodoPago metodoPago { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Fecha { get; set; }
      
 
        

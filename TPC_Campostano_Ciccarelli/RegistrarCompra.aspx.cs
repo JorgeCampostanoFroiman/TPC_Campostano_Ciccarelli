@@ -19,7 +19,6 @@ namespace TPC_Campostano_Ciccarelli
         public decimal total;
         protected void Page_Load(object sender, EventArgs e)
         {
-
                 try
                 {
                 items = (List<ListaProductos>)Session["items"];
@@ -31,8 +30,7 @@ namespace TPC_Campostano_Ciccarelli
                 catch (Exception)
                 {
                     Response.Redirect("Error.aspx");
-                }
-            
+                }      
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace TPC_Campostano_Ciccarelli
             txtFechaFactura.Text = Calendar1.SelectedDate.ToShortDateString();
 
             DateTime FechaCalendario = Convert.ToDateTime(txtFechaFactura.Text);
-            String FechaCalendarioString = FechaCalendario.ToString("yyyy-MM-dd");
+            String FechaCalendarioString = FechaCalendario.ToString("dd-MM-yyyy");
             txtFechaFactura.Text = FechaCalendarioString;
 
         }
@@ -49,8 +47,6 @@ namespace TPC_Campostano_Ciccarelli
         {
             try
             {
-
-                
                 if (Calendar1.Visible == true)
                 {
                     Calendar1.Visible = false;
@@ -58,7 +54,6 @@ namespace TPC_Campostano_Ciccarelli
                 else
                 {
                     Calendar1.Visible = true;
-
                 }
             }
             catch (Exception)
@@ -89,7 +84,7 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void txtFechaFactura_Init(object sender, EventArgs e)
         {
-            txtFechaFactura.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            txtFechaFactura.Text = DateTime.Now.ToString("dd-MM-yyyy");
         }
 
         protected void ListaProveedor_Init(object sender, EventArgs e)
@@ -138,35 +133,37 @@ namespace TPC_Campostano_Ciccarelli
         {
             ProductoNegocio negocio = new ProductoNegocio();
             List<Producto> listaActual = negocio.Listar();
-            iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-            iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
-            iten.Subtotal = Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
-            items.Add(iten);
-            repetidor.DataSource = items;
-            repetidor.DataBind();
-            Session.Add("items", items);
+            if (items == null)
+            {
+                iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
+                iten.Subtotal = Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
+                items.Add(iten);
+                repetidor.DataSource = items;
+                repetidor.DataBind();
+                Session.Add("items", items);
 
-            // ver si existe el producto 
-            /*
-            if (items != null) {
-                List<ListaProductos> itemsCompra = (List<ListaProductos>)Session["items"];
-                foreach (ListaProductos item in itemsCompra)
-                {
-
-                    itemsCompra.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-                    iten.Cantidad += Convert.ToInt32(CantidadProducto.Text);
-                    iten.Subtotal += Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
+            }
+             else if (items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value)==null)
+             {
+                    VERFECHA.Text = "llegue";
+                    iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                    iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
+                    iten.Subtotal = Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
                     items.Add(iten);
                     repetidor.DataSource = items;
                     repetidor.DataBind();
                     Session.Add("items", items);
-
+              }
+               else
+               {
+                    List<ListaProductos> itemsCompra = (List<ListaProductos>)Session["items"];
+                    ListaProductos elim = itemsCompra.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                    iten.Cantidad += elim.Cantidad;
+                    iten.Subtotal += iten.Cantidad* Convert.ToInt32(PrecioCompraProducto.Text); 
+                    items.Remove(elim);
+                    items.Add(iten);
                 }
-
-
-            }*/
-
-            // fin de ver si esta producto
 
             foreach (ListaProductos item in items)
             {
@@ -192,25 +189,10 @@ namespace TPC_Campostano_Ciccarelli
                 compra.proveedor.IdProveedor = int.Parse(ListaProveedor.SelectedItem.Value);
                 compra.Importe = totalcompras;
                 compra.metodoPago = new MetodoPago();
-                compra.metodoPago.IdMetodoPago = int.Parse(ListaMetodo.SelectedItem.Value);
+                compra.metodoPago.IdMetodoPago = int.Parse(ListaMetodo.SelectedItem.Value);    
+                compra.Fecha = txtFechaFactura.Text;           
 
-            //cambio de formato de fecha para que sea valida en la base de datos
-
-            /*DateTime FechaCalendario = Convert.ToDateTime(txtFechaFactura.Text);
-            String FechaCalendarioString = FechaCalendario.ToString("yyyy-MM-dd");
-            compra.Fecha = Convert.ToDateTime(FechaCalendarioString);*/
-
-                    
-            compra.Fecha = Convert.ToDateTime(txtFechaFactura.Text);           
-            VERFECHA.Text = Convert.ToString(compra.Fecha);
-
-
-
-            ///compra.Fecha = Convert.ToDateTime(txtFechaFactura.ToString("yyyy/MM/dd"));
-
-
-
-            /*negocio.AgregarCompra(compra);*/
+                 negocio.AgregarCompra(compra);
                 // fin de agregar compra
 
                 //agrega lista de productos

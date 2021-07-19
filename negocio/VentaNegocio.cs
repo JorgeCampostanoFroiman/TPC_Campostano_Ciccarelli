@@ -17,7 +17,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT V.IdVenta, C.RazonSocial, TF.Nombre AS TipoFactura, V.Fecha, V.Importe, MP.Nombre AS MetodoPago, U.Nombre AS Usuario, U.Apellido FROM Venta as V, Usuario as U, MetodoPago as MP, Cliente as C, TipoFactura as TF WHERE C.IdCliente = V.IdCliente AND TF.IdTipoFactura = V.TipoFactura AND MP.IdMetodoPago = V.MetodoPago AND U.IdUsuario = V.IdUsuario");
+                datos.setearConsulta("SELECT V.IdVenta, C.RazonSocial AS RazonSocial, TF.Nombre AS TipoFactura, V.Fecha, V.Importe, MP.Nombre AS MetodoPago, U.Apellido AS Usuario FROM Venta as V, Usuario as U, MetodoPago as MP, Cliente as C, TipoFactura as TF WHERE C.IdCliente = V.IdCliente AND TF.IdTipoFactura = V.TipoFactura AND MP.IdMetodoPago = V.MetodoPago AND U.IdUsuario = V.IdUsuario");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -26,7 +26,7 @@ namespace negocio
                     aux.cliente = new Cliente((string)datos.Lector["RazonSocial"]);
                     aux.Importe = (decimal)datos.Lector["Importe"];
                     aux.metodoPago = new MetodoPago((string)datos.Lector["MetodoPago"]);
-                    aux.Fecha = (DateTime)datos.Lector["Fecha"];              
+                    aux.Fecha = (string)datos.Lector["Fecha"];              
                     aux.tipofactura = new TipoFactura((string)datos.Lector["TipoFactura"]);
                     aux.usuario = new Usuario((string)datos.Lector["Usuario"]);
                     lista.Add(aux);
