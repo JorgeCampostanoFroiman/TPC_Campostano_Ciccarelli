@@ -11,7 +11,10 @@ namespace dominio
         public int IdMetodoPago { get; set; }
         public string Nombre { get; set; }
 
-        
+        public MetodoPago()
+        {
+
+        }
         public MetodoPago(string nombre)
         {
             Nombre = nombre;

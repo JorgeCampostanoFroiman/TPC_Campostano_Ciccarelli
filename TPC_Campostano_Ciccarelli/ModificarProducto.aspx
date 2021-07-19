@@ -1,88 +1,95 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarProducto.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.ModificarProducto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<link href="Estilos/login.css" rel="stylesheet" type="text/css" />
 
-    <h1 style="margin-top:50px"> Producto a modificar:  </h1>
+<body class="main-bg">
+        <div class="login-container text-c animated flipInX">
+                                  
+                <asp:Label runat="server" ID="tituloProducto"></asp:Label>
+                    
+                <div class="container-content">
+                    <form class="margin-t">
+                        <div class="form-group" style="text-align:center">
+                            
+                            <asp:RequiredFieldValidator runat="server" ID="RFV1" ErrorMessage="Required" ControlToValidate="textCodigo" ></asp:RequiredFieldValidator>
+    <asp:TextBox class="form-control" runat="server" ID="textCodigo" MaxLength="8" EnableViewState="True" AutoPostBack="False" placeholder="Codigo"></asp:TextBox>
+
+<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="textNombre"></asp:RequiredFieldValidator>
+    <asp:TextBox runat="server" class="form-control" ID="textNombre" MaxLength="80" EnableViewState="True" AutoPostBack="False" placeholder="Nombre"></asp:TextBox>
+                       
+                            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="textPrecioCompra"></asp:RequiredFieldValidator>
+    <asp:TextBox runat="server" class="form-control" ID="textPrecioCompra" MaxLength="8" EnableViewState="True" AutoPostBack="False" placeholder="Precio de compra"></asp:TextBox>
+                        
+                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="textStock"></asp:RequiredFieldValidator>
+    <asp:TextBox runat="server" class="form-control" ID="textStock" MaxLength="8" EnableViewState="True" AutoPostBack="False" placeholder="Stock"></asp:TextBox>
+
+<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="Required" ControlToValidate="textGanancia"></asp:RequiredFieldValidator>
+    <asp:TextBox runat="server" class="form-control" ID="textGanancia" MaxLength="3" EnableViewState="True" AutoPostBack="False" placeholder="Ganancia"></asp:TextBox>
+
+<asp:TextBox runat="server" class="form-control" ID="textPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False"  placeholder="Precio de venta"></asp:TextBox>
+
+<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="Required" ControlToValidate="textDesc"></asp:RequiredFieldValidator>
+    <asp:TextBox runat="server" class="form-control" ID="textDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False" placeholder="Descripcion"></asp:TextBox>
+
+                            <asp:DropDownList style="color:white" runat="server" class="form-control"  ID="DDLMarca"></asp:DropDownList>
+
+                            <asp:DropDownList style="color:white" runat="server" class="form-control" ID="DDLTipo"></asp:DropDownList>
+
+                            <asp:DropDownList style="color:white" runat="server" class="form-control" ID="DDLProveedor" ></asp:DropDownList>
+
+                        </div>
+                        <asp:Button runat="server" ID="BotonAceptar" OnClick="BotonAceptar_Click" class="btn btn-dark btn-sm" Text="Aceptar" />
+                    </form>
+                    <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
+                </div>
+            </div>
+    </body>
+
+
+
+
+    <div style="text-align:center">
 
     <div id="codigo">
-    <asp:Label runat="server" ID="label1"> Código: </asp:Label>
-    <asp:RequiredFieldValidator runat="server" ID="RFV1" ErrorMessage="Required" ControlToValidate="textCodigo" ForeColor="#CC3300" ></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textCodigo" MaxLength="8" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelCodigo"> Código: </asp:Label>
-    <asp:RegularExpressionValidator runat="server" ID="ValidarCodigo" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textCodigo" ErrorMessage="Solo letras y números"></asp:RegularExpressionValidator>
+    
+    <asp:RegularExpressionValidator runat="server" ID="ValidarCodigo" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textCodigo" ErrorMessage="El codigo solo puede contener letras y nÃºmeros"></asp:RegularExpressionValidator>
     
     </div>
 
     <div id="nombre">
-    <asp:Label runat="server" ID="label2"> Nombre: </asp:Label>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="textNombre"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textNombre" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelNombre"> Nombre: </asp:Label>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[a-zA-Z -]+" ControlToValidate="textNombre" ErrorMessage="Solo letras"></asp:RegularExpressionValidator>
+    
+    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[a-zA-Z -]+" ControlToValidate="textNombre" ErrorMessage="El nombre Solo puede contener letras"></asp:RegularExpressionValidator>
     </div>
 
     <div id="precioCompra">
-    <asp:Label runat="server" ID="label3"> Precio Compra: </asp:Label>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="textPrecioCompra"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textPrecioCompra" MaxLength="8" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelPrecioCompra"> Precio de compra: </asp:Label>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ValidationExpression="[0-9]+|\.|\," ControlToValidate="textPrecioCompra" ErrorMessage="Solo numeros, '.' y ','"></asp:RegularExpressionValidator>
+    
+    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ValidationExpression="[0-9]+|\.|\," ControlToValidate="textPrecioCompra" ErrorMessage="El precio solo puede contener numeros, '.' y ','"></asp:RegularExpressionValidator>
     
     </div>
 
     <div id="stock">
-    <asp:Label runat="server" ID="label4"> Stock: </asp:Label>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="textStock"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textStock" MaxLength="8" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelStock"> Stock:</asp:Label>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="textPrecioCompra" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator> 
+    
+    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="textStock" ErrorMessage="El stock Solo puede contener umeros"></asp:RegularExpressionValidator> 
     
     </div>
 
     <div id="ganancia">
-    <asp:Label runat="server" ID="label5"> Ganancia: </asp:Label>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="Required" ControlToValidate="textGanancia"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textGanancia" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelGanancia"> Ganancia(%):</asp:Label>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator4" ValidationExpression="[0-9]+" ControlToValidate="textGanancia" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator> 
+    
+    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator4" ValidationExpression="[0-9]+" ControlToValidate="textGanancia" ErrorMessage="La ganancia Solo puede contener numeros"></asp:RegularExpressionValidator> 
     
     </div>
 
     <div id="precioventa">
-    <asp:Label runat="server" ID="label7"> Precio de venta: </asp:Label>
-    <asp:TextBox runat="server" ID="textPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False" Enabled="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelPrecioVenta"> Precio Venta:</asp:Label>
+    
     
     </div>
 
     <div id="desc">
-    <asp:Label runat="server" ID="label8"> Desc: </asp:Label>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="Required" ControlToValidate="textDesc"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" ID="textDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-    <asp:Label runat="server" ID="labelDesc"> Descripción:</asp:Label>
+    
     <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator5" ValidationExpression="[a-zA-Z0-9 -]+" ControlToValidate="textDesc"></asp:RegularExpressionValidator>
     
     </div>
 
-    <div id="marca">
-    <asp:Label runat="server" ID="label9"> Marca: </asp:Label>
-    <asp:DropDownList runat="server" ID="DDLMarca"></asp:DropDownList>
-    <asp:Label runat="server" ID="labelMarca"></asp:Label>
-    </div>
-
-    <div id="tipo">
-    <asp:Label runat="server" ID="label10"> Tipo: </asp:Label>
-    <asp:DropDownList runat="server" ID="DDLTipo"></asp:DropDownList>
-    <asp:Label runat="server" ID="labelTipo"></asp:Label>
-    </div>
-
-    <div id="proveedor">
-    <asp:Label runat="server" ID="label11"> Proveedor: </asp:Label>
-    <asp:DropDownList runat="server" ID="DDLProveedor"></asp:DropDownList>
-    <asp:Label runat="server" ID="labelProveedor"></asp:Label>
-    </div>
-
-    <div>
-        <asp:Button runat="server" ID="BotonAceptar" OnClick="BotonAceptar_Click" Text="Aceptar" />
-    </div>
+   </div>
 
 </asp:Content>

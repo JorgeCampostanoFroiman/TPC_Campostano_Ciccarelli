@@ -41,7 +41,7 @@
     <asp:Label runat="server" ID="label2"> Cantidad:</asp:Label>
     <asp:TextBox runat="server" ID="CantidadProducto" MaxLength="8" EnableViewState="True"  Text="0"></asp:TextBox>
     <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="CantidadProducto" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator>
-    
+    |
     </div>
 
         
@@ -102,7 +102,7 @@
            </tbody>
         </table>
  <asp:Button runat="server" ID="GuardarCompra" class="btn btn-primary" Text="Guarda Compra" OnClick="GuardarCompra_Click" />
-
+       <asp:TextBox runat="server" ID="VERFECHA"></asp:TextBox>
     </div>
 
 </asp:Content>

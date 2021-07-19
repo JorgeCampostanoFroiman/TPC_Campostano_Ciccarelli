@@ -20,8 +20,8 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+
+
             try
             {
                 if (!IsPostBack)
@@ -51,23 +51,8 @@ namespace TPC_Campostano_Ciccarelli
                     List<Producto> listado = (List<Producto>)Session["ListaProductos"];
                     Producto seleccionado = listado.Find(x => x.IdProducto == id);
 
-                    /* trae la lista de marca y muestra la seleccionada*/
-                    labelMarca.Text = seleccionado.marca.Nombre;
-                    labelTipo.Text = seleccionado.tipo.Nombre;
-                    labelProveedor.Text = seleccionado.proveedor.RazonSocialProveedor;
-                    labelCodigo.Text = seleccionado.Codigo;
-                    labelNombre.Text = seleccionado.NombreProducto;
+                    tituloProducto.Text = "Nombre anterior: (" + seleccionado.NombreProducto + ")";
 
-                    /* DDLMarca.DataTextField = seleccionado.marca.Nombre;
-                     DDLTipo.Text = seleccionado.tipo.Nombre;
-                    DDLProveedor.Text = seleccionado.proveedor.RazonSocialProveedor;
-                    */
-
-                    labelPrecioCompra.Text = Convert.ToString(seleccionado.precioCompra);
-                    labelStock.Text = Convert.ToString(seleccionado.Stock);
-                    labelGanancia.Text = Convert.ToString(seleccionado.Ganancia);
-                    labelPrecioVenta.Text = Convert.ToString(seleccionado.precioVenta);
-                    labelDesc.Text = seleccionado.Descripcion;
 
 
 
@@ -76,8 +61,8 @@ namespace TPC_Campostano_Ciccarelli
                     labelMarca.Text = "Marca: " + Convert.ToString(seleccionado.marca);
                     labelPrecio.Text = "Precio: " + Convert.ToString(seleccionado.Precio);
                     img.ImageUrl = seleccionado.ImagenUrl;
-                    */
-                    /*productoNegocio.Agregar(producto);*/
+                    /
+                    /productoNegocio.Agregar(producto);*/
                 }
             }
             catch (Exception)
@@ -86,17 +71,15 @@ namespace TPC_Campostano_Ciccarelli
             }
 
 
-
         }
 
         protected void BotonAceptar_Click(object sender, EventArgs e)
         {
-            
             prod = productoNegocio.Listar();
             Producto modif = prod.Find(x => x.IdProducto.ToString() == Request.QueryString["id"]);
 
             textPrecioVenta.Text = Convert.ToString(((Convert.ToInt32(textPrecioCompra.Text) * Convert.ToInt32(textGanancia.Text)) / 100) + Convert.ToInt32(textPrecioCompra.Text));
-            
+
             modif.Codigo = textCodigo.Text;
             modif.NombreProducto = textNombre.Text;
             modif.precioCompra = Convert.ToDecimal(textPrecioCompra.Text);
@@ -104,7 +87,7 @@ namespace TPC_Campostano_Ciccarelli
             modif.Ganancia = Convert.ToInt16(textGanancia.Text);
             modif.Descripcion = textDesc.Text;
             modif.precioVenta = Convert.ToDecimal(textPrecioVenta.Text);
-           
+
             modif.marca = new Marca();
             modif.marca.IdMarca = int.Parse(DDLMarca.SelectedItem.Value);
 
@@ -115,6 +98,7 @@ namespace TPC_Campostano_Ciccarelli
             modif.proveedor.IdProveedor = int.Parse(DDLProveedor.SelectedItem.Value);
 
             productoNegocio.modificar(modif);
+
 
         }
     }

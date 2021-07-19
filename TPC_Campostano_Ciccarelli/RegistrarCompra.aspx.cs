@@ -39,6 +39,10 @@ namespace TPC_Campostano_Ciccarelli
         {
             txtFechaFactura.Text = Calendar1.SelectedDate.ToShortDateString();
 
+            DateTime FechaCalendario = Convert.ToDateTime(txtFechaFactura.Text);
+            String FechaCalendarioString = FechaCalendario.ToString("yyyy-MM-dd");
+            txtFechaFactura.Text = FechaCalendarioString;
+
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
@@ -85,7 +89,7 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void txtFechaFactura_Init(object sender, EventArgs e)
         {
-            txtFechaFactura.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            txtFechaFactura.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         protected void ListaProveedor_Init(object sender, EventArgs e)
@@ -142,6 +146,28 @@ namespace TPC_Campostano_Ciccarelli
             repetidor.DataBind();
             Session.Add("items", items);
 
+            // ver si existe el producto 
+            /*
+            if (items != null) {
+                List<ListaProductos> itemsCompra = (List<ListaProductos>)Session["items"];
+                foreach (ListaProductos item in itemsCompra)
+                {
+
+                    itemsCompra.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                    iten.Cantidad += Convert.ToInt32(CantidadProducto.Text);
+                    iten.Subtotal += Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
+                    items.Add(iten);
+                    repetidor.DataSource = items;
+                    repetidor.DataBind();
+                    Session.Add("items", items);
+
+                }
+
+
+            }*/
+
+            // fin de ver si esta producto
+
             foreach (ListaProductos item in items)
             {
                 total += item.Subtotal;
@@ -151,8 +177,6 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void GuardarCompra_Click(object sender, EventArgs e)
         {
-            try
-            {
 
                 CompraNegocio negocio = new CompraNegocio();
                 ListaProductosNegocio listaproducto = new ListaProductosNegocio();
@@ -170,18 +194,23 @@ namespace TPC_Campostano_Ciccarelli
                 compra.metodoPago = new MetodoPago();
                 compra.metodoPago.IdMetodoPago = int.Parse(ListaMetodo.SelectedItem.Value);
 
-                //cambio de formato de fecha para que sea valida en la base de datos
+            //cambio de formato de fecha para que sea valida en la base de datos
 
-                /*DateTime FechaCalendario = Convert.ToDateTime(txtFechaFactura.Text);
-                 String FechaCalendarioString = FechaCalendario.ToString("yyyy-MM-dd");
-                 compra.Fecha = Convert.ToDateTime(FechaCalendarioString);*/
+            /*DateTime FechaCalendario = Convert.ToDateTime(txtFechaFactura.Text);
+            String FechaCalendarioString = FechaCalendario.ToString("yyyy-MM-dd");
+            compra.Fecha = Convert.ToDateTime(FechaCalendarioString);*/
+
+                    
+            compra.Fecha = Convert.ToDateTime(txtFechaFactura.Text);           
+            VERFECHA.Text = Convert.ToString(compra.Fecha);
 
 
-                compra.Fecha = Convert.ToDateTime(Calendar1.SelectedDate.ToString("yyyy/MM/dd"));
+
+            ///compra.Fecha = Convert.ToDateTime(txtFechaFactura.ToString("yyyy/MM/dd"));
 
 
 
-                negocio.AgregarCompra(compra);
+            /*negocio.AgregarCompra(compra);*/
                 // fin de agregar compra
 
                 //agrega lista de productos
@@ -190,12 +219,7 @@ namespace TPC_Campostano_Ciccarelli
                 ultimonumeroCompra = negocio.NumeroCompra();
                 ultimonumeroCompra += 1;
                 listaproducto.AgregarListaCompra(itemsCompra, ultimonumeroCompra);
-            }
-            catch (Exception)
-            {
-                Response.Redirect("Error.aspx");
-            }
-
-        }
-    }
-}
+           }
+           
+      }
+  }
