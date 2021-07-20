@@ -68,19 +68,19 @@ namespace TPC_Campostano_Ciccarelli
         protected void ListaClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListaProductoVenta.Items.Clear();
-            int a;
+            /*int a;*/
             ProductoNegocio productoNegocio = new ProductoNegocio();
 
-            a = Int32.Parse(ListaClientes.Text);
+           /* a = Int32.Parse(ListaClientes.Text);*/
 
-
+            /*
             listaProducto = productoNegocio.ListarProductoPorIdProveedor(a);
             ListItem f;
             foreach (Producto item in listaProducto)
             {
                 f = new ListItem('(' + item.Codigo.ToString() + ')' + ' ' + item.NombreProducto.ToString(), item.IdProducto.ToString());
                 ListaProductoVenta.Items.Add(f);
-            }
+            }*/
         }
 
         protected void ListaClientes_Init(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace TPC_Campostano_Ciccarelli
                 foreach (Cliente item in listaC)
                 {
                     i = new ListItem(item.RazonSocial.ToString(), item.IdCliente.ToString());
-                    ListaClientes.Items.Add(i);
+                    /*ListaClientes.Items.Add(i);*/
                 }
             }
             catch (Exception)
