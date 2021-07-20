@@ -6,79 +6,108 @@
     
     <h1 style="margin-top:50px"> Este es el formulario para registrar una Venta realizada!!!  </h1>
 
-     <!--  Comprador           -->
+     <!--  Cliente           -->
   <div class="form-group row" style="margin-top:40px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente</label>
     <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaCliente"> </asp:DropDownList>
+      <asp:DropDownList runat="server" ID="ListaClientes" OnInit="ListaClientes_Init"OnSelectedIndexChanged="ListaClientes_SelectedIndexChanged"> </asp:DropDownList>
     </div>
   </div>
-   
-        
-        <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Método de pago</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Efectivo
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Tarjeta
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" 
-          <label class="form-check-label" for="gridRadios3">
-            Transferencia
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
 
-        <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Tipo de factura</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Factura A
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Factura B
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option3" 
-          <label class="form-check-label" for="gridRadios3">
-            Factura C
-          </label>
-        </div>
-      </div>
+        <!--  MetodoPago           -->
+        <div class="form-group row" style="margin-top:40px">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
+    <div class="col-sm-10">
+      <asp:DropDownList runat="server" ID="ListaMetodoVenta" OnInit="ListaMetodoVenta_Init"  > </asp:DropDownList>
     </div>
-  </fieldset>
+  </div>
 
-    
-    <div class="custom-file">
-    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-    <label class="custom-file-label" for="customFileLang">Seleccionar Producto</label>
+        <!--  TipoFactura  -->
+        <div class="form-group row" style="margin-top:40px">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
+    <div class="col-sm-10">
+      <asp:DropDownList runat="server" ID="ListaTipoFactura"> </asp:DropDownList>
     </div>
-  <div class="form-group row">
+  </div>
+
+        <!--  Fecha  -->
+        <asp:TextBox ID="txtFechaVenta" OnInit="txtFechaVenta_Init" runat="server"  Width="180px" Enabled="false" />
+        <asp:Button runat="server" ID="btnCalendarioVenta" OnClick="btnCalendarioVenta_Click"/>
+         <asp:Calendar ID="CalendarioVenta" runat="server"  TargetControlID="txtFechaVenta" OnSelectionChanged="CalendarioVenta_SelectionChanged" Visible="false">
+         </asp:Calendar>
+
+
+
+
+
+
+        <!--  Producto           -->
+        <div class="form-group row" style="margin-top:40px">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Productos</label>
+    <div class="col-sm-10">
+      <asp:DropDownList runat="server" ID="ListaProductoVenta" > </asp:DropDownList>
+    </div>
+  </div>
+        <!--  Cantidad           -->
+        <div id="cantidad">
+    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="CantidadProductoVenta"></asp:RequiredFieldValidator>
+    <asp:Label runat="server" ID="label2"> Cantidad:</asp:Label>
+    <asp:TextBox runat="server" ID="CantidadProductoVenta" MaxLength="8" EnableViewState="True"  Text="0"></asp:TextBox>
+    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="CantidadProductoVenta" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator>
+    </div>
+    </div>
+
+    <div class="form-group row">
     <div class="col-sm-10" style="margin-top:5px">
-      <button type="submit" class="btn btn-primary">Realizado!</button>
-    </div>
-  </div>
-</form>
+           <asp:Button runat="server" ID="AgregarProductoEnVenta" class="btn btn-primary" Text="Agrega Producto a la venta"/>
 
     </div>
+  </div>
+        <div style="margin-top:50px;text-align:center">
+      <h1>Productos de la venta</h1> 
+      </div>
+
+    <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
+  <thead class="thead-dark">
+     
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Precio Unitario</th>
+      
+      <th scope="col">Subtotal</th>
+
+        
+
+    </tr>
+  </thead>
+             <tbody>
+
+                <asp:Repeater runat="server" ID="repetidor" >
+                    <ItemTemplate>
+                        <tr>
+                            <th scope="row"><%#Eval("ItemArt.Codigo")%></th>
+                            <td><%#Eval("ItemArt.NombreProducto")%></td>
+                            <td>
+                                <%#Eval("Cantidad") %>        
+                            </td>
+                            <td>$<%#Eval("ItemArt.precioCompra")%></td>
+                            <td>
+                                $<%#Eval("Subtotal") %>
+                                
+                            </td>
+                            
+                       </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+                        
+           </tbody>
+        </table>
+ <asp:Button runat="server" ID="GuardarVenta" class="btn btn-primary" Text="Guarda Venta" />
+       <asp:TextBox runat="server" ID="VERFECHA"></asp:TextBox>
+    </div>
+
+
 
 </asp:Content>
