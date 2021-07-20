@@ -186,8 +186,6 @@ namespace negocio
             {
                 datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, ImagenUrl = @imagenUrl WHERE IdProducto = @id");
                 
-                
-                
                 datos.setearParametro("@codigo", modificar.Codigo);
                 datos.setearParametro("@nombre", modificar.NombreProducto);
                 datos.setearParametro("@idMarca", modificar.marca.IdMarca);
@@ -220,6 +218,27 @@ namespace negocio
             {
                 datos.setearConsulta("Delete From Producto Where IdProducto = " + id);
                 datos.ejectutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
+
+        public decimal obtenerPrecio (int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT PrecioCompra from Producto Where IdProducto = " + id);
+                datos.ejectutarAccion();
+                decimal aux = (decimal)datos.Lector["PrecioCompra"];
+                return aux;
             }
             catch (Exception ex)
             {

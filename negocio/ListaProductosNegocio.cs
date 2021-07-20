@@ -70,6 +70,41 @@ namespace negocio
 
             }
 
+        public void AgregarStockCompra(int cantidad, int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            
+            try
+            {
+                int stock = 0;
+                datos.setearConsulta("Select IdProducto, Stock FROM Producto WHERE IdProducto = " + id);
+                    datos.ejecutarLectura();
+                    while (datos.Lector.Read())
+                    {
+                    stock = (int)datos.Lector["Stock"] + cantidad;
+                    }
+                    datos.cerrarConexion();
+
+
+                    
+                     datos.setearConsulta("update Producto set Stock = @stack Where IdProducto = @ide");
+                     datos.setearParametro("@stack", stock);
+                     datos.setearParametro("@ide", id);
+                    datos.ejectutarAccion();
+                    datos.cerrarConexion();
+               
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
+
+    }
    }
 

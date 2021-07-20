@@ -19,6 +19,7 @@ namespace TPC_Campostano_Ciccarelli
             {
                 lista = negocio.Listar();
                 Session.Add("ListaProductos", lista);
+                
 
                 if (Request.QueryString["Id"] != null)
                 {

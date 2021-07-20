@@ -131,40 +131,33 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void AgregarProductoEnCompra_Click(object sender, EventArgs e)
         {
+
+            ListaProveedor.Enabled = false;
             ProductoNegocio negocio = new ProductoNegocio();
             List<Producto> listaActual = negocio.Listar();
-            if (items == null)
+
+            if (items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value) != null)
             {
-                iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-                iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
-                iten.Subtotal = Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
+                ListaProductos elim = items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                iten.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProducto.Text);
+                iten.Subtotal = iten.Cantidad * elim.ItemArt.precioCompra;
+                iten.ItemArt = elim.ItemArt;
+                items.Remove(elim);
                 items.Add(iten);
                 repetidor.DataSource = items;
                 repetidor.DataBind();
                 Session.Add("items", items);
-
             }
-             else if (items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value)==null)
-             {
-                    VERFECHA.Text = "llegue";
-                    iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-                    iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
-                    iten.Subtotal = Convert.ToDecimal(iten.Cantidad * Convert.ToInt32(PrecioCompraProducto.Text));
-                    items.Add(iten);
-                    repetidor.DataSource = items;
-                    repetidor.DataBind();
-                    Session.Add("items", items);
-              }
-               else
-               {
-                    List<ListaProductos> itemsCompra = (List<ListaProductos>)Session["items"];
-                    ListaProductos elim = itemsCompra.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-                    iten.Cantidad += elim.Cantidad;
-                    iten.Subtotal += iten.Cantidad* Convert.ToInt32(PrecioCompraProducto.Text); 
-                    items.Remove(elim);
-                    items.Add(iten);
-                }
-
+            else
+            {
+                iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
+                iten.Subtotal = Convert.ToDecimal(iten.Cantidad * iten.ItemArt.precioCompra);
+                items.Add(iten);
+                repetidor.DataSource = items;
+                repetidor.DataBind();
+                Session.Add("items", items);
+            }
             foreach (ListaProductos item in items)
             {
                 total += item.Subtotal;
@@ -174,7 +167,6 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void GuardarCompra_Click(object sender, EventArgs e)
         {
-
                 CompraNegocio negocio = new CompraNegocio();
                 ListaProductosNegocio listaproducto = new ListaProductosNegocio();
                 Compra compra = new Compra();
@@ -190,8 +182,7 @@ namespace TPC_Campostano_Ciccarelli
                 compra.Importe = totalcompras;
                 compra.metodoPago = new MetodoPago();
                 compra.metodoPago.IdMetodoPago = int.Parse(ListaMetodo.SelectedItem.Value);    
-                compra.Fecha = txtFechaFactura.Text;           
-
+                compra.Fecha = txtFechaFactura.Text; 
                  negocio.AgregarCompra(compra);
                 // fin de agregar compra
 
@@ -199,9 +190,15 @@ namespace TPC_Campostano_Ciccarelli
                 int ultimonumeroCompra;
                 List<ListaProductos> itemsCompra = (List<ListaProductos>)Session["items"];
                 ultimonumeroCompra = negocio.NumeroCompra();
-                ultimonumeroCompra += 1;
                 listaproducto.AgregarListaCompra(itemsCompra, ultimonumeroCompra);
+
+                foreach (ListaProductos item in itemsCompra)
+            {
+                listaproducto.AgregarStockCompra(item.Cantidad, item.ItemArt.IdProducto);
+            }
+                
            }
-           
-      }
+
+        
+    }
   }

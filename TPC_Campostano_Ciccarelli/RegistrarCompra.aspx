@@ -31,7 +31,7 @@
         <div class="form-group row" style="margin-top:40px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Productos</label>
     <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaProductoCompra"> </asp:DropDownList>
+      <asp:DropDownList runat="server" ID="ListaProductoCompra" > </asp:DropDownList>
     </div>
   </div>
        
@@ -45,14 +45,6 @@
     </div>
 
         
-          <!--  Precio-->
-        <div id="PrecioCompra">
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="PrecioCompraProducto"></asp:RequiredFieldValidator>
-    <asp:Label runat="server" ID="label1"> Precio:</asp:Label>
-    <asp:TextBox runat="server" ID="PrecioCompraProducto" MaxLength="8" EnableViewState="True" Text="0"></asp:TextBox>
-    <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[0-9]+" ControlToValidate="PrecioCompraProducto" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator>
-    
-    </div>
 
          <div class="form-group row">
     <div class="col-sm-10" style="margin-top:5px">

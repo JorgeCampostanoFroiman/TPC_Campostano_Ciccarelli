@@ -10,7 +10,7 @@
      </div>
     <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
   <thead class="thead-dark">
-     
+
     <tr>
       <th scope="col">Número</th>
       <th scope="col">Codigo</th>
@@ -18,6 +18,7 @@
       <th scope="col">Tipo</th>
       <th scope="col">Precio de compra</th>
       <th scope="col">Precio de Venta</th>
+      <th scope="col">Stock</th>
       <th scope="col">Modificar</th>
       <th scope="col">Dar de baja</th>
       <th scope="col">Detalle</th>
@@ -34,6 +35,7 @@
       <td><% = item.tipo.Nombre %></td>
       <td><% = item.precioCompra %></td> 
       <td><% = item.precioVenta %></td>
+       <td id="stockItem"><% = item.Stock %></td>
       <td><a href="ModificarProducto.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm" role="button">Modificar</a></td>
       <td><a href="NuestrosProductos.aspx?id=<% = item.IdProducto%>&c=d" style="background-color:red" class="btn btn-danger btn-sm">Eliminar</a>
       <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm">Ver Detalle</a></td>
