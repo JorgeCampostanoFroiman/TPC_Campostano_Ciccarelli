@@ -70,28 +70,44 @@ namespace negocio
 
             }
 
-        public void AgregarStockCompra(int cantidad, int id)
+        public void AgregarStockCompra(int cantidad, int id, int stockminimo)
         {
             AccesoDatos datos = new AccesoDatos();
-            
+
+
             try
             {
+                int estadoStock = 0;
                 int stock = 0;
                 datos.setearConsulta("Select IdProducto, Stock FROM Producto WHERE IdProducto = " + id);
-                    datos.ejecutarLectura();
-                    while (datos.Lector.Read())
-                    {
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
                     stock = (int)datos.Lector["Stock"] + cantidad;
-                    }
-                    datos.cerrarConexion();
+                }
+                datos.cerrarConexion();
 
 
-                    
-                     datos.setearConsulta("update Producto set Stock = @stack Where IdProducto = @ide");
-                     datos.setearParametro("@stack", stock);
-                     datos.setearParametro("@ide", id);
-                    datos.ejectutarAccion();
-                    datos.cerrarConexion();
+                if (stock > stockminimo)
+                {
+                    estadoStock = 1;
+                }
+                else if (stock <= stockminimo)
+                {
+                    estadoStock = 2;
+
+                }
+                else
+                {
+                    estadoStock = 3;
+                }
+
+                datos.setearConsulta("update Producto set Stock = @stack, IdEstadoStock = @estadoStock Where IdProducto = @ide");
+                datos.setearParametro("@stack", stock);
+                datos.setearParametro("@ide", id);
+                datos.setearParametro("@estadoStock", estadoStock);
+                datos.ejectutarAccion();
+                datos.cerrarConexion();
                
             }
             catch (Exception ex)
@@ -133,12 +149,13 @@ namespace negocio
 
         }
 
-        public void QuitarStockVenta(int cantidad, int id)
+        public void QuitarStockVenta(int cantidad, int id, int stockminimo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
+                int estadoStock = 0;
                 int stock = 0;
                 datos.setearConsulta("Select IdProducto, Stock FROM Producto WHERE IdProducto = " + id);
                 datos.ejecutarLectura();
@@ -148,11 +165,24 @@ namespace negocio
                 }
                 datos.cerrarConexion();
 
+                if (stock > stockminimo)
+                {
+                    estadoStock = 1;
+                }
+                else if (stock <= stockminimo)
+                {
+                    estadoStock = 2;
 
+                }
+                else
+                {
+                    estadoStock = 3;
+                }
 
-                datos.setearConsulta("update Producto set Stock = @stack Where IdProducto = @ide");
+                datos.setearConsulta("update Producto set Stock = @stack, IdEstadoStock = @estadoStock Where IdProducto = @ide");
                 datos.setearParametro("@stack", stock);
                 datos.setearParametro("@ide", id);
+                datos.setearParametro("@estadoStock", estadoStock);
                 datos.ejectutarAccion();
                 datos.cerrarConexion();
 

@@ -76,9 +76,10 @@
       <th scope="col">Codigo</th>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
+      <th scope="col">Stock Actual</th>
       <th scope="col">Precio Unitario</th>
-      
       <th scope="col">Subtotal</th>
+      <th scope="col">Eliminar</th>
 
         
 
@@ -94,10 +95,15 @@
                             <td>
                                 <%#Eval("Cantidad") %>        
                             </td>
+                            <td>
+                                <%#Eval("ItemArt.Stock") %>        
+                            </td>
                             <td>$<%#Eval("ItemArt.precioCompra")%></td>
                             <td>
                                 $<%#Eval("Subtotal") %>
                                 
+                            </td>
+                            <td><a href="RegistrarVenta.aspx?id=<%#Eval("ItemArt.IdProducto")%>&c=d" class="btn btn-danger btn-sm">Eliminar</a>
                             </td>
                             
                        </tr>
@@ -106,8 +112,9 @@
                         
            </tbody>
         </table>
+    <asp:Label runat="server" ID="StockAgotado"></asp:Label>
  <asp:Button runat="server" ID="GuardarVenta" class="btn btn-primary" OnClick="GuardarVenta_Click" Text="Guarda Venta" />
-       <asp:TextBox runat="server" ID="VERFECHA"></asp:TextBox>
+       
     </div>
     
 

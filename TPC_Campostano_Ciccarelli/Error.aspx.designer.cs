@@ -11,7 +11,7 @@ namespace TPC_Campostano_Ciccarelli
 {
 
 
-    public partial class Contact
+    public partial class Error
     {
 
         /// <summary>

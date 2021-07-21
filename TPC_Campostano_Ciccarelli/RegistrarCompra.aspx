@@ -63,8 +63,8 @@
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
       <th scope="col">Precio Unitario</th>
-      
       <th scope="col">Subtotal</th>
+      <th scope="col">Eliminar</th>
 
         
 
@@ -83,7 +83,8 @@
                             <td>$<%#Eval("ItemArt.precioCompra")%></td>
                             <td>
                                 $<%#Eval("Subtotal") %>
-                                
+                            </td>
+                            <td><a href="RegistrarCompra.aspx?id=<%#Eval("ItemArt.IdProducto")%>&c=d" class="btn btn-danger btn-sm">Eliminar</a>
                             </td>
                             
                        </tr>

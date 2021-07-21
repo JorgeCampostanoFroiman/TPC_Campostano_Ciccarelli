@@ -113,7 +113,7 @@
     <Content Include="DetalleCompra.aspx" />
     <Content Include="DetalleProducto.aspx" />
     <Content Include="DetalleVenta.aspx" />
-    <Content Include="ErrorLogin.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Estilos\agregarMarca.css" />
     <Content Include="Ingreso.aspx" />
     <Content Include="ModificarMarca.aspx" />
@@ -127,7 +127,6 @@
     <Content Include="RegistrarVenta.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="Verificacion.aspx" />
-    <Content Include="Error.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -241,12 +240,12 @@
     <Compile Include="DetalleVenta.aspx.designer.cs">
       <DependentUpon>DetalleVenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ErrorLogin.aspx.cs">
-      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ErrorLogin.aspx.designer.cs">
-      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ingreso.aspx.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
@@ -331,13 +330,6 @@
     </Compile>
     <Compile Include="Verificacion.aspx.designer.cs">
       <DependentUpon>Verificacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

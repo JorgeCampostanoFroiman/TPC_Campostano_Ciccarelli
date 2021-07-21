@@ -30,13 +30,13 @@ namespace TPC_Campostano_Ciccarelli
                 }
                 else
                 {
-                    Session.Add("error", "user o passwd incorrectos");
-                    Response.Redirect("ErrorLogin.aspx", false);
+                    Session.Add("error", "Usuario o contraseña incorrectos");
+                    Response.Redirect("Error.aspx", false);
                 }
             }
             catch (Exception ex)
             {
-                Session.Add("Error", ex.ToString());
+                Session.Add("Error", "Excepcion encontrada, pero la capturamos!");
                 Response.Redirect("Error.aspx");
             }
         }

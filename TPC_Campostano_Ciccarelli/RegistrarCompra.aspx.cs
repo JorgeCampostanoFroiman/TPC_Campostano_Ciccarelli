@@ -15,12 +15,13 @@ namespace TPC_Campostano_Ciccarelli
         public List<MetodoPago> listaMp;
         public List<Producto> listaproducto;
         public List<ListaProductos> items;
+        ProductoNegocio productoNegocio = new ProductoNegocio();
         ListaProductos iten;
         public decimal total;
         protected void Page_Load(object sender, EventArgs e)
         {
-                try
-                {
+            try
+            {
                 items = (List<ListaProductos>)Session["items"];
                 if (items == null)
                     items = new List<ListaProductos>();
@@ -30,6 +31,29 @@ namespace TPC_Campostano_Ciccarelli
                     repetidor.DataBind();
                 }
                 iten = new ListaProductos();
+            
+                /// cargo los productos del primer proveedor por default
+                listaproducto = productoNegocio.ListarProductoPorIdProveedor(1);
+                ListItem f;
+                foreach (Producto item in listaproducto)
+                {
+                    f = new ListItem('(' + item.Codigo.ToString() + ')' + ' ' + item.NombreProducto.ToString(), item.IdProducto.ToString());
+                    ListaProductoCompra.Items.Add(f);
+                }
+
+
+
+                if (!IsPostBack)
+                {
+                    if (Request.QueryString["c"] == "d")
+                    {
+                        ListaProductos elim = items.Find(x => x.ItemArt.IdProducto.ToString() == Request.QueryString["Id"]);
+                        items.Remove(elim);
+                        Session.Add("items", items);
+                        repetidor.DataSource = items;
+                        repetidor.DataBind();
+                    }
+                }
             }
 
                 catch (Exception)
@@ -199,7 +223,7 @@ namespace TPC_Campostano_Ciccarelli
 
                 foreach (ListaProductos item in itemsCompra)
             {
-                listaproducto.AgregarStockCompra(item.Cantidad, item.ItemArt.IdProducto);
+                listaproducto.AgregarStockCompra(item.Cantidad, item.ItemArt.IdProducto, (int)Session["StockMinimo"]);
             }
             Session.Remove("items");
         }

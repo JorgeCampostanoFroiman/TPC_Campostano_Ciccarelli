@@ -132,6 +132,15 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.Repeater repetidor;
 
         /// <summary>
+        /// Control StockAgotado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StockAgotado;
+
+        /// <summary>
         /// Control GuardarVenta.
         /// </summary>
         /// <remarks>
@@ -139,14 +148,5 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button GuardarVenta;
-
-        /// <summary>
-        /// Control VERFECHA.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox VERFECHA;
     }
 }

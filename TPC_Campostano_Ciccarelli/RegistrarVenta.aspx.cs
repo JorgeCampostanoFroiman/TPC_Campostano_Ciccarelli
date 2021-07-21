@@ -58,6 +58,19 @@ namespace TPC_Campostano_Ciccarelli
                 }
 
                 itam = new ListaProductos();
+
+                if (!IsPostBack)
+                {
+                    if (Request.QueryString["c"] == "d")
+                    {
+                        ListaProductos elim = itams.Find(x => x.ItemArt.IdProducto.ToString() == Request.QueryString["Id"]);
+                        itams.Remove(elim);
+                        Session.Add("itemsVenta", itams);
+                        repetidor.DataSource = itams;
+                        repetidor.DataBind();
+                    }
+                }
+
             }
             catch (Exception)
             {
@@ -127,14 +140,24 @@ namespace TPC_Campostano_Ciccarelli
             if (itams.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value) != null)
             {
                 ListaProductos elim = itams.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value);
-                itam.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text);
-                itam.Subtotal = itam.Cantidad * elim.ItemArt.precioCompra;
-                itam.ItemArt = elim.ItemArt;
-                itams.Remove(elim);
-                itams.Add(itam);
-                repetidor.DataSource = itams;
-                repetidor.DataBind();
-                Session.Add("itemsVenta", itams);
+
+                if((elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text)) > elim.ItemArt.Stock)
+                {
+                    StockAgotado.Text = "***La cantidad introducida supera las existencias del producto***";
+                }
+                else
+                {
+                    itam.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text);
+                    itam.Subtotal = itam.Cantidad * elim.ItemArt.precioCompra;
+                    itam.ItemArt = elim.ItemArt;
+                    itams.Remove(elim);
+                    itams.Add(itam);
+                    repetidor.DataSource = itams;
+                    repetidor.DataBind();
+                    Session.Add("itemsVenta", itams);
+                }
+
+                
             }
             else
             {
@@ -203,7 +226,7 @@ namespace TPC_Campostano_Ciccarelli
 
             foreach (ListaProductos item in itemsCompra)
             {
-                listaproducto.QuitarStockVenta(item.Cantidad, item.ItemArt.IdProducto);
+                listaproducto.QuitarStockVenta(item.Cantidad, item.ItemArt.IdProducto, (int)Session["StockMinimo"]);
             }
             Session.Remove("itemsVenta");
         }
