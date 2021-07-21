@@ -16,7 +16,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Select P.IdProducto, P.Codigo, P.NombreProducto, M.Nombre AS Marca, T.Nombre AS Tipo, P.PrecioCompra, P.Stock, P.Ganancia, P.PrecioVenta, P.Descripcion, PV.RazonSocialProveedor, P.ImagenUrl FROM Producto AS P, Marca AS M, Tipo AS T, Proveedor AS PV WHERE P.IdMarca = M.IdMarca AND P.IdTipo = T.IdTipo AND P.IdProveedor = PV.IdProveedor");
+                datos.setearConsulta("Select P.IdProducto, P.Codigo, P.NombreProducto, M.Nombre AS Marca, T.Nombre AS Tipo, P.PrecioCompra, P.Stock, P.Ganancia, P.PrecioVenta, P.Descripcion, PV.RazonSocialProveedor, P.ImagenUrl, E.NombreStockProducto AS EstadoStockProducto FROM Producto AS P, Marca AS M, Tipo AS T, Proveedor AS PV, EstadoStock AS E WHERE P.IdMarca = M.IdMarca AND P.IdTipo = T.IdTipo AND P.IdProveedor = PV.IdProveedor AND P.IdEstadoStock = E.IdStockProducto");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -32,7 +32,8 @@ namespace negocio
                     aux.Stock = (int)datos.Lector["Stock"];
                     aux.Ganancia = ((int)Convert.ToInt64(datos.Lector["Ganancia"]));
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.imagenUrl = (string)datos.Lector["ImagenUrl"];                
+                    aux.imagenUrl = (string)datos.Lector["ImagenUrl"];
+                    aux.estadostock = new EstadoStock((string)datos.Lector["EstadoStockProducto"]);
 
                     lista.Add(aux);
                 }
@@ -163,8 +164,8 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string valores = "values('" + nuevo.Codigo + "', '" + nuevo.NombreProducto + "', '" + nuevo.marca.IdMarca + "', '" + nuevo.tipo.IdTipo + "', '" + nuevo.precioCompra + "', " + nuevo.Stock + ", '" + nuevo.Ganancia + "', '" + nuevo.precioVenta + "', '" + nuevo.Descripcion + "', '" + nuevo.proveedor.IdProveedor + "', '" + nuevo.imagenUrl + "')";
-                datos.setearConsulta("insert into Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion,IdProveedor, ImagenUrl ) " + valores);
+                string valores = "values('" + nuevo.Codigo + "', '" + nuevo.NombreProducto + "', '" + nuevo.marca.IdMarca + "', '" + nuevo.tipo.IdTipo + "', '" + nuevo.precioCompra + "', " + nuevo.Stock + ", '" + nuevo.Ganancia + "', '" + nuevo.precioVenta + "', '" + nuevo.Descripcion + "', '" + nuevo.proveedor.IdProveedor + "', '" + nuevo.imagenUrl + "', '" + nuevo.estadostock.IdEstadoStockProducto + "')";
+                datos.setearConsulta("insert into Producto (Codigo, NombreProducto, IdMarca, IdTipo, PrecioCompra, Stock, Ganancia, PrecioVenta, Descripcion,IdProveedor, ImagenUrl, IdEstadoStock ) " + valores);
 
                 datos.ejectutarAccion();
 
@@ -184,7 +185,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, ImagenUrl = @imagenUrl WHERE IdProducto = @id");
+                datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, ImagenUrl = @imagenUrl, IdEstadoStock = @idestadostock  WHERE IdProducto = @id");
                 
                 datos.setearParametro("@codigo", modificar.Codigo);
                 datos.setearParametro("@nombre", modificar.NombreProducto);
@@ -197,6 +198,7 @@ namespace negocio
                 datos.setearParametro("@descripcion", modificar.Descripcion);
                 datos.setearParametro("@idProveedor", modificar.proveedor.IdProveedor);
                 datos.setearParametro("@imagenUrl", modificar.imagenUrl);
+                datos.setearParametro("@idestadostock", modificar.estadostock.IdEstadoStockProducto);
                 datos.setearParametro("@id", modificar.IdProducto);
                 datos.ejectutarAccion();
 

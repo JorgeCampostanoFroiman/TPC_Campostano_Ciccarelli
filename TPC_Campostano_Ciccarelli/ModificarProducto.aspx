@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarProducto.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.ModificarProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="ModificarProducto.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.ModificarProducto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <link href="Estilos/login.css" rel="stylesheet" type="text/css" />
 

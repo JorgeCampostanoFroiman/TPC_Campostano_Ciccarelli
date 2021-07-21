@@ -18,6 +18,9 @@ namespace TPC_Campostano_Ciccarelli
             ProductoNegocio negocio = new ProductoNegocio();
             try
             {
+               
+                
+
                 lista = negocio.Listar();
                 Session.Add("ListaProductos", lista);
 

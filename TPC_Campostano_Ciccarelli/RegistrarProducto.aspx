@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrarProducto.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.RegistrarProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="RegistrarProducto.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.RegistrarProducto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    
    <link href="Estilos/login.css" rel="stylesheet" type="text/css" />
@@ -18,7 +18,7 @@
                             <asp:TextBox runat="server" class="form-control" placeholder="Nombre" ID="tNombre" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                             
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="tDesc"></asp:RequiredFieldValidator>
-                            <asp:TextBox runat="server" class="form-control" placeholder="Nombre" ID="tDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
+                            <asp:TextBox runat="server" class="form-control" placeholder="Descripcion" ID="tDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                             
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator8" ErrorMessage="Required" ControlToValidate="tPrecioCompra"></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" class="form-control" placeholder="Precio de compra" ID="tPrecioCompra" MaxLength="8" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
@@ -29,8 +29,8 @@
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator10" ErrorMessage="Required" ControlToValidate="tGanancia"></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" class="form-control" placeholder="Ganancia" ID="tGanancia" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                             
-                            <asp:TextBox runat="server" class="form-control" placeholder="Precio de venta, se calcula automáticamente" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-                            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="tPrecioVenta"></asp:RequiredFieldValidator>
+                          
+                           
 
                             <asp:DropDownList class="form-control" style="color:white" runat="server" ID="DDLMarca" OnSelectedIndexChanged="DDLMarca_SelectedIndexChanged" AutoPostBack="False"></asp:DropDownList> 
                             
@@ -43,14 +43,18 @@
                           <asp:Button runat="server" ID="BotonAceptar" class="btn btn-dark btn-sm" Text="Aceptar" OnClick="BotonAceptar_Click"/>
                          <a href="NuestrosProductos.aspx" class="btn btn-dark btn-sm">Volver a Productos</a>
     
-        
                        
                     </form>
+
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
                 </div>
             </div>
-
         <div style="text-align:center">
+            <asp:Label runat="server" Text="Precio de venta"></asp:Label>
+         <asp:TextBox runat="server" class="form-control" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" Enabled="false" AutoPostBack="True"></asp:TextBox>
+            </div>
+        <div style="text-align:center">
+            
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator6" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="tCodigo" ErrorMessage="El codigo solo puede contener letras y numeros"></asp:RegularExpressionValidator></div>
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator7" ValidationExpression="[a-zA-Z -]+" ControlToValidate="tNombre" ErrorMessage="El nombre solo puede tener letras" ></asp:RegularExpressionValidator></div>
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[a-zA-Z0-9 -]+" ControlToValidate="tDesc" ErrorMessage="La descripcion solo puede contener letras y numeros" ></asp:RegularExpressionValidator></div>

@@ -31,6 +31,12 @@
     <body>
     <form runat="server" style="background-color:#d6d0d0">
 
+       <%
+           /// Se agrega el stock minimo deseado para que diga la alerta de stock
+           int stockminimodeseado = 2;
+            Session.Add("StockMinimo", stockminimodeseado); %>
+
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Comercio Equis</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
