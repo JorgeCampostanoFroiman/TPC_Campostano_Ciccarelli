@@ -24,7 +24,11 @@ namespace TPC_Campostano_Ciccarelli
                 items = (List<ListaProductos>)Session["items"];
                 if (items == null)
                     items = new List<ListaProductos>();
-
+                else
+                {
+                    repetidor.DataSource = items;
+                    repetidor.DataBind();
+                }
                 iten = new ListaProductos();
             }
                 catch (Exception)
@@ -196,8 +200,8 @@ namespace TPC_Campostano_Ciccarelli
             {
                 listaproducto.AgregarStockCompra(item.Cantidad, item.ItemArt.IdProducto);
             }
-                
-           }
+            Session.Remove("items");
+        }
 
         
     }

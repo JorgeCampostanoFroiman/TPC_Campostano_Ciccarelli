@@ -25,6 +25,11 @@ namespace dominio
             IdCliente = id;
         }
 
+        public Cliente()
+        {
+           
+        }
+
 
         public Cliente(int id, string nombre)
         {

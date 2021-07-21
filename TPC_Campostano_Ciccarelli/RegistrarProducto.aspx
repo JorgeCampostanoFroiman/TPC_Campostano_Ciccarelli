@@ -29,8 +29,8 @@
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator10" ErrorMessage="Required" ControlToValidate="tGanancia"></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" class="form-control" placeholder="Ganancia" ID="tGanancia" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                             
-                            <asp:TextBox runat="server" class="form-control" placeholder="Precio de venta, se calcula automáticamente" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
-                            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="tPrecioVenta"></asp:RequiredFieldValidator>
+                           
+                            
 
                             <asp:DropDownList class="form-control" style="color:white" runat="server" ID="DDLMarca" OnSelectedIndexChanged="DDLMarca_SelectedIndexChanged" AutoPostBack="False"></asp:DropDownList> 
                             
@@ -49,7 +49,10 @@
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
                 </div>
             </div>
-
+        <div style="text-align:center">
+            <asp:Label runat="server" Text="Precio de venta"></asp:Label>
+         <asp:TextBox runat="server" class="form-control" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" Enabled="false" AutoPostBack="False"></asp:TextBox>
+            </div>
         <div style="text-align:center">
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator6" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="tCodigo" ErrorMessage="El codigo solo puede contener letras y numeros"></asp:RegularExpressionValidator></div>
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator7" ValidationExpression="[a-zA-Z -]+" ControlToValidate="tNombre" ErrorMessage="El nombre solo puede tener letras" ></asp:RegularExpressionValidator></div>

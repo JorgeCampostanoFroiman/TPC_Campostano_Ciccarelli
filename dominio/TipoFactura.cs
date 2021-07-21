@@ -16,5 +16,14 @@ namespace dominio
         {
             Nombre = nombre;
         }
+        public TipoFactura()
+        {
+            
+        }
+        public TipoFactura(int id, string nombre)
+        {
+            IdTipoFactura = id;
+            Nombre = nombre;
+        }
     }
 }

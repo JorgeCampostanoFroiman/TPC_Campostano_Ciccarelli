@@ -6,25 +6,28 @@
     
     <h1 style="margin-top:50px"> Este es el formulario para registrar una Venta realizada!!!  </h1>
 
-     <!--  Cliente           -->
-  <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente</label>
-    <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaClientes" OnInit="ListaClientes_Init"OnSelectedIndexChanged="ListaClientes_SelectedIndexChanged"> </asp:DropDownList>
-    </div>
+    
   </div>
+        <!--  Cliente           -->
+        <div class="form-group row" style="margin-top:40px">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente</label>
+            <div class="col-sm-10">
+                <asp:DropDownList runat="server" ID="DDLListaCliente" OnInit="DDLListaCliente_Init" ></asp:DropDownList>
+        </div>
+           </div>
+
 
         <!--  MetodoPago           -->
         <div class="form-group row" style="margin-top:40px">
     <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
     <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaMetodoVenta" OnInit="ListaMetodoVenta_Init"  > </asp:DropDownList>
+      <asp:DropDownList runat="server" ID="ListaMetodoVenta" > </asp:DropDownList>
     </div>
   </div>
 
         <!--  TipoFactura  -->
         <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Tipo Factura</label>
     <div class="col-sm-10">
       <asp:DropDownList runat="server" ID="ListaTipoFactura"> </asp:DropDownList>
     </div>
@@ -59,7 +62,7 @@
 
     <div class="form-group row">
     <div class="col-sm-10" style="margin-top:5px">
-           <asp:Button runat="server" ID="AgregarProductoEnVenta" class="btn btn-primary" Text="Agrega Producto a la venta"/>
+           <asp:Button runat="server" ID="AgregarProductoEnVenta" OnClick="AgregarProductoEnVenta_Click" class="btn btn-primary" Text="Agrega Producto a la venta"/>
 
     </div>
   </div>
@@ -104,7 +107,7 @@
                         
            </tbody>
         </table>
- <asp:Button runat="server" ID="GuardarVenta" class="btn btn-primary" Text="Guarda Venta" />
+ <asp:Button runat="server" ID="GuardarVenta" class="btn btn-primary" OnClick="GuardarVenta_Click" Text="Guarda Venta" />
        <asp:TextBox runat="server" ID="VERFECHA"></asp:TextBox>
     </div>
 
