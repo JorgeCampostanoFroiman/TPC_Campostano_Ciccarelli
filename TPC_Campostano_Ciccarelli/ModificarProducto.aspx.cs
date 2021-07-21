@@ -87,6 +87,30 @@ namespace TPC_Campostano_Ciccarelli
             modif.Ganancia = Convert.ToInt16(textGanancia.Text);
             modif.Descripcion = textDesc.Text;
             modif.precioVenta = Convert.ToDecimal(textPrecioVenta.Text);
+            ///cambio del estado de stock
+            ///
+
+            int stockminimo = (int)Session["StockMinimo"];
+
+            if (modif.Stock > stockminimo)
+            {
+                modif.estadostock = new EstadoStock();
+                modif.estadostock.IdEstadoStockProducto = 1;
+            }
+            else if (modif.Stock <= stockminimo)
+            {
+                modif.estadostock = new EstadoStock();
+                modif.estadostock.IdEstadoStockProducto = 2;
+
+            }
+            else
+            {
+
+                modif.estadostock = new EstadoStock();
+                modif.estadostock.IdEstadoStockProducto = 3;
+            }
+
+            ///fin cambio del estado de stock
 
             modif.marca = new Marca();
             modif.marca.IdMarca = int.Parse(DDLMarca.SelectedItem.Value);

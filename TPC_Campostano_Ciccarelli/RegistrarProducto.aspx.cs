@@ -13,7 +13,9 @@ namespace TPC_Campostano_Ciccarelli
     {
        
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
+            
+           
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             TipoNegocio tipoNegocio = new TipoNegocio();
             ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
@@ -52,6 +54,7 @@ namespace TPC_Campostano_Ciccarelli
                 
                 if (productoNegocio.ListarPorCodigo(tCodigo.Text) == false)
                 {
+
                    
                     Producto producto = new Producto();
                     producto.Codigo = tCodigo.Text;
@@ -61,7 +64,34 @@ namespace TPC_Campostano_Ciccarelli
                     producto.Ganancia = Convert.ToInt16(tGanancia.Text);
                     producto.precioVenta = Convert.ToDecimal(tPrecioVenta.Text);
                     producto.Descripcion = tDesc.Text;
+
+
+
+                    ///cambio del estado de stock
+                    ///
                     
+                    int stockminimo = (int)Session["StockMinimo"];
+   
+                    if (producto.Stock > stockminimo)
+                    {
+                        producto.estadostock = new EstadoStock();
+                        producto.estadostock.IdEstadoStockProducto = 1;
+                    } else if(producto.Stock <= stockminimo)
+                    {
+                        producto.estadostock = new EstadoStock();
+                        producto.estadostock.IdEstadoStockProducto = 2;
+
+                    }
+                    else
+                    {
+                    
+                    producto.estadostock = new EstadoStock();
+                    producto.estadostock.IdEstadoStockProducto = 3;
+                    }
+                   
+
+
+                    ///fin cambio del estado de stock
                     producto.marca = new Marca();
                     producto.marca.IdMarca = int.Parse(DDLMarca.SelectedItem.Value);
 

@@ -21,6 +21,8 @@ namespace dominio
         public Proveedor proveedor { get; set; }
         public string imagenUrl { get; set; }
 
+        public EstadoStock estadostock { get; set; }
+
       
 
         public Producto(int id)
