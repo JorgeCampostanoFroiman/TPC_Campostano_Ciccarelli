@@ -45,6 +45,38 @@ namespace negocio
 
 
          }
+        public void AgregarVenta(Venta nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string valores = "values('" + nuevo.cliente.IdCliente + "', '" + nuevo.Importe + "', '" + nuevo.metodoPago.IdMetodoPago + "', '" + nuevo.Fecha + "', '" + nuevo.tipofactura.IdTipoFactura + "', '" + nuevo.usuario.IdUsuario + "')";
+                datos.setearConsulta("insert into Venta (IdCliente, Importe, MetodoPago, Fecha, TipoFactura, IdUsuario ) " + valores);
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public int NumeroVenta()
+        {
+            int ultimonumero = 0;
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setearConsulta("select MAX(IdVenta) AS MAXIMO from Venta");
+            datos.ejecutarLectura();
+            while (datos.Lector.Read())
+            {
+                ultimonumero = (int)datos.Lector["MAXIMO"];
+            }
+            return ultimonumero;
+        }
     }
 
         

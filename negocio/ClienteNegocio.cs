@@ -21,7 +21,7 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    lista.Add(new Cliente((int)datos.Lector["IdProveedor"], (string)datos.Lector["RazonSocial"]));
+                    lista.Add(new Cliente((int)datos.Lector["IdCliente"], (string)datos.Lector["RazonSocial"]));
                 }
 
                 return lista;

@@ -34,6 +34,10 @@ namespace dominio
         {
             Email = mail;
         }
+        public Usuario()
+        {
+
+        }
 
     }
 }
