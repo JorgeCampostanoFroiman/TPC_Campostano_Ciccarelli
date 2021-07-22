@@ -23,8 +23,8 @@ namespace TPC_Campostano_Ciccarelli
                 labelIdProducto.Text = "Id Producto: " + seleccionado.IdProducto;
                 labelCodigo.Text = "Codigo: " + seleccionado.Codigo;
                 labelNombreProducto.Text = "Nombre: " + seleccionado.NombreProducto;
-                labelIdMarca.Text = "Marca: " + seleccionado.marca.Nombre;
-                labelIdTipo.Text = "Tipo: " + seleccionado.tipo.Nombre;
+                labelMarca.Text = "Marca: " + seleccionado.marca.Nombre;
+                labelTipo.Text = "Tipo: " + seleccionado.tipo.Nombre;
                 labelPrecioCompra.Text = "Precio Compra: " + seleccionado.precioCompra;
                 labelStock.Text = "Stock: " + seleccionado.Stock;
                 labelGanancia.Text = "Ganancia: " + seleccionado.Ganancia;

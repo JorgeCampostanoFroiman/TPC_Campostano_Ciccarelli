@@ -21,10 +21,10 @@
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="Required" ControlToValidate="txtDomicilio" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" Text="Domicilio" class="form-control" style="color:white" ID="txtDomicilio" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                         
-                           <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="txtTelefono" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+                           <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="txtTelefono" ForeColor="#CC3300" Display="Static" Enabled="false"></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" Text="Telefono" Class="form-control" style="color:white" ID="txtTelefono" MaxLength="12" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                              
-                          <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="Required" ControlToValidate="txtEmail" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+                          <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="Required" ControlToValidate="txtEmail" ForeColor="#CC3300" Display="Static" Enabled="false" ></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" Class="form-control" Text="Email" ID="txtEmail" style="color:white" MaxLength="120" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                         
                         </div>
@@ -43,7 +43,7 @@
                 <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ValidationExpression="[a-zA-Z0-9- ]+" ControlToValidate="txtDomicilio" ErrorMessage="*El domicilio solo puede tener Letras/números"></asp:RegularExpressionValidator></div>
                 <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="txtTelefono" ErrorMessage="*El telefono Solo puede tener números"></asp:RegularExpressionValidator></div>
                 <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator4" ControlToValidate="txtEmail" ValidationExpression="[a-zA-Z0-9]+" ErrorMessage="*Direccion de email no valida"></asp:RegularExpressionValidator></div>
-                
+                <asp:Label runat="server" ID="proveedorAgregado" Font-Size="Large"></asp:Label>
                  
                  
                 

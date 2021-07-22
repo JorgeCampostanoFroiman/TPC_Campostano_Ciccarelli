@@ -20,11 +20,15 @@
                     
                         
                         <asp:Button runat="server" Text="Aceptar" class="btn btn-dark btn-sm" ID="btnMarca" OnClick="btnMarca_Click"/>
-                       
+                       <a href="AgregarMarca.aspx" class="btn btn-dark btn-sm">Regresar a Marcas</a>
                     </form>
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
                 </div>
             </div>
+    <div style="text-align:center">
+        <asp:Label runat="server" id="marcaAgregada"></asp:Label>
+    </div>
+        
     </body>
     
     

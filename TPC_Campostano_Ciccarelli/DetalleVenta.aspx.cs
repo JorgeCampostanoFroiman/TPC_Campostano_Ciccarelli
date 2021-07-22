@@ -11,7 +11,9 @@ namespace TPC_Campostano_Ciccarelli
 {
     public partial class DetalleVenta : System.Web.UI.Page
     {
-        public string codigoDetalleCompra;
+        public string codigoDetalleVenta;
+        public List<ListaProductos> itemsListaVenta;
+        ListaProductosNegocio listaNegocioVenta = new ListaProductosNegocio();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,7 +24,7 @@ namespace TPC_Campostano_Ciccarelli
                 List<Venta> listado = (List<Venta>)Session["ListaVentas"];
                 Venta seleccionado = listado.Find(x => x.IdVenta == id);
 
-                labelIdVentaVenta.Text = "Id Venta: " + seleccionado.IdVenta;
+                labelIdVenta.Text = "Id Venta: " + seleccionado.IdVenta;
                 labelIdClienteVenta.Text = "Cliente: " + seleccionado.cliente.RazonSocial;
                 labelTipoFacturaVenta.Text = "Factura: " + seleccionado.tipofactura.Nombre;
                 labelFechaVenta.Text = "Fecha: " + seleccionado.Fecha;
@@ -30,9 +32,16 @@ namespace TPC_Campostano_Ciccarelli
                 labelMetodoPagoVenta.Text = "Metodo de Pago: " + seleccionado.metodoPago.Nombre;
                 labelIdUsuarioVenta.Text = "Vendedor: " + seleccionado.usuario.Apellido;
 
+                itemsListaVenta = listaNegocioVenta.Listar();
+
+
+                repetidor.DataSource = itemsListaVenta;
+                repetidor.DataBind();
+
             }
             catch (Exception)
             {
+                Session.Add("Error", "Excepcion encontrada, pero la capturamos!");
                 Response.Redirect("Error.aspx");
             }
         }

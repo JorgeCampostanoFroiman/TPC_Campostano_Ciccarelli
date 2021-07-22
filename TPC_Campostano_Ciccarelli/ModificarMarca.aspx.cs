@@ -43,6 +43,8 @@ namespace TPC_Campostano_Ciccarelli
             Marca modif = listaMarcas.Find(x => x.IdMarca.ToString() == Request.QueryString["id"]);
             modif.Nombre = TxtMarca.Text;
             marcaNegocio.modificarMarca(modif);
+            marcaAgregada.Text = "Marca agregada exitosamente";
+            TxtMarca.Enabled = false;
         }
     }
 }

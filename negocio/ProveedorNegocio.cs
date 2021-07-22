@@ -17,12 +17,45 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select IdProveedor, RazonSocialProveedor FROM Proveedor");
+                datos.setearConsulta("select IdProveedor, Estado, CuitProveedor, Domicilio, Email, Telefono, RazonSocialProveedor FROM Proveedor");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    lista.Add(new Proveedor((int)datos.Lector["IdProveedor"], (string)datos.Lector["RazonSocialProveedor"]));
+
+                    if ((bool)datos.Lector["Estado"] == true)
+                    {
+
+                        Proveedor aux = new Proveedor();
+                        aux.IdProveedor = (int)datos.Lector["IdProveedor"];
+                        aux.RazonSocialProveedor = (string)datos.Lector["RazonSocialProveedor"];
+                        aux.Estado = (bool)datos.Lector["Estado"];
+                        aux.CuitProveedor = (string)datos.Lector["CuitProveedor"];
+                        aux.Domicilio = (string)datos.Lector["Domicilio"];
+                        if (datos.Lector["Email"] is System.DBNull)
+                        {
+
+                            aux.Email = "No especificado";
+                        }
+                        else
+                        {
+                            aux.Email = (string)datos.Lector["EMail"];
+                        }
+
+                        if (datos.Lector["Telefono"] is System.DBNull)
+                        {
+                            aux.Telefono = "No especificado";
+                        }
+                        else
+                        {
+                            aux.Telefono = (string)datos.Lector["Telefono"];
+                        } lista.Add(aux);
+                    }
+                   
+
+                    
+
+
                 }
 
                 return lista;
@@ -130,7 +163,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Delete From Proveedor Where IdProveedor = " + id);
+                datos.setearConsulta("Update Proveedor Set Estado = " + 0 + " where IdProveedor = " + id);
                 datos.ejectutarAccion();
             }
             catch (Exception ex)

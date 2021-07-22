@@ -25,11 +25,11 @@
         <asp:TextBox runat="server" class="form-control"  placeholder="Domicilio" ID="textoDomicilio" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
        
                    
-             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator8" ErrorMessage="Requerido" ControlToValidate="textoTelefono" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator8" ErrorMessage="Requerido" ControlToValidate="textoTelefono" ForeColor="#CC3300" Enabled="false" Display="Static"></asp:RequiredFieldValidator>
         <asp:TextBox runat="server" class="form-control"  placeholder="Telefono"  ID="textoTelefono" MaxLength="12" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
         
               
-              <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator9" ErrorMessage="Requerido" ControlToValidate="textoEmail" ForeColor="#CC3300" Display="Static"></asp:RequiredFieldValidator>
+              <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator9" ErrorMessage="Requerido" ControlToValidate="textoEmail" ForeColor="#CC3300" Enabled="false" Display="Static"></asp:RequiredFieldValidator>
         <asp:TextBox runat="server" class="form-control"  placeholder="Email" ID="textoEmail" MaxLength="120" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
        
                  
@@ -41,9 +41,9 @@
             </div>
 
     <div style="text-align:center">
-        <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator5" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textoRazonSocial" ErrorMessage="La razon social solo puede contener letras y numeros"></asp:RegularExpressionValidator>     </div>
+        <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator5" ValidationExpression="[a-zA-Z0-9- ]+" ControlToValidate="textoRazonSocial" ErrorMessage="La razon social solo puede contener letras y numeros"></asp:RegularExpressionValidator>     </div>
         <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator6" ValidationExpression="[0-9]+" ControlToValidate="textoCuit" ErrorMessage="El cuit solo puede contener numeros"></asp:RegularExpressionValidator></div>
-        <div> <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator7" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="textoDomicilio" ErrorMessage="El domicilio solo puede tener letras y numeros"></asp:RegularExpressionValidator></div>
+        <div> <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator7" ValidationExpression="[a-zA-Z0-9- ]+" ControlToValidate="textoDomicilio" ErrorMessage="El domicilio solo puede tener letras y numeros"></asp:RegularExpressionValidator></div>
         <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator8" ValidationExpression="[0-9]+" ControlToValidate="textoTelefono" ErrorMessage="El telefono solo puede contener numeros" ></asp:RegularExpressionValidator></div>
         <div> <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator9" ControlToValidate="textoEmail" ValidationExpression="[a-zA-Z0-9]+" ErrorMessage="El mail no es valido"></asp:RegularExpressionValidator></div>
 

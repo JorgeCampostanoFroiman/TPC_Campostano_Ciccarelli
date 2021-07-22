@@ -114,15 +114,6 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.TextBox textGanancia;
 
         /// <summary>
-        /// Control textPrecioVenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textPrecioVenta;
-
-        /// <summary>
         /// Control RequiredFieldValidator5.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BotonAceptar;
+
+        /// <summary>
+        /// Control textPrecioVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textPrecioVenta;
 
         /// <summary>
         /// Control ValidarCodigo.

@@ -11,79 +11,61 @@ namespace TPC_Campostano_Ciccarelli
 {
 
 
-    public partial class DetalleVenta
+    public partial class DetalleProveedor
     {
 
         /// <summary>
-        /// Control labelIdVenta.
+        /// Control labelIdProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdVenta;
+        protected global::System.Web.UI.WebControls.Label labelIdProveedor;
 
         /// <summary>
-        /// Control labelIdClienteVenta.
+        /// Control labelRazonSocial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdClienteVenta;
+        protected global::System.Web.UI.WebControls.Label labelRazonSocial;
 
         /// <summary>
-        /// Control labelTipoFacturaVenta.
+        /// Control labelCuit.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelTipoFacturaVenta;
+        protected global::System.Web.UI.WebControls.Label labelCuit;
 
         /// <summary>
-        /// Control labelFechaVenta.
+        /// Control labelEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelFechaVenta;
+        protected global::System.Web.UI.WebControls.Label labelEmail;
 
         /// <summary>
-        /// Control labelImporteVenta.
+        /// Control labelDomicilio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelImporteVenta;
+        protected global::System.Web.UI.WebControls.Label labelDomicilio;
 
         /// <summary>
-        /// Control labelMetodoPagoVenta.
+        /// Control labelTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelMetodoPagoVenta;
-
-        /// <summary>
-        /// Control labelIdUsuarioVenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdUsuarioVenta;
-
-        /// <summary>
-        /// Control repetidor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repetidor;
+        protected global::System.Web.UI.WebControls.Label labelTelefono;
     }
 }

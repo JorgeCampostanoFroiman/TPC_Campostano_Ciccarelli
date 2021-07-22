@@ -40,6 +40,56 @@ namespace negocio
 
         }
 
+        public bool ListarPorDNI(int dni)
+        {
+            bool bandera = false;
+            int comparacion;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Dni From Usuario");
+                datos.ejecutarLectura();
+                
+                while (datos.Lector.Read())
+                {   
+                    if (Convert.ToInt32((string)datos.Lector["Dni"]) == dni)
+                    {
+                        bandera = true;
+                    }
+                }
+                return bandera;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
 
+        public void Agregar (Usuario nuevo)
+        {
+                AccesoDatos datos = new AccesoDatos();
+                try
+                {
+                    string valores = "values('" + nuevo.Nombre + "', '" + nuevo.Apellido + "', '" + nuevo.Telefono + "', '" + nuevo.Email + "', '" + nuevo.Contraseña + "', '" + nuevo.Dni + "')";
+                    datos.setearConsulta("insert into Usuario (Nombre, Apellido, Telefono, Email, Contraseña, Dni) " + valores);
+
+                    datos.ejectutarAccion();
+
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    datos.cerrarConexion();
+                }
+            
+        }
     }
 }

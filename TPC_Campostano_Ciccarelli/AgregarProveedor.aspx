@@ -11,7 +11,8 @@
     <tr>
       <th scope="col">Razón social</th>
       <th scope="col">Modificar</th>
-      <th scope="col">Eliminar</th>     
+      <th scope="col">Eliminar</th>
+        <th scope="col">Detalle</th>
 
     </tr>
   </thead>
@@ -21,7 +22,8 @@
       <tr>
       <td><% = item.RazonSocialProveedor %> </td>
       <td><a href="ModifProveedor.aspx?id=<% = item.IdProveedor%>" class="btn btn-dark btn-sm">Modificar datos</a></td>
-      <td><a href="AgregarProveedor.aspx?id=<% = item.IdProveedor%>&c=d" class="btn btn-danger btn-sm">Eliminar</a>  
+      <td><a href="AgregarProveedor.aspx?id=<% = item.IdProveedor%>&c=d" class="btn btn-danger btn-sm">Eliminar</a>  </td>
+     <td><a href="DetalleProveedor.aspx?id=<% = item.IdProveedor%>" class="btn btn-dark btn-sm">Ver Detalle</a>  
       
     </tr>
        <% } %>

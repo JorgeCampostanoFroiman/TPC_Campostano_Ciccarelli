@@ -112,6 +112,7 @@
     <Content Include="Compras.aspx" />
     <Content Include="DetalleCompra.aspx" />
     <Content Include="DetalleProducto.aspx" />
+    <Content Include="DetalleProveedor.aspx" />
     <Content Include="DetalleVenta.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Estilos\agregarMarca.css" />
@@ -120,6 +121,7 @@
     <Content Include="ModificarProducto.aspx" />
     <Content Include="ModifProveedor.aspx" />
     <Content Include="NuestrosProductos.aspx" />
+    <Content Include="RecuperarContraseña.aspx" />
     <Content Include="RegistrarCompra.aspx" />
     <Content Include="RegistrarProducto.aspx" />
     <Content Include="RegistrarProveedor.aspx" />
@@ -233,6 +235,13 @@
     <Compile Include="DetalleProducto.aspx.designer.cs">
       <DependentUpon>DetalleProducto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalleProveedor.aspx.cs">
+      <DependentUpon>DetalleProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleProveedor.aspx.designer.cs">
+      <DependentUpon>DetalleProveedor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleVenta.aspx.cs">
       <DependentUpon>DetalleVenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -281,6 +290,13 @@
     </Compile>
     <Compile Include="NuestrosProductos.aspx.designer.cs">
       <DependentUpon>NuestrosProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecuperarContraseña.aspx.cs">
+      <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecuperarContraseña.aspx.designer.cs">
+      <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarCompra.aspx.cs">
       <DependentUpon>RegistrarCompra.aspx</DependentUpon>

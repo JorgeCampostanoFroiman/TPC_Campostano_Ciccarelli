@@ -42,22 +42,22 @@ namespace TPC_Campostano_Ciccarelli
         protected global::System.Web.UI.WebControls.Label labelNombreProducto;
 
         /// <summary>
-        /// Control labelIdMarca.
+        /// Control labelMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdMarca;
+        protected global::System.Web.UI.WebControls.Label labelMarca;
 
         /// <summary>
-        /// Control labelIdTipo.
+        /// Control labelTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdTipo;
+        protected global::System.Web.UI.WebControls.Label labelTipo;
 
         /// <summary>
         /// Control labelPrecioCompra.
@@ -112,5 +112,14 @@ namespace TPC_Campostano_Ciccarelli
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelIdProveedor;
+
+        /// <summary>
+        /// Control LabelEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelEstado;
     }
 }

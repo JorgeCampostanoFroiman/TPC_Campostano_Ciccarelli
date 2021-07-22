@@ -32,6 +32,8 @@ namespace TPC_Campostano_Ciccarelli
                 nuevo.Telefono = txtTelefono.Text;
 
                 proveedorNegocio.AgregarProveedor(nuevo);
+
+                proveedorAgregado.Text = "Proveedor agregado exitosamente.";
             }
             catch (Exception)
             {

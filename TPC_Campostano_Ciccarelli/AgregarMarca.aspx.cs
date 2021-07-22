@@ -53,6 +53,8 @@ namespace TPC_Campostano_Ciccarelli
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             marcaNegocio.agregarMarca(txtAgregar.Text);
+            listaMarcas = marcaNegocio.Listar();
         }
+
     }
 }

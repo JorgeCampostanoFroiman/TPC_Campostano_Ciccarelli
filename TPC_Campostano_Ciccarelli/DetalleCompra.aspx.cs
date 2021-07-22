@@ -12,6 +12,8 @@ namespace TPC_Campostano_Ciccarelli
     public partial class DetalleCompra : System.Web.UI.Page
     {
         public string codigoDetalleCompra;
+        public List<ListaProductos> itemsLista;
+        ListaProductosNegocio listaNegocio = new ListaProductosNegocio();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,11 +31,16 @@ namespace TPC_Campostano_Ciccarelli
                 labelMetodoPago.Text = "Metodo de pago: " + Convert.ToString(seleccionado.metodoPago);
                 /// labelIdListaProd = "Id Productos: " + Convert.ToString(seleccionado.listaProductos);
 
+                itemsLista = listaNegocio.Listar();
 
+
+                repetidor.DataSource = itemsLista;
+                repetidor.DataBind();
 
             }
             catch (Exception)
             {
+                Session.Add("Error", "Excepcion encontrada, pero la capturamos!");
                 Response.Redirect("Error.aspx");
             }
         }

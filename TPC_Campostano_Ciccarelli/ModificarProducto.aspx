@@ -26,12 +26,10 @@
 <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="Required" ControlToValidate="textGanancia"></asp:RequiredFieldValidator>
     <asp:TextBox runat="server" class="form-control" ID="textGanancia" MaxLength="3" EnableViewState="True" AutoPostBack="False" placeholder="Ganancia"></asp:TextBox>
 
-<asp:TextBox runat="server" class="form-control" ID="textPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False"  placeholder="Precio de venta"></asp:TextBox>
+<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="Required" ControlToValidate="textDesc" Enabled="false" ></asp:RequiredFieldValidator>
+    <asp:TextBox runat="server" class="form-control" ID="textDesc" MaxLength="400" EnableViewState="True" style="margin-bottom:23px" AutoPostBack="False" placeholder="Descripcion"></asp:TextBox>
 
-<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="Required" ControlToValidate="textDesc"></asp:RequiredFieldValidator>
-    <asp:TextBox runat="server" class="form-control" ID="textDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False" placeholder="Descripcion"></asp:TextBox>
-
-                            <asp:DropDownList style="color:white" runat="server" class="form-control"  ID="DDLMarca"></asp:DropDownList>
+                            <asp:DropDownList style="color:white" runat="server" class="form-control" ID="DDLMarca"></asp:DropDownList>
 
                             <asp:DropDownList style="color:white" runat="server" class="form-control" ID="DDLTipo"></asp:DropDownList>
 
@@ -46,7 +44,7 @@
     </body>
 
 
-
+    <asp:TextBox runat="server" Visible="false" class="form-control" ID="textPrecioVenta" MaxLength="3" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
 
     <div style="text-align:center">
 

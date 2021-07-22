@@ -17,7 +17,7 @@
                         </div>
                         <asp:Button runat="server" class="btn btn-dark btn-sm" id="btnIngreso" OnClick="btnIngreso_Click" Text="Ingresar"/>
         
-                        <a class="btn btn-dark btn-sm" href="#">¿Olvidaste tu contraseña?</a>
+                        <a class="btn btn-dark btn-sm" href="RecuperarContraseña.aspx">¿Olvidaste tu contraseña?</a>
                         <a class="btn btn-dark btn-sm" href="Registrarse.aspx"">Registrarse!</a>
                     </form>
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>

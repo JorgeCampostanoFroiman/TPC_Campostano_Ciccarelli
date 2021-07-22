@@ -17,7 +17,7 @@
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator7" ErrorMessage="Required" ControlToValidate="tNombre" Display="Static"></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" class="form-control" placeholder="Nombre" ID="tNombre" MaxLength="80" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                             
-                            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="tDesc"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Required" ControlToValidate="tDesc" Enabled=""></asp:RequiredFieldValidator>
                             <asp:TextBox runat="server" class="form-control" placeholder="Descripcion" ID="tDesc" MaxLength="400" EnableViewState="True" AutoPostBack="False"></asp:TextBox>
                             
                             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator8" ErrorMessage="Required" ControlToValidate="tPrecioCompra"></asp:RequiredFieldValidator>
@@ -50,8 +50,7 @@
                 </div>
             </div>
         <div style="text-align:center">
-            <asp:Label runat="server" Text="Precio de venta"></asp:Label>
-         <asp:TextBox runat="server" class="form-control" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" Enabled="false" AutoPostBack="True"></asp:TextBox>
+         <asp:TextBox runat="server" class="form-control" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" Visible="false" AutoPostBack="True"></asp:TextBox>
             </div>
         <div style="text-align:center">
             

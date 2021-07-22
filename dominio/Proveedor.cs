@@ -36,6 +36,16 @@ namespace dominio
             IdProveedor = id;
             RazonSocialProveedor = nombre;
         }
+        public Proveedor(int id, string razonsocialproveedor, bool estado, string cuit, string domicilio, string email, string telefono)
+        {
+            IdProveedor = id;
+            CuitProveedor = cuit;
+            Estado = estado;
+            Email = email;
+            Telefono = telefono;
+            Domicilio = domicilio;
+            RazonSocialProveedor = razonsocialproveedor;
+        }
 
         public override string ToString()
         {

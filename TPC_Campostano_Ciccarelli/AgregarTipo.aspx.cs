@@ -43,6 +43,7 @@ namespace TPC_Campostano_Ciccarelli
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             tipoNegocio.agregarTipo(txtAgregar.Text);
+            listaTipos = tipoNegocio.Listar();
         }
     }
 }
