@@ -23,6 +23,8 @@ namespace dominio
 
         public EstadoStock estadostock { get; set; }
 
+        public int Estado { get; set; }
+
       
 
         public Producto(int id)

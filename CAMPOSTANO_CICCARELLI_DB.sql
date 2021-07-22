@@ -9,7 +9,7 @@ GO
 
 CREATE TABLE TipoUsuario(
 IdTipoUsuario INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-Nombre VARCHAR(40) NOT NULL,
+Nombre VARCHAR(40) NOT NULL
 )
 
 GO
@@ -21,7 +21,8 @@ Telefono VARCHAR(20) NULL,
 Email VARCHAR(80) NOT NULL UNIQUE,
 Contraseña VARCHAR(50) NOT NULL,
 Dni VARCHAR(8) NOT NULL UNIQUE,
-TipoUsuario int not null DEFAULT (1) FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario)
+TipoUsuario int not null DEFAULT (1) FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario),
+Estado BIT NOT NULL DEFAULT (1)
 
 )
 
@@ -52,19 +53,22 @@ GO
 CREATE TABLE Marca (
 IdMarca INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 Nombre VARCHAR(40) NOT NULL,
+Estado BIT NOT NULL DEFAULT (1)
 )
 
 GO
 CREATE TABLE Tipo (
 IdTipo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 Nombre VARCHAR(40) NOT NULL,
+Estado BIT NOT NULL DEFAULT (1)
 )
 
 
 GO
 CREATE TABLE EstadoStock(
 IdStockProducto INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-NombreStockProducto VARCHAR(40) NULL,
+NombreStockProducto VARCHAR(40) NULL
+
 )
 GO
 CREATE TABLE Producto (
@@ -80,21 +84,24 @@ PrecioVenta MONEY NOT NULL CHECK (PrecioVenta > 0),
 Descripcion VARCHAR(400) NULL,
 IdProveedor INT NOT NULL FOREIGN KEY REFERENCES Proveedor(IdProveedor), 
 ImagenUrl VARCHAR (400) NULL,
-IdEstadoStock INT not null FOREIGN KEY REFERENCES EstadoStock(IdStockProducto)
+IdEstadoStock INT not null FOREIGN KEY REFERENCES EstadoStock(IdStockProducto),
+Estado BIT NOT NULL DEFAULT (1)
 
 )
 
 GO
 CREATE TABLE MetodoPago(
 IdMetodoPago INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-Nombre VARCHAR(40) NOT NULL
+Nombre VARCHAR(40) NOT NULL,
+Estado BIT NOT NULL DEFAULT (1)
 
 )
 
 GO 
 CREATE TABLE TipoFactura(
 IdTipoFactura INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-Nombre VARCHAR(40) NOT NULL,
+Nombre VARCHAR(40) NOT NULL
+
 
 )
 
@@ -213,5 +220,5 @@ INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario
 INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (3, 2, '2021/04/15', '40000',2, 1)
 INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (4, 3, '2021/03/20', '36000',3, 2)
 INSERT INTO Venta (IdCliente, TipoFactura, Fecha, Importe, MetodoPago, IdUsuario) VALUES (6, 4, '2021/01/22', '50000',4, 3)
-
-SELECT * FROM EstadoProducto
+use CAMPOSTANO_CICCARELLI_DB
+SELECT * FROM Producto

@@ -107,6 +107,62 @@ namespace TPC_Campostano_Ciccarelli
                     productoNegocio.Agregar(producto);
 
                 }
+                else if(productoNegocio.ListarPorEstado(tCodigo.Text) == true)
+                       
+                {
+                    Producto producto = new Producto();
+                    producto.Codigo = tCodigo.Text;
+                    producto.NombreProducto = tNombre.Text;
+                    producto.precioCompra = Convert.ToDecimal(tPrecioCompra.Text);
+                    producto.Stock = Convert.ToInt32(tStock.Text);
+                    producto.Ganancia = Convert.ToInt16(tGanancia.Text);
+                    producto.precioVenta = Convert.ToDecimal(tPrecioVenta.Text);
+                    producto.Descripcion = tDesc.Text;
+                    producto.Estado = 1;
+
+
+
+                    ///cambio del estado de stock
+                    ///
+
+                    int stockminimo = (int)Session["StockMinimo"];
+
+                    if (producto.Stock > stockminimo)
+                    {
+                        producto.estadostock = new EstadoStock();
+                        producto.estadostock.IdEstadoStockProducto = 1;
+                    }
+                    else if (producto.Stock <= stockminimo)
+                    {
+                        producto.estadostock = new EstadoStock();
+                        producto.estadostock.IdEstadoStockProducto = 2;
+
+                    }
+                    else
+                    {
+
+                        producto.estadostock = new EstadoStock();
+                        producto.estadostock.IdEstadoStockProducto = 3;
+                    }
+
+
+
+                    ///fin cambio del estado de stock
+                    producto.marca = new Marca();
+                    producto.marca.IdMarca = int.Parse(DDLMarca.SelectedItem.Value);
+
+                    producto.tipo = new Tipo();
+                    producto.tipo.IdTipo = int.Parse(DDLTipo.SelectedItem.Value);
+
+                    producto.proveedor = new Proveedor();
+                    producto.proveedor.IdProveedor = int.Parse(DDLProveedor.SelectedItem.Value);
+
+
+
+
+                    productoNegocio.Agregar(producto);
+
+                }
                 else
                 {
                     return;
