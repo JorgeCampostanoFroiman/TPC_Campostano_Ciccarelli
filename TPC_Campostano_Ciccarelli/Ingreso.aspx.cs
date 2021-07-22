@@ -13,7 +13,7 @@ namespace TPC_Campostano_Ciccarelli
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnIngreso_Click(object sender, EventArgs e)

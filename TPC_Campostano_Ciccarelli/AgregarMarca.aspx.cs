@@ -18,6 +18,7 @@ namespace TPC_Campostano_Ciccarelli
             ProductoNegocio negocio = new ProductoNegocio();
             try
             {
+                
                 if (Request.QueryString["Id"] != null)
                 {
                     listaMarcas = (List<Marca>)Session["marcas"];

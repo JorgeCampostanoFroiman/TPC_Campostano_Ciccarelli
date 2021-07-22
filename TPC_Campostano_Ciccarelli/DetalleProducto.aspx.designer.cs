@@ -15,48 +15,102 @@ namespace TPC_Campostano_Ciccarelli
     {
 
         /// <summary>
-        /// Control labelIdCompra.
+        /// Control labelIdProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdCompra;
+        protected global::System.Web.UI.WebControls.Label labelIdProducto;
 
         /// <summary>
-        /// Control labelMetodoPago.
+        /// Control labelCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelMetodoPago;
+        protected global::System.Web.UI.WebControls.Label labelCodigo;
 
         /// <summary>
-        /// Control labelProveedor.
+        /// Control labelNombreProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelProveedor;
+        protected global::System.Web.UI.WebControls.Label labelNombreProducto;
 
         /// <summary>
-        /// Control labelFecha.
+        /// Control labelIdMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelFecha;
+        protected global::System.Web.UI.WebControls.Label labelIdMarca;
 
         /// <summary>
-        /// Control labelImporte.
+        /// Control labelIdTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelImporte;
+        protected global::System.Web.UI.WebControls.Label labelIdTipo;
+
+        /// <summary>
+        /// Control labelPrecioCompra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelPrecioCompra;
+
+        /// <summary>
+        /// Control labelStock.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelStock;
+
+        /// <summary>
+        /// Control labelGanancia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelGanancia;
+
+        /// <summary>
+        /// Control labelPrecioVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelPrecioVenta;
+
+        /// <summary>
+        /// Control labelDescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelDescripcion;
+
+        /// <summary>
+        /// Control labelIdProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelIdProveedor;
     }
 }

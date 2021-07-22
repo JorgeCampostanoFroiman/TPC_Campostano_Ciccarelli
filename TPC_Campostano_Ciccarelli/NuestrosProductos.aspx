@@ -40,7 +40,7 @@
       <td id="EstadoStock"><% = item.estadostock.NombreEstadoStockProducto %></td>
       <td><a href="ModificarProducto.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm" role="button">Modificar</a></td>
       <td><a href="NuestrosProductos.aspx?id=<% = item.IdProducto%>&c=d" style="background-color:red" class="btn btn-danger btn-sm">Eliminar</a>
-      <td><a href="DetalleCompra.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm">Ver Detalle</a></td>
+      <td><a href="DetalleProducto.aspx?id=<% = item.IdProducto%>" class="btn btn-dark btn-sm">Ver Detalle</a></td>
     </tr>
        <% } %>
       </tbody>

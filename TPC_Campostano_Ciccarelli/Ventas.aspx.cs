@@ -26,6 +26,22 @@ namespace TPC_Campostano_Ciccarelli
                 Response.Redirect("Error.aspx");
             }
 
+            ///generear pdf de venta
+            ///
+          /*  var pdfPrintOptions = new PdfPrintOptions
+            {
+                Footer = new SimpleHeaderFooter
+                {
+                    FontFamily = "Arial",
+                    FontSize = 11,
+                    LeftText = "Demo",
+                    RightText = "{page}"
+                }
+
+            };
+
+            IronPdf.AspxToPdf.RenderThisPageAsPdf(IronPdf.AspxToPdf.FileBehavior.Attachment, printOptions: pdfPrintOptions);
+*/
         }
     }
 }

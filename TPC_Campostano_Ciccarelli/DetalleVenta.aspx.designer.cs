@@ -15,48 +15,66 @@ namespace TPC_Campostano_Ciccarelli
     {
 
         /// <summary>
-        /// Control labelIdCompra.
+        /// Control labelIdVentaVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelIdCompra;
+        protected global::System.Web.UI.WebControls.Label labelIdVentaVenta;
 
         /// <summary>
-        /// Control labelMetodoPago.
+        /// Control labelIdClienteVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelMetodoPago;
+        protected global::System.Web.UI.WebControls.Label labelIdClienteVenta;
 
         /// <summary>
-        /// Control labelProveedor.
+        /// Control labelTipoFacturaVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelProveedor;
+        protected global::System.Web.UI.WebControls.Label labelTipoFacturaVenta;
 
         /// <summary>
-        /// Control labelFecha.
+        /// Control labelFechaVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelFecha;
+        protected global::System.Web.UI.WebControls.Label labelFechaVenta;
 
         /// <summary>
-        /// Control labelImporte.
+        /// Control labelImporteVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelImporte;
+        protected global::System.Web.UI.WebControls.Label labelImporteVenta;
+
+        /// <summary>
+        /// Control labelMetodoPagoVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelMetodoPagoVenta;
+
+        /// <summary>
+        /// Control labelIdUsuarioVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelIdUsuarioVenta;
     }
 }

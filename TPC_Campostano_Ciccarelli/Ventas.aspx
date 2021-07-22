@@ -28,7 +28,7 @@
       <td><% = item.cliente.RazonSocial %></td>
       <td><% = item.metodoPago.Nombre %></td>
       <td><% = item.Importe %></td>
-      <td><a href="DetalleCompra.aspx?id=<% = item.IdVenta%>" class="btn btn-primary">Ver Detalle</a></td>
+      <td><a href="DetalleVenta.aspx?id=<% = item.IdVenta%>" class="btn btn-primary">Ver Detalle</a></td>
     </tr>
        <% } %>
       </tbody>

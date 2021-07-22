@@ -19,17 +19,16 @@ namespace TPC_Campostano_Ciccarelli
             {
                 //CodigoDetalle = Request.QueryString["CodigoDetalle"];
                 int id = int.Parse(Request.QueryString["id"]);
-                List<Compra> listado = (List<Compra>)Session["ListaCompras"];
-                Compra seleccionado = listado.Find(x => x.IdCompra == id);
+                List<Venta> listado = (List<Venta>)Session["ListaVentas"];
+                Venta seleccionado = listado.Find(x => x.IdVenta == id);
 
-                labelIdCompra.Text = "Id compra: " + seleccionado.IdCompra;
-                labelFecha.Text = "Fecha: " + seleccionado.Fecha;
-                labelImporte.Text = "Importe: " + seleccionado.Importe;
-                labelProveedor.Text = "Proveedor: " + Convert.ToString(seleccionado.proveedor);
-                labelMetodoPago.Text = "Metodo de pago: " + Convert.ToString(seleccionado.metodoPago);
-                /// labelIdListaProd = "Id Productos: " + Convert.ToString(seleccionado.listaProductos);
-
-
+                labelIdVentaVenta.Text = "Id Venta: " + seleccionado.IdVenta;
+                labelIdClienteVenta.Text = "Cliente: " + seleccionado.cliente.RazonSocial;
+                labelTipoFacturaVenta.Text = "Factura: " + seleccionado.tipofactura.Nombre;
+                labelFechaVenta.Text = "Fecha: " + seleccionado.Fecha;
+                labelImporteVenta.Text = "Importe: " + seleccionado.Importe;
+                labelMetodoPagoVenta.Text = "Metodo de Pago: " + seleccionado.metodoPago.Nombre;
+                labelIdUsuarioVenta.Text = "Vendedor: " + seleccionado.usuario.Apellido;
 
             }
             catch (Exception)

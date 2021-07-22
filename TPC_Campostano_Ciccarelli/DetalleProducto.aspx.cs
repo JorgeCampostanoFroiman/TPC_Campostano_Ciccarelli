@@ -13,7 +13,33 @@ namespace TPC_Campostano_Ciccarelli
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
 
+                int id = int.Parse(Request.QueryString["id"]);
+                List<Producto> listado = (List<Producto>)Session["ListaProductos"];
+                Producto seleccionado = listado.Find(x => x.IdProducto == id);
+
+                labelIdProducto.Text = "Id Producto: " + seleccionado.IdProducto;
+                labelCodigo.Text = "Codigo: " + seleccionado.Codigo;
+                labelNombreProducto.Text = "Nombre: " + seleccionado.NombreProducto;
+                labelIdMarca.Text = "Marca: " + seleccionado.marca.Nombre;
+                labelIdTipo.Text = "Tipo: " + seleccionado.tipo.Nombre;
+                labelPrecioCompra.Text = "Precio Compra: " + seleccionado.precioCompra;
+                labelStock.Text = "Stock: " + seleccionado.Stock;
+                labelGanancia.Text = "Ganancia: " + seleccionado.Ganancia;
+                labelPrecioVenta.Text = "Precio Venta: " + seleccionado.precioVenta;
+                labelDescripcion.Text = "Descripcion: " + seleccionado.Descripcion;
+                labelIdProveedor.Text = "Proveedor: " + seleccionado.proveedor.RazonSocialProveedor;
+              
+
+
+            }
+
+            catch (Exception)
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
     }
 }
