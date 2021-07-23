@@ -16,6 +16,7 @@ namespace TPC_Campostano_Ciccarelli
                 dropMenu.Visible = false;
                 comprasMenu.Visible = false;
                 ventasMenu.Visible = false;
+                mostrarUsuario.Visible = false;
             }
             else if (((dominio.Usuario)Session["clase usuario"]).TipoUsuario == dominio.TipoUsuario.NORMAL)
             {
