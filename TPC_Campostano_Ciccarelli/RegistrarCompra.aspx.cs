@@ -32,17 +32,7 @@ namespace TPC_Campostano_Ciccarelli
                 }
                 iten = new ListaProductos();
             
-                /// cargo los productos del primer proveedor por default
-                listaproducto = productoNegocio.ListarProductoPorIdProveedor(1);
-                ListItem f;
-                foreach (Producto item in listaproducto)
-                {
-                    f = new ListItem('(' + item.Codigo.ToString() + ')' + ' ' + item.NombreProducto.ToString(), item.IdProducto.ToString());
-                    ListaProductoCompra.Items.Add(f);
-                }
-
-
-
+                
                 if (!IsPostBack)
                 {
                     if (Request.QueryString["c"] == "d")
@@ -161,37 +151,47 @@ namespace TPC_Campostano_Ciccarelli
         protected void AgregarProductoEnCompra_Click(object sender, EventArgs e)
         {
 
-            ListaProveedor.Enabled = false;
-            ProductoNegocio negocio = new ProductoNegocio();
-            List<Producto> listaActual = negocio.Listar();
+            if (Convert.ToInt32(CantidadProducto.Text) != 0) {
 
-            if (items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value) != null)
-            {
-                ListaProductos elim = items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-                iten.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProducto.Text);
-                iten.Subtotal = iten.Cantidad * elim.ItemArt.precioCompra;
-                iten.ItemArt = elim.ItemArt;
-                items.Remove(elim);
-                items.Add(iten);
-                repetidor.DataSource = items;
-                repetidor.DataBind();
-                Session.Add("items", items);
+                ListaProveedor.Enabled = false;
+                ProductoNegocio negocio = new ProductoNegocio();
+                List<Producto> listaActual = negocio.Listar();
+
+                if (items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value) != null)
+                {
+                    ListaProductos elim = items.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                    iten.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProducto.Text);
+                    iten.Subtotal = iten.Cantidad * elim.ItemArt.precioCompra;
+                    iten.ItemArt = elim.ItemArt;
+                    items.Remove(elim);
+                    items.Add(iten);
+                    repetidor.DataSource = items;
+                    repetidor.DataBind();
+                    Session.Add("items", items);
+                }
+                else
+                {
+                    iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
+                    iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
+                    iten.Subtotal = Convert.ToDecimal(iten.Cantidad * iten.ItemArt.precioCompra);
+                    items.Add(iten);
+                    repetidor.DataSource = items;
+                    repetidor.DataBind();
+                    Session.Add("items", items);
+                }
+                foreach (ListaProductos item in items)
+                {
+                    total += item.Subtotal;
+                }
+                Session.Add("totalcompra", total);
+
             }
             else
-            {
-                iten.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoCompra.SelectedItem.Value);
-                iten.Cantidad = Convert.ToInt32(CantidadProducto.Text);
-                iten.Subtotal = Convert.ToDecimal(iten.Cantidad * iten.ItemArt.precioCompra);
-                items.Add(iten);
-                repetidor.DataSource = items;
-                repetidor.DataBind();
-                Session.Add("items", items);
+            { 
+                textoAlerta.Text = "No se puede agregar un producto con cantidad 0.";
             }
-            foreach (ListaProductos item in items)
-            {
-                total += item.Subtotal;
-            }
-            Session.Add("totalcompra", total);
+
+            
         }
 
         protected void GuardarCompra_Click(object sender, EventArgs e)
@@ -231,6 +231,16 @@ namespace TPC_Campostano_Ciccarelli
             Session.Remove("items");
         }
 
-        
+        protected void ListaProductoCompra_Init(object sender, EventArgs e)
+        {
+            /// cargo los productos del primer proveedor por default
+            listaproducto = productoNegocio.ListarProductoPorIdProveedor(1);
+            ListItem f;
+            foreach (Producto item in listaproducto)
+            {
+                f = new ListItem('(' + item.Codigo.ToString() + ')' + ' ' + item.NombreProducto.ToString(), item.IdProducto.ToString());
+                ListaProductoCompra.Items.Add(f);
+            }
+        }
     }
   }

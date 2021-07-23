@@ -1,59 +1,47 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrarCompra.aspx.cs" Inherits="TPC_Campostano_Ciccarelli.RegistrarCompra" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-   <div style="text-align:center;align-items:center">
-    
-    <h1 style="margin-top:50px"> Este es el formulario para registrar una compra realizada!!!  </h1>
+  <link href="Estilos/login.css" rel="stylesheet" type="text/css" />
 
-    
-       <!--  Proveedor           -->
-  <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Proveedor</label>
-    <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaProveedor" OnSelectedIndexChanged ="ListaProveedor_SelectedIndexChanged" OnInit="ListaProveedor_Init" AutoPostBack="True"> </asp:DropDownList>
-        
-    </div>
-  </div>
-        <!--  MetodoPago           -->
-        <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">MetodoPago</label>
-    <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaMetodo" OnInit="ListaMetodo_Init"> </asp:DropDownList>
-    </div>
-  </div>
-        <!--  Fecha -->
-        <asp:TextBox ID="txtFechaFactura" runat="server"  Width="180px" Enabled="false" OnInit="txtFechaFactura_Init" />
-        <asp:Button runat="server" OnClick="Unnamed_Click" />
-         <asp:Calendar ID="Calendar1" runat="server"  TargetControlID="txtFechaFactura" OnSelectionChanged="Calendar1_SelectionChanged"  Visible="false">
+<body class="main-bg">
+        <div class="login-container text-c animated flipInX" style="text-align:center">
+                                  
+                    <p class="text-black">Este es el formulario para registrar una compra realizada!!!</p>
+                <div class="container-content">
+                    <asp:TextBox class="form-control" ID="txtFechaFactura" runat="server"  Width="180px" Enabled="false" OnInit="txtFechaFactura_Init" />
+                    
+         <asp:Calendar Width="360px" ID="Calendar1" runat="server"  TargetControlID="txtFechaFactura" OnSelectionChanged="Calendar1_SelectionChanged">
          </asp:Calendar>
+                    <form class="margin-t">
+                        <div class="form-group" style="text-align:center">
+                            
+                            <p class="form-button" style="margin-top:10px"><asp:Label runat="server" Text="Proveedor"></asp:Label></p>
+                            <asp:DropDownList class="form-control" runat="server" ID="ListaProveedor" OnSelectedIndexChanged ="ListaProveedor_SelectedIndexChanged" OnInit="ListaProveedor_Init" AutoPostBack="True"> </asp:DropDownList>
 
-        <!--  Producto           -->
-        <div class="form-group row" style="margin-top:40px">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Productos</label>
-    <div class="col-sm-10">
-      <asp:DropDownList runat="server" ID="ListaProductoCompra" > </asp:DropDownList>
-    </div>
-  </div>
-       
-          <!--  Cantidad           -->
-        <div id="cantidad">
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="CantidadProducto"></asp:RequiredFieldValidator>
-    <asp:Label runat="server" ID="label2"> Cantidad:</asp:Label>
-    <asp:TextBox runat="server" ID="CantidadProducto" MaxLength="8" EnableViewState="True"  Text="0"></asp:TextBox>
+                            <p class="form-button" style="margin-top:10px"><asp:Label runat="server" Text="Metodo de Pago"></asp:Label></p>
+                            <asp:DropDownList class="form-control" runat="server" ID="ListaMetodo" OnInit="ListaMetodo_Init"> </asp:DropDownList>
+
+                            <p class="form-button" style="margin-top:10px"><asp:Label runat="server" Text="Productos"></asp:Label></p>
+                            <asp:DropDownList class="form-control" runat="server" OnInit="ListaProductoCompra_Init" ID="ListaProductoCompra" > </asp:DropDownList>
+
+
+                            
+    <p class="form-button" style="margin-top:10px"><asp:Label runat="server" Text="Cantidad"></asp:Label></p>
+    <asp:TextBox class="form-control" runat="server" ID="CantidadProducto" MaxLength="8" EnableViewState="True"  Text="0"></asp:TextBox>
     <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator3" ValidationExpression="[0-9]+" ControlToValidate="CantidadProducto" ErrorMessage="Solo numeros"></asp:RegularExpressionValidator>
-    </div>
 
-        
+                        </div>
+                        <asp:Button runat="server" ID="AgregarProductoEnCompra" class="btn btn-dark btn-sm" OnClick="AgregarProductoEnCompra_Click" Text="Agrega Producto a la compra"/>
 
-         <div class="form-group row">
-    <div class="col-sm-10" style="margin-top:5px">
-           <asp:Button runat="server" ID="AgregarProductoEnCompra" class="btn btn-primary" OnClick="AgregarProductoEnCompra_Click" Text="Agrega Producto a la compra"/>
+                    </form>
+                    <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
+                </div>
+            
+            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="Required" ControlToValidate="CantidadProducto"></asp:RequiredFieldValidator>
 
-    </div>
-  </div>
-        <div style="margin-top:50px;text-align:center">
-      <h1>Productos de la compra</h1> 
-      </div>
+
+            
+            </div>
 
     <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
   <thead class="thead-dark">
@@ -93,8 +81,12 @@
                         
            </tbody>
         </table>
- <asp:Button runat="server" ID="GuardarCompra" class="btn btn-primary" Text="Guarda Compra" OnClick="GuardarCompra_Click" />
-       <asp:TextBox runat="server" ID="VERFECHA"></asp:TextBox>
+    <div style="text-align:center">
+        <asp:Button runat="server"  ID="GuardarCompra" class="btn btn-dark btn-sm" Text="Guarda Compra" OnClick="GuardarCompra_Click" />
+        <asp:Label runat="server" ID="textoAlerta"></asp:Label>
     </div>
+    
+       <asp:TextBox runat="server" ID="VERFECHA" Visible="false"></asp:TextBox>
+</body>
 
 </asp:Content>

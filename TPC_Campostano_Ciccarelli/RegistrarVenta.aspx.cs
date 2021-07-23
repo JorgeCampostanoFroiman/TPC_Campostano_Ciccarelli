@@ -87,24 +87,6 @@ namespace TPC_Campostano_Ciccarelli
             txtFechaVenta.Text = FechaCalendarioString;
         }
 
-        protected void btnCalendarioVenta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (CalendarioVenta.Visible == true)
-                {
-                    CalendarioVenta.Visible = false;
-                }
-                else
-                {
-                    CalendarioVenta.Visible = true;
-                }
-            }
-            catch (Exception)
-            {
-                Response.Redirect("Error.aspx");
-            }
-        }
 
         protected void txtFechaVenta_Init(object sender, EventArgs e)
         {
@@ -133,52 +115,65 @@ namespace TPC_Campostano_Ciccarelli
 
         protected void AgregarProductoEnVenta_Click(object sender, EventArgs e)
         {
-            DDLListaCliente.Enabled = false;
-            ProductoNegocio negocio = new ProductoNegocio();
-            List<Producto> listaActual = negocio.Listar();
-
-            if (itams.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value) != null)
+            if (Convert.ToInt32(CantidadProductoVenta.Text) != 0)
             {
-                ListaProductos elim = itams.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value);
+                DDLListaCliente.Enabled = false;
+                ProductoNegocio negocio = new ProductoNegocio();
+                List<Producto> listaActual = negocio.Listar();
 
-                if((elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text)) > elim.ItemArt.Stock)
+                if (itams.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value) != null)
                 {
-                    StockAgotado.Text = "***La cantidad introducida supera las existencias del producto***";
+                    ListaProductos elim = itams.Find(x => x.ItemArt.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value);
+
+                    if ((elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text)) > elim.ItemArt.Stock)
+                    {
+                        StockAgotado.Text = "***La cantidad introducida supera las existencias del producto***";
+                    }
+                    else
+                    {
+                        itam.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text);
+                        itam.Subtotal = itam.Cantidad * elim.ItemArt.precioCompra;
+                        itam.ItemArt = elim.ItemArt;
+                        itams.Remove(elim);
+                        itams.Add(itam);
+                        repetidor.DataSource = itams;
+                        repetidor.DataBind();
+                        Session.Add("itemsVenta", itams);
+                    }
+
+
                 }
                 else
                 {
-                    itam.Cantidad = elim.Cantidad + Convert.ToInt32(CantidadProductoVenta.Text);
-                    itam.Subtotal = itam.Cantidad * elim.ItemArt.precioCompra;
-                    itam.ItemArt = elim.ItemArt;
-                    itams.Remove(elim);
+                    itam.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value);
+                    itam.Cantidad = Convert.ToInt32(CantidadProductoVenta.Text);
+                    itam.Subtotal = Convert.ToDecimal(itam.Cantidad * itam.ItemArt.precioCompra);
                     itams.Add(itam);
                     repetidor.DataSource = itams;
                     repetidor.DataBind();
                     Session.Add("itemsVenta", itams);
                 }
-
-                
+                foreach (ListaProductos item in itams)
+                {
+                    total += item.Subtotal;
+                }
+                Session.Add("totalventa", total);
             }
             else
             {
-                itam.ItemArt = listaActual.Find(x => x.IdProducto.ToString() == ListaProductoVenta.SelectedItem.Value);
-                itam.Cantidad = Convert.ToInt32(CantidadProductoVenta.Text);
-                itam.Subtotal = Convert.ToDecimal(itam.Cantidad * itam.ItemArt.precioCompra);
-                itams.Add(itam);
-                repetidor.DataSource = itams;
-                repetidor.DataBind();
-                Session.Add("itemsVenta", itams);
+                TextoAlerta.Text = "No se puede agregar cantidad 0 de un producto.";
             }
-            foreach (ListaProductos item in itams)
-            {
-                total += item.Subtotal;
-            }
-            Session.Add("totalventa", total);
+
+
+            
         }
 
         protected void GuardarVenta_Click(object sender, EventArgs e)
         {
-            VentaNegocio negocio = new VentaNegocio();
+
+               
+
+                VentaNegocio negocio = new VentaNegocio();
             ListaProductosNegocio listaproducto = new ListaProductosNegocio();
             Venta venta = new Venta();
             decimal totalventas;
