@@ -163,26 +163,21 @@ namespace negocio
         {
             bool bandera = false;
             int comparacion = 1;
-            int estado = 2;
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT Codigo, Estado From Producto where Codigo =" + codigo);
+                datos.setearConsulta("SELECT Codigo, Estado From Producto Where Estado = 0");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     comparacion = string.Compare((string)datos.Lector["Codigo"], codigo);
-                    estado = (int)datos.Lector["Estado"];
 
                     if (comparacion == 0)
                     {
-                        if (estado == 0)
-                        {
-
                             bandera = true;
-                        }
-                    }
+                    }      
+                    
                 }
                 return bandera;
             }
@@ -223,7 +218,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, ImagenUrl = @imagenUrl, IdEstadoStock = @idestadostock WHERE IdProducto = @id");
+                datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, IdEstadoStock = @idestadostock WHERE IdProducto = @id");
                 
                 datos.setearParametro("@codigo", modificar.Codigo);
                 datos.setearParametro("@nombre", modificar.NombreProducto);
@@ -235,10 +230,41 @@ namespace negocio
                 datos.setearParametro("@precioVenta", modificar.precioVenta);
                 datos.setearParametro("@descripcion", modificar.Descripcion);
                 datos.setearParametro("@idProveedor", modificar.proveedor.IdProveedor);
-                datos.setearParametro("@imagenUrl", modificar.imagenUrl);
                 datos.setearParametro("@idestadostock", modificar.estadostock.IdEstadoStockProducto);
                 
                 datos.setearParametro("@id", modificar.IdProducto);
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificarProductoExistente(Producto modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Producto set Codigo = @codigo, NombreProducto = @nombre, IdMarca = @idMarca, IdTipo = @idTipo, PrecioCompra = @precioCompra, Stock = @stock, Ganancia = @ganancia, PrecioVenta = @precioVenta, Descripcion = @descripcion, IdProveedor = @idProveedor, IdEstadoStock = @idestadostock, Estado = @estado WHERE Codigo = @codigo");
+
+                datos.setearParametro("@codigo", modificar.Codigo);
+                datos.setearParametro("@nombre", modificar.NombreProducto);
+                datos.setearParametro("@idMarca", modificar.marca.IdMarca);
+                datos.setearParametro("@idTipo", modificar.tipo.IdTipo);
+                datos.setearParametro("@precioCompra", modificar.precioCompra);
+                datos.setearParametro("@stock", modificar.Stock);
+                datos.setearParametro("@ganancia", modificar.Ganancia);
+                datos.setearParametro("@precioVenta", modificar.precioVenta);
+                datos.setearParametro("@descripcion", modificar.Descripcion);
+                datos.setearParametro("@idProveedor", modificar.proveedor.IdProveedor);
+                datos.setearParametro("@idestadostock", modificar.estadostock.IdEstadoStockProducto);
+                datos.setearParametro("@estado", modificar.Estado);
                 datos.ejectutarAccion();
 
             }

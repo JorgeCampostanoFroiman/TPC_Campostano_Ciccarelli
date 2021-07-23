@@ -51,9 +51,9 @@ namespace negocio
                             aux.Telefono = (string)datos.Lector["Telefono"];
                         } lista.Add(aux);
                     }
-                   
 
-                    
+
+
 
 
                 }
@@ -117,7 +117,7 @@ namespace negocio
             try
             {
                 string valores = "values('" + nuevo.RazonSocialProveedor + "', '" + nuevo.CuitProveedor + "', '" + nuevo.Domicilio + "', '" + nuevo.Email + "', '" + nuevo.Telefono + "')";
-                datos.setearConsulta("insert into Proveedor (RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono ) " + valores);
+                datos.setearConsulta("insert into Proveedor (RazonSocialProveedor, CuitProveedor, Domicilio, Email, Telefono) " + valores);
 
                 datos.ejectutarAccion();
 
@@ -137,7 +137,7 @@ namespace negocio
             try
             {
                 datos.setearConsulta("update Proveedor set RazonSocialProveedor = @razonsocial, CuitProveedor = @cuitproveedor, Domicilio = @Domicilio, Email = @Email, Telefono = @telefono WHERE IdProveedor = @id");
-                
+
                 datos.setearParametro("@razonsocial", modificar.RazonSocialProveedor);
                 datos.setearParametro("@cuitproveedor", modificar.CuitProveedor);
                 datos.setearParametro("@domicilio", modificar.Domicilio);
@@ -205,5 +205,98 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public bool existeProveedor(string cuit)
+        {
+            bool bandera = false;
+            int comparacion = 1;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT CuitProveedor From Proveedor");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    comparacion = string.Compare((string)datos.Lector["CuitProveedor"], cuit);
+                    if (comparacion == 0)
+                    {
+                        bandera = true;
+                    }
+                }
+                return bandera;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
+
+        public bool existeProveedorDeBaja(string cuit)
+        {
+            bool bandera = false;
+            int comparacion = 1;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT CuitProveedor From Proveedor Where Estado = 0");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    comparacion = string.Compare((string)datos.Lector["CuitProveedor"], cuit);
+
+                    if (comparacion == 0)
+                    {
+                        bandera = true;
+                    }
+
+                }
+                return bandera;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
+
+        public void modificarProveedorExistente(Proveedor modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Proveedor set RazonSocialProveedor = @razonsocial, CuitProveedor = @cuitproveedor, Domicilio = @Domicilio, Estado = @estado, Email = @Email, Telefono = @telefono WHERE CuitProveedor = @cuitproveedor");
+
+                datos.setearParametro("@razonsocial", modificar.RazonSocialProveedor);
+                datos.setearParametro("@cuitproveedor", modificar.CuitProveedor);
+                datos.setearParametro("@domicilio", modificar.Domicilio);
+                datos.setearParametro("@email", modificar.Email);
+                datos.setearParametro("@telefono", modificar.Telefono);
+                datos.setearParametro("@id", modificar.IdProveedor);
+                datos.setearParametro("@estado", modificar.Estado);
+
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

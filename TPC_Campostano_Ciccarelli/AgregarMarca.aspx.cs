@@ -31,8 +31,8 @@ namespace TPC_Campostano_Ciccarelli
 
                 if (Request.QueryString["c"] == "d")
                 {
-                    Marca equis = listaMarcas.Find(x => x.IdMarca.ToString() == Request.QueryString["id"]);
-                    marcaNegocio.eliminarMarca(equis.IdMarca);
+                    
+                    marcaNegocio.eliminarMarca(Convert.ToInt32(Request.QueryString["id"]));
                 }
                     listaMarcas = marcaNegocio.Listar();
 
@@ -52,7 +52,30 @@ namespace TPC_Campostano_Ciccarelli
       
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            marcaNegocio.agregarMarca(txtAgregar.Text);
+            if (marcaNegocio.existeMarca(txtAgregar.Text) == true)
+            {
+                if (marcaNegocio.existeMarcadeBaja(txtAgregar.Text) == true)
+                {
+                    Marca modificar = new Marca();
+                    modificar.Nombre = txtAgregar.Text;
+                    modificar.Estado = Convert.ToBoolean(1);
+                    marcaNegocio.ModificarMarcaDeBaja(modificar);
+                    marcaTexto.Text = "****La Marca ya existía pero estaba dada de baja. Ya ha sido dada de alta nuevamente.****";
+                    
+                }
+                else
+                {
+                    marcaTexto.Text = "****La Marca ya existe, intente con otro nombre****)";
+                }
+            }
+            
+            else
+            {
+                marcaNegocio.agregarMarca(txtAgregar.Text);
+                marcaTexto.Text = "***Marca agregada correctamente.***";
+            }
+
+
             listaMarcas = marcaNegocio.Listar();
         }
 

@@ -27,6 +27,7 @@
        <% } %>
       </tbody>
         </table>
+    <asp:Label runat="server" ID="tipoTexto"></asp:Label>
 
 
 </asp:Content>

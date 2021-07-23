@@ -105,6 +105,7 @@ namespace TPC_Campostano_Ciccarelli
 
 
                     productoNegocio.Agregar(producto);
+                    Prueba.Text = "Producto agregado exitosamente.";
 
                 }
                 else if(productoNegocio.ListarPorEstado(tCodigo.Text) == true)
@@ -158,14 +159,16 @@ namespace TPC_Campostano_Ciccarelli
                     producto.proveedor.IdProveedor = int.Parse(DDLProveedor.SelectedItem.Value);
 
 
+                    Prueba.Text = "Producto agregado exitosamente.";
 
+                    productoNegocio.modificarProductoExistente(producto);
 
-                    productoNegocio.Agregar(producto);
 
                 }
                 else
                 {
                     return;
+                    Prueba.Text = "El producto ya existe y está dado de alta. Revisar la lista de Productos";
                 }               
             }
         }

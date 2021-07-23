@@ -53,7 +53,7 @@
          <asp:TextBox runat="server" class="form-control" ID="tPrecioVenta" MaxLength="3" EnableViewState="True" Visible="false" AutoPostBack="True"></asp:TextBox>
             </div>
         <div style="text-align:center">
-            
+            <asp:Label runat="server" ID="Prueba"></asp:Label>
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator6" ValidationExpression="[a-zA-Z0-9]+" ControlToValidate="tCodigo" ErrorMessage="El codigo solo puede contener letras y numeros"></asp:RegularExpressionValidator></div>
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator7" ValidationExpression="[a-zA-Z -]+" ControlToValidate="tNombre" ErrorMessage="El nombre solo puede tener letras" ></asp:RegularExpressionValidator></div>
             <div><asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationExpression="[a-zA-Z0-9 -]+" ControlToValidate="tDesc" ErrorMessage="La descripcion solo puede contener letras y numeros" ></asp:RegularExpressionValidator></div>

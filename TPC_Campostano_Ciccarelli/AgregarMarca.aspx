@@ -30,5 +30,6 @@
        <% } %>
       </tbody>
         </table>
+    <asp:Label runat="server" ID="marcaTexto"></asp:Label>
 
 </asp:Content>
