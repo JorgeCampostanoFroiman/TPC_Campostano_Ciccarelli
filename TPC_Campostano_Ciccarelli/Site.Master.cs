@@ -11,7 +11,16 @@ namespace TPC_Campostano_Ciccarelli
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["usuario"] == null)
+            {
+                dropMenu.Visible = false;
+                comprasMenu.Visible = false;
+                ventasMenu.Visible = false;
+            }
+            else if (((dominio.Usuario)Session["clase usuario"]).TipoUsuario == dominio.TipoUsuario.NORMAL)
+            {
+                dropMenu.Visible = false;
+            }
         }
     }
 }

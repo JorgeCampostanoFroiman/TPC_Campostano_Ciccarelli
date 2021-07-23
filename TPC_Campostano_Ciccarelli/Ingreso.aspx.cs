@@ -13,19 +13,30 @@ namespace TPC_Campostano_Ciccarelli
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Session["usuario"] != null)
+            {
+                textContraseña.Visible = false;
+                textMail.Visible = false;
+                labelLogueado.Visible = true;
+                labelLogueado.Text= "Ya estas logueado como " + Session["usuario"];
+                btnIngreso.Visible = false;
+                btnDesloguear.Visible = true;
+            }
         }
 
         protected void btnIngreso_Click(object sender, EventArgs e)
         {
             Usuario usuario;
+            Usuario newUser;
             UsuarioNegocio negocio = new UsuarioNegocio();
             try
             {
                 usuario = new Usuario(textContraseña.Text, textMail.Text, false);
                 if (negocio.Loguear(usuario))
                 {
-                    Session.Add("usuario", usuario);
+                    newUser = negocio.usuarioLogueado(usuario.Email);
+                    Session.Add("clase usuario", newUser);
+                    Session.Add("usuario", newUser.Nombre);
                     Response.Redirect("Ventas.aspx", false);
                 }
                 else
@@ -34,11 +45,17 @@ namespace TPC_Campostano_Ciccarelli
                     Response.Redirect("Error.aspx", false);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Session.Add("Error", "Excepcion encontrada, pero la capturamos!");
                 Response.Redirect("Error.aspx");
             }
+        }
+
+        protected void btnDesloguear_Click(object sender, EventArgs e)
+        {
+            Session.Remove("usuario");
+            Response.Redirect("Ingreso.aspx");
         }
     }
 }

@@ -40,6 +40,48 @@ namespace negocio
 
         }
 
+        public Usuario usuarioLogueado(string mail)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select Nombre, Apellido, Telefono, Email, Contraseña, TipoUsuario, Dni FROM Usuario Where Email = @email");
+                datos.setearParametro("@email", mail);
+                datos.ejecutarLectura();
+
+                Usuario logueado = new Usuario();
+
+                while (datos.Lector.Read()){
+                    logueado.TipoUsuario = (int)(datos.Lector["TipoUsuario"]) == 2 ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
+                    logueado.Nombre = (string)datos.Lector["Nombre"];
+                    logueado.Apellido = (string)datos.Lector["Apellido"];
+                    logueado.Email = (string)datos.Lector["Email"];
+                    logueado.Contraseña = (string)datos.Lector["Contraseña"];
+                    logueado.Dni = (string)datos.Lector["Dni"];
+                    if (datos.Lector["Telefono"] is System.DBNull)
+                    {
+
+                        logueado.Telefono = "No especificado";
+                    }
+                    else
+                    {
+                        logueado.Telefono = (string)datos.Lector["Telefono"];
+                    }
+                }
+
+                return logueado;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public bool ListarPorDNI(int dni)
         {
             bool bandera = false;

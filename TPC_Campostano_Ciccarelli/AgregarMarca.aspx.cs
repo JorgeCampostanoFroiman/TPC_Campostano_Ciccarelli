@@ -16,37 +16,40 @@ namespace TPC_Campostano_Ciccarelli
         public List<Marca> Busqueda;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
-            try
+            if ((Session["usuario"] != null) && (((dominio.Usuario)Session["clase usuario"]).TipoUsuario == dominio.TipoUsuario.ADMIN))
             {
                 
-                if (Request.QueryString["Id"] != null)
-                {
-                    listaMarcas = (List<Marca>)Session["marcas"];
-                    if (listaMarcas == null)
-                        listaMarcas = new List<Marca>();
-                }
-                    
-
-                    listaMarcas = marcaNegocio.Listar();
-
-                if (Request.QueryString["c"] == "d")
-                {
-                    
-                    marcaNegocio.eliminarMarca(Convert.ToInt32(Request.QueryString["id"]));
-                }
-                    listaMarcas = marcaNegocio.Listar();
-
-
-
-
-
             }
-            catch (Exception ex)
+            else
             {
-                Session.Add("Error", ex.ToString());
+                Session.Add("error", "No tienes permisos para ver este sitio");
                 Response.Redirect("Error.aspx");
             }
+
+                ProductoNegocio negocio = new ProductoNegocio();
+                try
+                {
+                    if (Request.QueryString["Id"] != null)
+                    {
+                        listaMarcas = (List<Marca>)Session["marcas"];
+                        if (listaMarcas == null)
+                            listaMarcas = new List<Marca>();
+                    }
+
+                    listaMarcas = marcaNegocio.Listar();
+
+                    if (Request.QueryString["c"] == "d")
+                    {
+
+                        marcaNegocio.eliminarMarca(Convert.ToInt32(Request.QueryString["id"]));
+                    }
+                    listaMarcas = marcaNegocio.Listar();
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("Error", ex.ToString());
+                    Response.Redirect("Error.aspx");
+                }
 
         }
 

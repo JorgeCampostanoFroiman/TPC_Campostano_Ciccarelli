@@ -13,12 +13,15 @@
                         <asp:TextBox runat="server" placeholder="E-mail" ID="textMail" class="form-control"></asp:TextBox>
                         
                         <asp:TextBox runat="server" placeholder="*****" ID="textContraseña" class="form-control"></asp:TextBox>
+
+                            <asp:Label runat="server" ID="labelLogueado" Visible="false" ></asp:Label>
              
                         </div>
                         <asp:Button runat="server" class="btn btn-dark btn-sm" id="btnIngreso" OnClick="btnIngreso_Click" Text="Ingresar"/>
-        
+                        
                         <a class="btn btn-dark btn-sm" href="RecuperarContraseña.aspx">¿Olvidaste tu contraseña?</a>
                         <a class="btn btn-dark btn-sm" href="Registrarse.aspx"">Registrarse!</a>
+                        <asp:Button runat="server" class="btn btn-dark btn-sm" ID="btnDesloguear" AutoPostBack="true" OnClick="btnDesloguear_Click" style="margin-top:10px" Visible="false" Text="Desloguearse" />
                     </form>
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
                 </div>

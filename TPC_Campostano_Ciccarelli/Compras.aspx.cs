@@ -14,6 +14,13 @@ namespace TPC_Campostano_Ciccarelli
         public List<Compra> lista;
         public void Page_Load(object sender, EventArgs e)
         {
+
+            if ((Session["usuario"] == null))
+            {
+                Session.Add("error", "No tienes permisos para ver este sitio");
+                Response.Redirect("Error.aspx");
+            }
+
             CompraNegocio negocio = new CompraNegocio();
             try
             {

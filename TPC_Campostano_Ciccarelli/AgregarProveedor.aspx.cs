@@ -16,6 +16,16 @@ namespace TPC_Campostano_Ciccarelli
         public List<Proveedor> Busqueda;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Session["usuario"] != null) && (((dominio.Usuario)Session["clase usuario"]).TipoUsuario == dominio.TipoUsuario.ADMIN))
+            {
+
+            }
+            else
+            {
+                Session.Add("error", "No tienes permisos para ver este sitio");
+                Response.Redirect("Error.aspx");
+            }
+
             ProductoNegocio negocio = new ProductoNegocio();
             try
             {
