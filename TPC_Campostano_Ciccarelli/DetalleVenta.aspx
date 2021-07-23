@@ -23,21 +23,25 @@
                         <a class="btn btn-dark btn-sm" style="margin-top:10px" href="Ventas.aspx">Regresar a Ventas!</a>
                     </form>
                     <p class="margin-t text-whitesmoke"><small> Comercio Equis &copy; 2021</small> </p>
-                </div>
-            </div>
-</body>
 
-    <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
+
+                </div>
+
+
+
+            </div>
+        
+            
+            <table class="table table-dark table-striped mt-5" style="text-align:center">
   <thead class="thead-dark">
-     
+     <tr>
+                   <th style="text-align:center"><h3>Detalle de productos</h3> </th> 
+                </tr>
     <tr>
       <th scope="col">Codigo</th>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
-      <th scope="col">Stock Actual</th>
-      <th scope="col">Precio Unitario</th>
       <th scope="col">Subtotal</th>
-      <th scope="col">Eliminar</th>
 
         
 
@@ -54,22 +58,19 @@
                                 <%#Eval("Cantidad") %>        
                             </td>
                             <td>
-                                <%#Eval("ItemArt.Stock") %>        
-                            </td>
-                            <td>$<%#Eval("ItemArt.precioCompra")%></td>
-                            <td>
                                 $<%#Eval("Subtotal") %>
-                                
                             </td>
-                            <td><a href="RegistrarVenta.aspx?id=<%#Eval("ItemArt.IdProducto")%>&c=d" class="btn btn-danger btn-sm">Eliminar</a>
-                            </td>
-                            
                        </tr>
                     </ItemTemplate>
                 </asp:Repeater>
                         
            </tbody>
         </table>
+        
+</body>
+    
+
+    
 
 
 

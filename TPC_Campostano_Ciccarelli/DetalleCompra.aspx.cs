@@ -14,6 +14,7 @@ namespace TPC_Campostano_Ciccarelli
         public string codigoDetalleCompra;
         public List<ListaProductos> itemsLista;
         ListaProductosNegocio listaNegocio = new ListaProductosNegocio();
+        public List<ListaProductos> productosDeLaCompra;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,10 +30,8 @@ namespace TPC_Campostano_Ciccarelli
                 labelImporte.Text = "Importe: " + seleccionado.Importe;
                 labelProveedor.Text = "Proveedor: " + Convert.ToString(seleccionado.proveedor);
                 labelMetodoPago.Text = "Metodo de pago: " + Convert.ToString(seleccionado.metodoPago);
-                /// labelIdListaProd = "Id Productos: " + Convert.ToString(seleccionado.listaProductos);
 
-                itemsLista = listaNegocio.Listar();
-
+                itemsLista = listaNegocio.ListarProductosCompra(seleccionado.IdCompra);
 
                 repetidor.DataSource = itemsLista;
                 repetidor.DataBind();

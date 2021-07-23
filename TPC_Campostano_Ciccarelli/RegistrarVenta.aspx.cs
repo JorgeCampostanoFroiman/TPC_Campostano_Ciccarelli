@@ -186,11 +186,10 @@ namespace TPC_Campostano_Ciccarelli
             // se trae los datos de total y los items
 
             totalventas = (decimal)Session["totalventa"];
-
             ///se agrega la venta
             venta.cliente = new Cliente();
             venta.cliente.IdCliente = int.Parse(DDLListaCliente.SelectedItem.Value);
-            venta.Importe = totalventas;
+            venta.Importe = Convert.ToDecimal(totalventas.ToString("N0"));
             venta.metodoPago = new MetodoPago();
             venta.metodoPago.IdMetodoPago = int.Parse(ListaMetodoVenta.SelectedItem.Value);
             venta.Fecha = txtFechaVenta.Text;

@@ -9,28 +9,39 @@ namespace negocio
 {
    
       public class ListaProductosNegocio
-        {
-            public List<ListaProductos> Listar()
+      {
+            public List<ListaProductos> ListarProductosCompra(int id)
             {
                 List<ListaProductos> lista = new List<ListaProductos>();
                 AccesoDatos datos = new AccesoDatos();
                 try
                 {
-                    datos.setearConsulta("Select IdListaProductos, P.IdProducto as Producto, Cantidad, Subtotal, IdNumeroDeCompra, IdNumeroDeVenta FROM ListaProductos AS LP, Producto AS P WHERE P.IdProducto = LP.IdProducto");
+                    datos.setearConsulta("select ListaProductos.IdProducto, ListaProductos.Cantidad, ListaProductos.Subtotal, ListaProductos.IdNumeroDeCompra, Producto.PrecioCompra, Producto.Codigo, Producto.NombreProducto from ListaProductos inner join Producto on ListaProductos.IdProducto = Producto.IdProducto and ListaProductos.IdNumeroDeCompra = " + id);
                     datos.ejecutarLectura();
                     while (datos.Lector.Read())
                     {
                         ListaProductos aux = new ListaProductos();
-                        aux.IdListaProductos = (int)datos.Lector["IdListaProductos"];
-                        aux.ItemArt = new Producto((int)datos.Lector["Producto"]);
+                        aux.ItemArt = new Producto(((int)datos.Lector["IdProducto"]));
                         aux.Cantidad = (int)datos.Lector["Cantidad"];
-                        aux.Subtotal = (int)datos.Lector["Subtotal"];
-                        aux.IdNumeroDeCompra = (int)datos.Lector["IdNumeroDeCompra"];
-                        aux.IdNumeroDeVenta = (int)datos.Lector["IdNumeroDeVenta"];
+                        aux.Subtotal = (decimal)datos.Lector["Subtotal"];
+                        aux.ItemArt.NombreProducto = (string)datos.Lector["NombreProducto"];
+                        aux.ItemArt.precioCompra = (decimal)datos.Lector["PrecioCompra"];
+                        aux.ItemArt.Codigo = (string)datos.Lector["Codigo"];
 
-                        lista.Add(aux);
+                    if (datos.Lector["IdNumeroDecompra"] is System.DBNull)
+                    {
+                        aux.IdNumeroDeCompra = 0;
                     }
-                    return lista;
+                    else
+                    {
+                        aux.IdNumeroDeCompra = (int)datos.Lector["IdNumeroDeCompra"];
+                    }
+                    lista.Add(aux);
+
+                }
+
+
+                return lista;
                 }
                 catch (Exception ex)
                 {
@@ -42,6 +53,53 @@ namespace negocio
                 }
 
             }
+
+            public List<ListaProductos> ListarProductosVenta(int id)
+            {
+                List<ListaProductos> lista = new List<ListaProductos>();
+                AccesoDatos datos = new AccesoDatos();
+                try
+                {
+                    datos.setearConsulta("select ListaProductos.IdProducto, ListaProductos.Cantidad, ListaProductos.Subtotal, ListaProductos.IdNumeroDeVenta, Producto.PrecioVenta, Producto.Codigo, Producto.Stock, Producto.NombreProducto from ListaProductos inner join Producto on ListaProductos.IdProducto = Producto.IdProducto and ListaProductos.IdNumeroDeVenta = " + id);
+                    datos.ejecutarLectura();
+                    while (datos.Lector.Read())
+                    {
+                        ListaProductos aux = new ListaProductos();
+                        aux.ItemArt = new Producto(((int)datos.Lector["IdProducto"]));
+                        aux.Cantidad = (int)datos.Lector["Cantidad"];
+                        aux.Subtotal = (decimal)datos.Lector["Subtotal"];
+                        aux.ItemArt.NombreProducto = (string)datos.Lector["NombreProducto"];
+                        aux.ItemArt.precioVenta = (decimal)datos.Lector["PrecioVenta"];
+                        aux.ItemArt.Codigo = (string)datos.Lector["Codigo"];
+                        aux.ItemArt.Stock = (int)datos.Lector["Stock"];
+
+                    if (datos.Lector["IdNumeroDeVenta"] is System.DBNull)
+                    {
+                        aux.IdNumeroDeCompra = 0;
+                    }
+                    else
+                    {
+                        aux.IdNumeroDeCompra = (int)datos.Lector["IdNumeroDeVenta"];
+                    }
+                    lista.Add(aux);
+
+                }
+
+
+                return lista;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    datos.cerrarConexion();
+                }
+
+            }
+
+
             public void AgregarListaCompra(List<ListaProductos> listaproductos, int ultimonumerocompra)
             {
                 AccesoDatos datos = new AccesoDatos();

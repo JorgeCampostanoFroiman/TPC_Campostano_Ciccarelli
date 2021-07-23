@@ -32,8 +32,7 @@ namespace TPC_Campostano_Ciccarelli
                 labelMetodoPagoVenta.Text = "Metodo de Pago: " + seleccionado.metodoPago.Nombre;
                 labelIdUsuarioVenta.Text = "Vendedor: " + seleccionado.usuario.Apellido;
 
-                itemsListaVenta = listaNegocioVenta.Listar();
-
+                itemsListaVenta = listaNegocioVenta.ListarProductosVenta(seleccionado.IdVenta);
 
                 repetidor.DataSource = itemsListaVenta;
                 repetidor.DataBind();

@@ -205,14 +205,17 @@ namespace TPC_Campostano_Ciccarelli
 
                 totalcompras = (decimal)Session["totalcompra"];
 
-                ///se agrega la compra
+                VERFECHA.Text = totalcompras.ToString("N0");
+
+            ///se agrega la compra
                 compra.proveedor = new Proveedor();
                 compra.proveedor.IdProveedor = int.Parse(ListaProveedor.SelectedItem.Value);
-                compra.Importe = totalcompras;
+                compra.Importe = Convert.ToDecimal(VERFECHA.Text);
                 compra.metodoPago = new MetodoPago();
                 compra.metodoPago.IdMetodoPago = int.Parse(ListaMetodo.SelectedItem.Value);    
-                compra.Fecha = txtFechaFactura.Text; 
-                 negocio.AgregarCompra(compra);
+                compra.Fecha = txtFechaFactura.Text;
+                
+                negocio.AgregarCompra(compra);
                 // fin de agregar compra
 
                 //agrega lista de productos

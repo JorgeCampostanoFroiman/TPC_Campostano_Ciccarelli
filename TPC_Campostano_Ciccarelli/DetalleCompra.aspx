@@ -24,15 +24,16 @@
             </div>
 </body>
 
-    <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
-  <thead class="thead-dark">
+    <table class="table table-dark table-striped mt-5" style="text-align:center">
+  <thead class="thead-dark"><tr>
+                   <th style="text-align:center"><h3>Detalle de productos</h3> </th> 
+                </tr>
      
     <tr>
       <th scope="col">Codigo</th>
       <th scope="col">Nombre</th>
       <th scope="col">Cantidad</th>
       <th scope="col">Precio Unitario</th>
-      <th scope="col">Subtotal</th>
 
         
 
@@ -48,7 +49,6 @@
                             <td>
                                 <%#Eval("Cantidad") %>        
                             </td>
-                            <td>$<%#Eval("ItemArt.precioCompra")%></td>
                             <td>
                                 $<%#Eval("Subtotal") %>
                             </td>
