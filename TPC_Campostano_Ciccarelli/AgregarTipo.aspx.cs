@@ -13,6 +13,7 @@ namespace TPC_Campostano_Ciccarelli
     {
         public List<Tipo> listaTipos;
         TipoNegocio tipoNegocio = new TipoNegocio();
+        public List<Tipo> Busqueda;
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
@@ -65,6 +66,31 @@ namespace TPC_Campostano_Ciccarelli
 
 
             listaTipos = tipoNegocio.Listar();
+        }
+
+
+        protected void BotonBusqueda5_Click(object sender, EventArgs e)
+        {
+            Busqueda = new List<Tipo>();
+
+            foreach (Tipo item in listaTipos)
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(item.Nombre, BarraBusqueda5.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                {
+                    Busqueda.Add(item);
+                }
+
+            }
+
+            listaTipos = Busqueda;
+
+            Session.Add("Buscar3", Busqueda);
+        }
+
+        protected void Refrescar_Click1(object sender, EventArgs e)
+        {
+            TipoNegocio negocio = new TipoNegocio();
+            listaTipos = negocio.Listar();
         }
     }
 }

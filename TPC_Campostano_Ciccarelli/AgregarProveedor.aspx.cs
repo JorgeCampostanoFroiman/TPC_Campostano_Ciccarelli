@@ -12,7 +12,8 @@ namespace TPC_Campostano_Ciccarelli
     public partial class AgregarProveedor : System.Web.UI.Page
     {
         public List<Proveedor> listaProveedores;
-        ProveedorNegocio proveedorNegocio = new ProveedorNegocio(); 
+        ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+        public List<Proveedor> Busqueda;
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
@@ -47,7 +48,55 @@ namespace TPC_Campostano_Ciccarelli
             }
         }
 
-       
-        
+        protected void BotonBusqueda3_Click(object sender, EventArgs e)
+        {
+            
+            Busqueda = new List<Proveedor>();
+
+            foreach (Proveedor item in listaProveedores)
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(item.CuitProveedor, BarraBusqueda3.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                {
+                    Busqueda.Add(item);
+                }
+                else
+                {
+                    if (System.Text.RegularExpressions.Regex.IsMatch(item.RazonSocialProveedor, BarraBusqueda3.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                    {
+                        Busqueda.Add(item);
+                    }
+                    else
+                    {
+                        if (System.Text.RegularExpressions.Regex.IsMatch(item.Email, BarraBusqueda3.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                        {
+                            Busqueda.Add(item);
+
+                        }
+                        else
+                        {
+                            if (System.Text.RegularExpressions.Regex.IsMatch(item.Domicilio, BarraBusqueda3.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                            {
+                                Busqueda.Add(item);
+
+                            }
+
+                        }
+
+
+                    }
+                }
+            }
+
+            listaProveedores = Busqueda;
+
+            Session.Add("Buscar4", Busqueda);
+
+        }
+
+        protected void Refrescar_Click(object sender, EventArgs e)
+        {
+            ProveedorNegocio negocio = new ProveedorNegocio();
+            listaProveedores = negocio.Listar();
+        }
     }
 }

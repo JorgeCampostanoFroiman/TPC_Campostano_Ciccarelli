@@ -13,6 +13,7 @@ namespace TPC_Campostano_Ciccarelli
     {
         public List<Producto> lista;
         public List<Producto> ProductoBuscar;
+        public List<Producto> Busqueda;
         public void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
@@ -49,40 +50,57 @@ namespace TPC_Campostano_Ciccarelli
         }
 
         /*desarrollo de barra de busqueda*/
-        protected void BotonBusqueda_Click(object sender, EventArgs e)
+      
+        
+
+        protected void BotonBusqueda_Click1(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
             List<Producto> Aux = (List<Producto>)Session["ListaProductos"];
-            ProductoBuscar = new List<Producto>();
+            Busqueda = new List<Producto>();
 
             foreach (Producto item in Aux)
             {
-
-                if (BarraBusqueda.Text != "")
+                if (System.Text.RegularExpressions.Regex.IsMatch(item.NombreProducto, BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
                 {
-                    lista = Aux.FindAll(BUSQUEDA => BUSQUEDA.NombreProducto.ToUpper().Contains(BarraBusqueda.Text.ToUpper()));
-                    Session.Add("Buscar", lista);
-                    lista = negocio.Listar();
-                }
-
-                /*if (System.Text.RegularExpressions.Regex.IsMatch(item.NombreProducto, BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
-                {
-                    lista.Add(item);
+                    Busqueda.Add(item);
                 }
                 else
                 {
-                    if (System.Text.RegularExpressions.Regex.IsMatch(item.marca.Nombre, BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                    if (System.Text.RegularExpressions.Regex.IsMatch(item.Codigo, BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
                     {
-                        lista.Add(item);
+                        Busqueda.Add(item);
+                    }
+                    else
+                    {
+                        if (System.Text.RegularExpressions.Regex.IsMatch(item.tipo.Nombre, BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                        {
+                            Busqueda.Add(item);
+
+                        }
+                        else
+                        {
+                            if (System.Text.RegularExpressions.Regex.IsMatch(Convert.ToString(item.Stock), BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                            {
+                                Busqueda.Add(item);
+
+                            }
+
+                        }
+
+
                     }
                 }
             }
-            Session.Add("Buscar", lista);
-            List<Producto> busqueda = (List<Producto>)Session["Buscar"];
-            lista = negocio.Listar();
-                */
 
-            }
+            lista = Busqueda;
+
+            Session.Add("Buscar", Busqueda);
+        }
+
+        protected void Refrescar_Click(object sender, EventArgs e)
+        {
+            ProductoNegocio negocio = new ProductoNegocio();
+            lista = negocio.Listar();
         }
     }
 }

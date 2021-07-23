@@ -5,8 +5,9 @@
          <a href="RegistrarProducto.aspx" class="btn btn-dark btn-sm">Agregar Producto</a>
       </div>
     <div style="text-align:center;margin-top:25px">
-   <asp:TextBox ID="BarraBusqueda" runat="server"></asp:TextBox>
-    <asp:Button ID="BotonBusqueda" runat="server" OnClick="BotonBusqueda_Click" class="btn btn-dark btn-sm" Text="Buscar" />
+    <asp:TextBox ID="BarraBusqueda" placeholder="Búsqueda" runat="server"></asp:TextBox>
+    <asp:Button ID="BotonBusqueda" runat="server" OnClick="BotonBusqueda_Click1" class="btn btn-dark btn-sm" Text="Buscar" AutoPostBack="true"/>
+   <asp:Button ID="Refrescar" runat="server" OnClick="Refrescar_Click" class="btn btn-dark btn-sm" Text="Refrescar" AutoPostBack="true"/>
      </div>
     <table class="table table-striped mt-5" style="background-color:#b6d1d4 ">
   <thead class="thead-dark">

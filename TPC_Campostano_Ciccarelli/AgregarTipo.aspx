@@ -3,10 +3,14 @@
 
     <div style="margin-top:50px;text-align:center">
       <h1>LOS TIPOS   </h1> 
-      <asp:TextBox runat="server" ID="txtAgregar"></asp:TextBox>
+      <asp:TextBox runat="server" ID="txtAgregar" placeholder="Tipos:"></asp:TextBox>
         <asp:Button runat="server" ID="btnAgregar" class="btn btn-dark btn-sm" OnClick="btnAgregar_Click" Text="Agregar tipo"/>
       </div>
-
+    <div style="text-align:center;margin-top:25px">
+    <asp:TextBox ID="BarraBusqueda5" runat="server" placeholder="Búsqueda"></asp:TextBox>
+    <asp:Button ID="BotonBusqueda5" runat="server" OnClick="BotonBusqueda5_Click" class="btn btn-dark btn-sm" Text="Buscar" AutoPostBack="true"/>
+   <asp:Button ID="Refrescar" runat="server" OnClick="Refrescar_Click1" class="btn btn-dark btn-sm" Text="Refrescar" AutoPostBack="true"/>
+     </div>
     <table class="table table-striped mt-5" style="background-color:#b6d1d4;text-align:center  ">
   <thead class="thead-dark">
      

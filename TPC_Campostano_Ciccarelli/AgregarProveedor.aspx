@@ -5,6 +5,13 @@
       
       </div>
     <div style="text-align:center"><a href="RegistrarProveedor.aspx" class="btn btn-dark btn-sm">Agregar proveedor</a></div> 
+
+     <div style="text-align:center;margin-top:25px">
+    <asp:TextBox ID="BarraBusqueda3" placeholder="Búsqueda" runat="server"></asp:TextBox>
+    <asp:Button ID="BotonBusqueda3" runat="server" OnClick="BotonBusqueda3_Click" class="btn btn-dark btn-sm" Text="Buscar" AutoPostBack="true"/>
+   <asp:Button ID="Refrescar" runat="server"  OnClick="Refrescar_Click" class="btn btn-dark btn-sm" Text="Refrescar" AutoPostBack="true"/>
+     </div>
+
     <table class="table table-striped mt-5" style="background-color:#b6d1d4;text-align:center  ">
   <thead class="thead-dark">
      

@@ -13,6 +13,7 @@ namespace TPC_Campostano_Ciccarelli
     {
         public List<Marca> listaMarcas;
         MarcaNegocio marcaNegocio = new MarcaNegocio();
+        public List<Marca> Busqueda;
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
@@ -79,5 +80,29 @@ namespace TPC_Campostano_Ciccarelli
             listaMarcas = marcaNegocio.Listar();
         }
 
+        protected void BotonBusqueda_Click(object sender, EventArgs e)
+        {
+           
+            Busqueda = new List<Marca>();
+
+            foreach (Marca item in listaMarcas)
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(item.Nombre, BarraBusqueda.Text, System.Text.RegularExpressions.RegexOptions.IgnoreCase))
+                {
+                    Busqueda.Add(item);
+                }
+                
+            }
+
+            listaMarcas = Busqueda;
+
+            Session.Add("Buscar2", Busqueda);
+        }
+
+        protected void Refrescar_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio negocio = new MarcaNegocio();
+            listaMarcas = negocio.Listar();
+        }
     }
 }

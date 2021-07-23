@@ -4,9 +4,14 @@
   
     <div style="margin-top:50px;text-align:center">
       <h1>LAS MARCAS    </h1> 
-      <asp:TextBox runat="server" ID="txtAgregar"></asp:TextBox>
+      <asp:TextBox runat="server" placeholder="Marca:" ID="txtAgregar"></asp:TextBox>
         <asp:Button runat="server" ID="btnAgregar" class="btn btn-dark btn-sm" OnClick="btnAgregar_Click" Text="Agregar marca"/>
       </div>
+     <div style="text-align:center;margin-top:25px">
+    <asp:TextBox ID="BarraBusqueda" placeholder="Búsqueda" runat="server"></asp:TextBox>
+    <asp:Button ID="BotonBusqueda" runat="server" OnClick="BotonBusqueda_Click" class="btn btn-dark btn-sm" Text="Buscar" AutoPostBack="true"/>
+   <asp:Button ID="Refrescar" runat="server" OnClick="Refrescar_Click"  class="btn btn-dark btn-sm" Text="Refrescar" AutoPostBack="true"/>
+     </div>
 
     <table class="table table-striped mt-5" style="background-color:#b6d1d4;text-align:center ">
   <thead class="thead-dark">

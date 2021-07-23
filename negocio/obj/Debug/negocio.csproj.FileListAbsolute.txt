@@ -142,3 +142,12 @@ C:\Users\jcamp\Desktop\19 35 22 7\TPC_Campostano_Ciccarelli\negocio\obj\Debug\ne
 C:\Users\jcamp\Desktop\19 35 22 7\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CopyComplete
 C:\Users\jcamp\Desktop\19 35 22 7\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.dll
 C:\Users\jcamp\Desktop\19 35 22 7\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.pdb
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\bin\Debug\negocio.dll
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\bin\Debug\negocio.pdb
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\bin\Debug\dominio.dll
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\bin\Debug\dominio.pdb
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.AssemblyReference.cache
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.csproj.CopyComplete
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.dll
+C:\Users\Diego Ciccarelli\Desktop\Clonado miercoles 00hs\TPC_Campostano_Ciccarelli\negocio\obj\Debug\negocio.pdb
